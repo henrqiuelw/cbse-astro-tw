@@ -1,0 +1,60 @@
+---
+const dores = [
+  "Seu filho mantém um repertório alimentar restrito, mesmo você oferecendo variedade",
+  "A alimentação dele depende de negociação constante",
+  "Você sente que faz \"tudo certo\", mas não vê evolução consistente",
+  "Falta clareza sobre o que fazer, quando insistir e quando recuar",
+  "A alimentação ocupa energia mental excessiva da família",
+];
+---
+
+<!-- Barra dourada divisória -->
+<div class="h-1.5 w-full" style="background: linear-gradient(279deg, #FEB45D 0%, #FDD8AC 100%);"></div>
+
+<!-- Seção do Problema -->
+<section class="py-16 md:py-24 px-6 md:px-10" style="background-color: #FCF9F2;">
+  <div class="max-w-3xl mx-auto">
+    <!-- Headline -->
+    <div class="mb-10 text-center md:text-left">
+      <p class="text-sm md:text-base uppercase tracking-widest mb-2" style="color: #4E8867; font-family: 'Inter', sans-serif;">
+        Reconhece alguma dessas situações?
+      </p>
+      <h2
+        class="text-2xl md:text-4xl leading-tight"
+        style="font-family: 'Factul', sans-serif; color: #363435;"
+      >
+        O problema não está no que o seu filho não come, mas na ausência de um sistema alimentar favorável:
+      </h2>
+    </div>
+
+    <!-- Lista de dores -->
+    <ul class="space-y-4 mb-10">
+      {dores.map((dor) => (
+        <li class="flex items-start gap-3">
+          <span class="mt-1 shrink-0 w-5 h-5 rounded-full flex items-center justify-center" style="background-color: #FEB45D;">
+            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 12 10" stroke="currentColor" stroke-width="2.5">
+              <path d="M1 5l3 4L11 1" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="text-base md:text-lg leading-relaxed" style="color: #363435;">{dor}</span>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Texto complementar -->
+    <div class="space-y-5 text-base md:text-lg leading-relaxed" style="color: rgba(0,0,0,0.78);">
+      <p>
+        Se você já tentou diferentes abordagens e ainda não vê evolução consistente na alimentação do seu filho,
+        o problema não é esforço, <strong>é ausência de método.</strong>
+      </p>
+      <p>
+        Quando não existe um sistema alimentar claro e estruturado, cada refeição exige decisão, adaptação e negociação.
+        Isso gera desgaste, mesmo em famílias comprometidas.
+      </p>
+      <p>
+        Famílias que alcançam autonomia alimentar, que veem seus filhos voltarem a comer, não fazem &ldquo;mais força&rdquo; &mdash;
+        elas seguem um processo estruturado, claro, com constância e direção.
+      </p>
+    </div>
+  </div>
+</section>

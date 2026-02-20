@@ -1,0 +1,157 @@
+---
+const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+
+const fases = [
+  {
+    semana: "Semana 1",
+    fase: "FASE DIAGNÓSTICA",
+    titulo: "Identifique a causa da seletividade alimentar",
+    descricao: "Entenda o que está por trás da seletividade e comece a mudar a percepção do seu filho com a comida.",
+    modulos: [
+      {
+        nome: "Módulo 1: O cérebro seletivo",
+        desc: "Aprenda como transformar o cérebro seletivo do seu filho em um cérebro aberto a novas experimentações – A hora é de reprogramar.",
+      },
+      {
+        nome: "Módulo 2: Compreendendo a seletividade",
+        desc: "Quais são as causas individualizadas, estágios e estratégias personalizadas.",
+      },
+    ],
+  },
+  {
+    semana: "Semana 2",
+    fase: "FASE REESTRUTURAÇÃO",
+    titulo: "Reestruture os fatores fortalecedores da Seletividade alimentar",
+    descricao: "Torne o ambiente favorável a novas experimentações, aumentando a segurança e autonomia do pequeno.",
+    modulos: [
+      {
+        nome: "Módulo 3: O método comer bem sem estresse",
+        desc: "Entenda o método e comece a implementar mudanças essenciais que trarão resultados reais.",
+      },
+    ],
+  },
+  {
+    semana: "Semana 3",
+    fase: "FASE ALIMENTAR",
+    titulo: "Estratégias eficazes de aproximação e oferta lúdica",
+    descricao: "Seu pequeno foi preparado nas semanas anteriores para chegar até aqui. Estratégias eficazes de aproximação, exposição e oferta lúdica para autonomia alimentar.",
+    modulos: [
+      {
+        nome: "Módulo 4: Transformação sem resistência",
+        desc: "Torne a alimentação uma atividade natural da rotina.",
+      },
+    ],
+  },
+  {
+    semana: "Semana 4",
+    fase: "FASE CONSOLIDAÇÃO",
+    titulo: "Ferramentas lúdicas para consolidar o aprendizado",
+    descricao: "Como incentivar o pequeno, de forma lúdica, a comer com naturalidade e autonomia.",
+    modulos: [
+      {
+        nome: "Módulo 5: Aprendizado consolidado",
+        desc: "Fixe o conhecimento com materiais complementares e práticos. Utilize o seu Diário da conexão com a comida e o livro de Receitas para crianças seletivas.",
+      },
+      {
+        nome: "Módulo de Atividades: Kit brincando de comer",
+        desc: "Imprima, brinque e transforme o momento da refeição em uma experiência divertida e sem estresse com vários joguinhos divertidos.",
+      },
+    ],
+  },
+];
+---
+
+<!-- Seção Como Funciona -->
+<section class="py-16 md:py-24 px-6 md:px-10" style="background-color: #FFFFFF;">
+  <div class="max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2
+        class="text-3xl md:text-4xl leading-tight mb-4"
+        style="font-family: 'Factul', sans-serif; color: #363435;"
+      >
+        Confira como funciona o Comer bem sem estresse:
+      </h2>
+      <p class="text-lg md:text-xl" style="color: #363435; font-family: 'Factul', sans-serif;">
+        Um método em <strong>4 semanas</strong>
+      </p>
+    </div>
+
+    <!-- Fases acordeão -->
+    <div class="space-y-6 mb-12" id="fases-accordion">
+      {fases.map((fase, i) => (
+        <details class="rounded-2xl overflow-hidden shadow-md group" open={i === 0 ? true : undefined}>
+          <!-- Summary / Header -->
+          <summary
+            class="flex items-center justify-between px-8 py-5 cursor-pointer list-none"
+            style="background: linear-gradient(180deg, #C47519 0%, #E7B478 100%);"
+          >
+            <div class="flex items-center gap-4">
+              <span class="text-xs font-semibold uppercase tracking-widest text-white/80">{fase.semana}</span>
+              <span
+                class="text-base font-semibold text-white"
+                style="font-family: 'Inter', sans-serif; line-height: 1.7em;"
+              >
+                {fase.fase}
+              </span>
+            </div>
+            <!-- Icon -->
+            <svg class="w-5 h-5 text-white shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+
+          <!-- Content -->
+          <div class="px-8 py-8" style="background-color: #FCF9F2;">
+            <h3
+              class="text-xl md:text-2xl font-semibold mb-2"
+              style="font-family: 'Inter', sans-serif; color: rgba(0,0,0,0.83);"
+            >
+              {fase.titulo}
+            </h3>
+            <p class="text-base leading-relaxed mb-6" style="color: rgba(0,0,0,0.83);">{fase.descricao}</p>
+            <ul class="space-y-4">
+              {fase.modulos.map((mod) => (
+                <li class="flex items-start gap-3">
+                  <span class="shrink-0 mt-1 text-sm" style="color: #D8AA24;">&#9656;</span>
+                  <div>
+                    <strong class="text-base" style="color: rgba(16,16,16,0.8);">{mod.nome} –</strong>{" "}
+                    <span class="text-base" style="color: rgba(16,16,16,0.77);">{mod.desc}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Resumo do conteudo -->
+    <div
+      class="rounded-xl p-6 md:p-8 text-center mb-10"
+      style="background-color: rgba(240,232,221,0.24); border: 1px solid rgba(0,0,0,0.08);"
+    >
+      <p class="text-base md:text-lg leading-relaxed mb-2" style="color: rgba(0,0,0,0.83);">
+        Tudo isso com <strong>vídeo aulas curtas e diretas</strong>, material de apoio para aplicar a cada passo,
+        atividades e jogos lúdicos e divertidos para aproximar seu filho dos alimentos.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed" style="color: rgba(0,0,0,0.83);">
+        <strong>Acesso imediato e 100% online</strong>, para assistir de onde quiser.
+        Em apenas 4 semanas você vai entender que a sua necessidade não era mais esforço,
+        mas <em>direção, clareza e uma metodologia estruturada.</em>
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="flex justify-center">
+      <a
+        href={HOTMART}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-grad inline-block text-white font-semibold tracking-widest uppercase text-sm md:text-base px-10 py-5 rounded-full transition-all duration-500"
+      >
+        Quero um sistema que funcione
+      </a>
+    </div>
+  </div>
+</section>

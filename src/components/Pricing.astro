@@ -1,0 +1,110 @@
+---
+const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+
+const inclusos = [
+  { item: "Método Comer Bem Sem Estresse (4 semanas)", valor: null },
+  { item: "Receitas para crianças seletivas", valor: "R$69,00" },
+  { item: "Diário da Conexão com a comida", valor: "R$69,00" },
+  { item: "Kit Brincando de Comer", valor: "R$99,00" },
+];
+---
+
+<!-- Seção de Preços / Oferta -->
+<section
+  class="py-16 md:py-24 px-6 md:px-10 relative"
+  style="background: linear-gradient(90deg, #FEB45D 0%, #FDD8AC 100%);"
+>
+  <div class="max-w-3xl mx-auto">
+    <!-- Container principal -->
+    <div class="rounded-2xl overflow-hidden shadow-2xl" style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%);">
+
+      <!-- Topo verde com titulo -->
+      <div
+        class="py-10 px-8 md:px-12 text-center"
+        style="background: linear-gradient(180deg, #244030 0%, #4E8867 100%);"
+      >
+        <h2
+          class="text-2xl md:text-4xl leading-tight text-white mb-2"
+          style="font-family: 'Factul', sans-serif;"
+        >
+          Fazendo a sua inscrição hoje, você vai receber:
+        </h2>
+      </div>
+
+      <!-- Itens inclusos -->
+      <div class="px-8 md:px-12 py-8 space-y-4">
+        {inclusos.map((inc) => (
+          <div class="flex items-center justify-between py-3 border-b" style="border-color: rgba(0,0,0,0.08);">
+            <div class="flex items-center gap-3">
+              <span style="color: #3DC935; font-size: 1.2rem;">&check;</span>
+              <span class="text-base font-medium" style="color: rgba(0,0,0,0.83);">{inc.item}</span>
+            </div>
+            {inc.valor && (
+              <span class="text-sm font-semibold ml-4 shrink-0" style="color: rgba(0,0,0,0.5);">{inc.valor}</span>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Preço -->
+      <div class="px-8 md:px-12 pb-10 flex flex-col items-center gap-4">
+        <p class="text-center text-base italic" style="color: rgba(116,116,116,0.72);">
+          Receba tudo isso por apenas
+        </p>
+
+        <div class="flex items-end gap-2 justify-center py-4 border-y w-full" style="border-color: rgba(0,0,0,0.11);">
+          <span class="text-xl" style="color: #474747;">12x</span>
+          <span class="text-6xl md:text-8xl font-semibold leading-none" style="color: rgba(36,34,35,0.28);">30</span>
+          <span class="text-lg" style="color: #202020;">,72</span>
+        </div>
+        <p class="text-base md:text-xl" style="color: #535353;">
+          ou <strong>R$ 297,00 à vista</strong>
+        </p>
+
+        <!-- CTA Principal -->
+        <a
+          href={HOTMART}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-grad w-full text-center inline-block text-white font-semibold tracking-widest uppercase text-sm md:text-base px-10 py-5 rounded-full mt-2 transition-all duration-500"
+        >
+          COMEÇAR COM O MÉTODO
+        </a>
+
+        <p class="text-sm text-center" style="color: rgba(0,0,0,0.65);">
+          Acesso imediato após a confirmação do pagamento
+        </p>
+        <p class="text-sm text-center font-semibold" style="color: rgba(0,0,0,0.65);">
+          Sem taxas escondidas. Garantia de 7 dias
+        </p>
+      </div>
+    </div>
+
+    <!-- Garantia box -->
+    <div
+      class="mt-10 rounded-2xl px-8 md:px-12 py-8 text-center flex flex-col items-center gap-4"
+      style="background-color: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.1);"
+    >
+      <img
+        src="/img/113907.svg"
+        alt="Garantia de 7 dias"
+        class="w-24 h-auto"
+        loading="lazy"
+      />
+      <h3 class="text-xl font-semibold" style="color: #244030; font-family: 'Factul', sans-serif;">
+        Garantia de 7 dias
+      </h3>
+      <p class="text-base leading-relaxed" style="color: rgba(0,0,0,0.7);">
+        Se por qualquer motivo você não ficar satisfeita com o treinamento, basta entrar em contato com a nossa equipe de suporte e solicitar o reembolso do valor investido.
+      </p>
+    </div>
+
+    <!-- Texto emocional -->
+    <div class="mt-10 text-center">
+      <p class="text-lg md:text-xl leading-relaxed" style="color: #363435;">
+        As refeições não precisam ser momentos de tensão! Elas podem ser <strong>memórias felizes, leves e cheias de afeto.</strong>
+        O próximo passo está nas suas mãos. Descubra como essa transformação é possível.
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,382 @@
+@import "tailwindcss";
+
+/* ============================================
+   FONT FACES — Fractul (local woff2)
+   ============================================ */
+@font-face {
+  font-family: 'Factul';
+  src: url('/fonts/fractul-light-webfont.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Factul';
+  src: url('/fonts/fractul-regular-webfont.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Factul';
+  src: url('/fonts/fractul-medium-webfont.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Factul';
+  src: url('/fonts/fractul-bold-webfont.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   DESIGN TOKENS — Tailwind v4 @theme
+   ============================================ */
+@theme {
+  /* Greens */
+  --color-verde-escuro: #244030;
+  --color-verde-profundo: #1c3124;
+  --color-verde-medio: #4E8867;
+  --color-verde-claro: #5A866D;
+  --color-verde-btn: #2d8050;
+  --color-verde-btn-light: #1fbf63;
+  --color-verde-accent: #25a75c;
+  --color-verde-muted: #39664c;
+
+  /* Oranges / Golds */
+  --color-dourado: #C47519;
+  --color-dourado-medio: #DBB953;
+  --color-dourado-claro: #FEB45D;
+  --color-laranja: #FB6801;
+  --color-laranja-btn: #DD7F35;
+  --color-laranja-gold: #F3CA58;
+  --color-laranja-warm: #f89a2b;
+  --color-laranja-soft: #bb7d34;
+  --color-dourado-deep: #D8AA24;
+  --color-laranja-light: #fdd8ac;
+
+  /* Creams / Backgrounds */
+  --color-creme: #FCF9F2;
+  --color-creme-escuro: #FEF4DF;
+  --color-creme-warm: #FDF6EC;
+  --color-creme-hero: #F0EADF;
+  --color-creme-border: #EBE4DF;
+  --color-creme-mid: #f0e9de;
+
+  /* Text */
+  --color-texto: #363435;
+  --color-texto-dark: #242223;
+  --color-texto-deep: #1c1e20;
+  --color-texto-black: #0f0f0f;
+  --color-cinza: #584C4D;
+  --color-cinza-elementor: #54595F;
+
+  /* Aliases for semantic usage */
+  --color-cbse-cream: #FCF9F2;
+  --color-cbse-green: #244030;
+  --color-cbse-orange: #C47519;
+  --color-cbse-orange-light: #FEB45D;
+  --color-cbse-text: #363435;
+
+  /* Fonts */
+  --font-factul: "Factul", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-nunito: "Nunito", sans-serif;
+}
+
+/* ============================================
+   BASE LAYER
+   ============================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  body {
+    font-family: "Inter", sans-serif;
+    color: #363435;
+    background-color: #FCF9F2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Factul", sans-serif;
+  }
+}
+
+/* ============================================
+   GRADIENT BAR
+   ============================================ */
+.gradient-bar {
+  height: 8px;
+  background: linear-gradient(90deg, #244030 0%, #4E8867 25%, #DBB953 50%, #C47519 75%, #FB6801 100%);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-bg {
+  background-color: #F0EADF;
+  background-image: url('/img/093713-copy.webp');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .hero-bg {
+    background-image: url('/img/100004.webp');
+    background-position: bottom center;
+  }
+}
+
+.hero-inner-container {
+  max-width: 1140px;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .hero-inner-container {
+    gap: 10px;
+    padding: 30px;
+  }
+}
+
+.hero-logo-wrap {
+  margin-bottom: 20px;
+}
+.hero-logo-img {
+  width: auto;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .hero-logo-img {
+    max-width: 35%;
+    width: 35%;
+  }
+}
+
+.hero-heading-wrap {
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 90%;
+}
+@media (max-width: 767px) {
+  .hero-heading-wrap {
+    margin-bottom: 20px;
+    padding: 7px 0 8px 0;
+  }
+}
+
+.hero-heading {
+  font-family: 'Factul', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 60px;
+  color: #FB6801;
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .hero-heading {
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
+
+.dark-green {
+  color: #244030;
+}
+
+.hero-subtitle-wrap {
+  margin-bottom: 20px;
+  width: 82%;
+  max-width: 82%;
+}
+@media (max-width: 767px) {
+  .hero-subtitle-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.hero-subtitle {
+  font-family: 'Factul', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 6.5px;
+  color: #244030;
+  text-align: center;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .hero-subtitle {
+    font-size: 12px;
+    line-height: 19px;
+    letter-spacing: 2.2px;
+  }
+}
+
+.hero-video-outer {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 48rem;
+}
+@media (max-width: 767px) {
+  .hero-video-outer {
+    width: 100%;
+    border-radius: 15px;
+  }
+}
+
+.hero-video-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 767px) {
+  .hero-video-wrap {
+    border-radius: 15px;
+  }
+}
+
+.hero-btn-wrap {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-hero {
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12);
+  color: #FFFFFF;
+  background-color: transparent;
+  background-image: linear-gradient(191deg, #FB6801 0%, #F3CA58 100%);
+  box-shadow: 6px 6px 28px -6px rgba(0, 0, 0, 0.28);
+  border: 0;
+  border-bottom: 4px solid #DD7F35;
+  border-radius: 100px;
+  padding: 25px 54px 25px 47px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 533px;
+  width: auto;
+  transition: all 0.3s;
+}
+.btn-hero:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+@media (max-width: 767px) {
+  .btn-hero {
+    font-size: 0.9em;
+    line-height: 1em;
+    letter-spacing: 0.3px;
+    padding: 16px 19px;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.btn-grad {
+  background-image: linear-gradient(to right, #2d8050 0%, #1fbf63 51%, #2d8050 100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #fff;
+  border-radius: 100px;
+  display: inline-block;
+  text-decoration: none;
+}
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ============================================
+   DECORATIVE UTILITIES
+   ============================================ */
+.underline-inner {
+  display: inline;
+  box-shadow: inset 0 -7px 0 0 #feb45d90;
+}
+
+/* Elementor-style grow animation */
+.animation-grow {
+  transition: all 0.3s;
+}
+.animation-grow:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   DETAILS/SUMMARY (Accordion)
+   ============================================ */
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary::marker {
+  display: none;
+}
+details summary {
+  list-style: none;
+}
+
+/* Smooth accordion animation */
+details .accordion-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+}
+details[open] .accordion-content {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+/* ============================================
+   SWIPER (Testimonials)
+   ============================================ */
+.swiper-pagination-bullet {
+  background: #DBB953 !important;
+  opacity: 0.4;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  background: #C47519 !important;
+}

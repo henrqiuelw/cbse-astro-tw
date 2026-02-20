@@ -1,0 +1,107 @@
+---
+const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+
+const antes = [
+  "Repertório alimentar limitado e sem evolução previsível",
+  "Refeições dependentes de negociações constantes",
+  "Muitas tentativas, poucas respostas claras",
+  "Alimentação ocupando energia mental excessiva",
+];
+
+const depois = [
+  "Repertório alimentar ampliando de forma progressiva",
+  "Refeições integradas à rotina, com menos intervenção e sem desgaste emocional",
+  "Decisões alimentares mais claras e seguras",
+  "Criança desenvolvendo maior autonomia à mesa",
+];
+---
+
+<!-- Seção Antes/Depois -->
+<section class="py-16 md:py-24 px-6 md:px-10 relative" style="background-color: #FFFFFF;">
+  <!-- Barra creme decorativa -->
+  <div class="absolute top-0 left-0 right-0 h-2" style="background: linear-gradient(90deg, #FEB45D 0%, #FDD8AC 100%);"></div>
+
+  <div class="max-w-5xl mx-auto">
+    <h2
+      class="text-3xl md:text-4xl leading-tight text-center mb-10"
+      style="font-family: 'Factul', sans-serif; color: #363435;"
+    >
+      A diferença de seguir um método estruturado
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <!-- ANTES -->
+      <div class="rounded-2xl overflow-hidden border border-white/20 shadow-md"
+           style="background: linear-gradient(103deg, #244030 0%, #4E8867 100%);">
+        <!-- Imagem -->
+        <div class="relative overflow-hidden flex justify-center items-end pt-6 px-6" style="min-height: 160px;">
+          <img
+            src="/img/083507-copy.webp"
+            alt="Criança antes do método"
+            class="w-1/2 object-contain relative z-10 rounded-t-xl"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-10">
+          <span class="inline-block text-sm px-6 py-2 mb-4 rounded-full" style="background-color: #DBB953; color: #363435; font-family: 'Inter', sans-serif; letter-spacing: 1.9px;">
+            HOJE
+          </span>
+          <h3 class="text-2xl md:text-3xl font-semibold mb-4 leading-tight" style="color: #FFFFFF;">
+            Sem um sistema alimentar estruturado:
+          </h3>
+          <div class="h-px mb-6" style="background-color: rgba(255,255,255,0.13);"></div>
+          <ul class="space-y-4">
+            {antes.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-0.5 shrink-0 text-lg">&times;</span>
+                <span class="text-base leading-relaxed" style="color: rgba(255,255,255,0.93);">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- DEPOIS -->
+      <div class="rounded-2xl overflow-hidden border border-white/20 shadow-md"
+           style="background: linear-gradient(180deg, #244030 0%, #4E8867 100%);">
+        <div class="relative overflow-hidden flex justify-center items-end pt-6 px-6" style="min-height: 160px;">
+          <img
+            src="/img/083313-copy.webp"
+            alt="Criança após o método"
+            class="w-1/2 object-contain relative z-10 rounded-t-xl"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-10">
+          <span class="inline-block text-sm px-6 py-2 mb-4 rounded-full" style="background-color: #DBB953; color: #363435; font-family: 'Inter', sans-serif; letter-spacing: 1.9px;">
+            COM O MÉTODO
+          </span>
+          <h3 class="text-2xl md:text-3xl font-semibold mb-4 leading-tight" style="color: #FFFFFF;">
+            Com um método aplicado com constância:
+          </h3>
+          <div class="h-px mb-6" style="background-color: rgba(255,255,255,0.13);"></div>
+          <ul class="space-y-4">
+            {depois.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="shrink-0 mt-0.5" style="color: #3DC935; font-size: 1.2rem;">&check;</span>
+                <span class="text-base leading-relaxed" style="color: rgba(255,255,255,0.93);">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="flex justify-center mt-12">
+      <a
+        href={HOTMART}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-grad inline-block text-white font-semibold tracking-widest uppercase text-sm md:text-base px-10 py-5 rounded-full transition-all duration-500"
+      >
+        Quero iniciar o acompanhamento
+      </a>
+    </div>
+  </div>
+</section>

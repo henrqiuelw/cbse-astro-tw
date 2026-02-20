@@ -1,0 +1,68 @@
+---
+const depoimentos = Array.from({ length: 13 }, (_, i) => {
+  const roman = ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII"][i];
+  return {
+    src: `/img/Depoimento-CBSE-${roman}.webp`,
+    alt: `Depoimento ${roman}`,
+  };
+});
+---
+
+<!-- Seção Depoimentos -->
+<section class="py-16 md:py-24 px-4 md:px-6" style="background-color: #FFFFFF;">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <h2
+        class="text-3xl md:text-4xl leading-tight"
+        style="font-family: 'Factul', sans-serif; color: #3A3A3A;"
+      >
+        Veja os resultados de mães e alunas que saíram do improviso com a alimentação dos seus filhos para seguir um método estruturado:
+      </h2>
+    </div>
+
+    <!-- Carousel de depoimentos -->
+    <div class="relative">
+      <!-- Scroll container -->
+      <div
+        id="depoimentos-scroll"
+        class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-4"
+        style="scrollbar-width: thin; scrollbar-color: #DBB953 #f0e8dd;"
+      >
+        {depoimentos.map((dep) => (
+          <div class="snap-start shrink-0 w-48 md:w-56 lg:w-64">
+            <img
+              src={dep.src}
+              alt={dep.alt}
+              class="w-full h-auto rounded-2xl border shadow-sm"
+              style="border-color: rgba(0,0,0,0.08);"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+
+      <!-- Scroll buttons -->
+      <button
+        onclick="document.getElementById('depoimentos-scroll').scrollBy({left:-260,behavior:'smooth'})"
+        class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 rounded-full shadow-lg items-center justify-center z-10"
+        style="background-color: #DBB953;"
+        aria-label="Anterior"
+      >
+        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button
+        onclick="document.getElementById('depoimentos-scroll').scrollBy({left:260,behavior:'smooth'})"
+        class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 rounded-full shadow-lg items-center justify-center z-10"
+        style="background-color: #DBB953;"
+        aria-label="Próximo"
+      >
+        <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>

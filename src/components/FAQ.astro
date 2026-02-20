@@ -1,0 +1,113 @@
+---
+const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+
+const perguntas = [
+  {
+    pergunta: "Em quanto tempo verei resultados?",
+    resposta: "Apesar de cada criança ter o seu tempo de aprendizado, o método de 4 semanas foi feito exatamente para otimizar o seu aprendizado e aplicação. Você começará a ver os primeiros resultados logo nessas primeiras semanas de aplicação.",
+  },
+  {
+    pergunta: "E se não funcionar com meu filho?",
+    resposta: "O método é baseado em neurociência e adaptável a diferentes perfis. Logo na primeira semana você vai entender qual a necessidade específica do seu filho, podendo personalizar o método, ou seja, aplicar somente as estratégias que estejam alinhadas à necessidade dele, por isso, ele funciona. Além disso, você tem 7 dias de garantia para testar e avaliar.",
+  },
+  {
+    pergunta: "Meu filho é muito seletivo e há bastante tempo. Mesmo assim funciona?",
+    resposta: "Sim. O Método Comer bem sem estresse é baseado em experiências reais e foca em pequenos avanços diários. Cada mãe aprende qual a necessidade específica do seu filho e consegue aplicar o método de acordo com a sua realidade, de forma bem personalizada. Se você aplicar tudo que aprender, te garanto que você vai se surpreender.",
+  },
+  {
+    pergunta: "Eu já tentei de tudo e fiz muitos cursos e nada funcionou. Por que esse vai funcionar?",
+    resposta: "Porque foi criado com dois diferenciais importantes: O primeiro, diz respeito ao método em si, que é prático, te ajuda a identificar a necessidade específica do seu filho para que você não continue aplicando estratégias genéricas e rasas que não funcionam. E o segundo diferencial, é que foi criado por uma nutricionista que é mãe e que também enfrentou a seletividade alimentar e venceu.",
+  },
+  {
+    pergunta: "E se eu não tiver muito tempo disponível?",
+    resposta: "As aulas são curtas e bem diretas para você conseguir fazer no seu ritmo e adquirir o conhecimento necessário de forma rápida, do seu celular em qualquer momento livre que apareça no seu dia.",
+  },
+  {
+    pergunta: "Como funciona o suporte durante o curso?",
+    resposta: "Você terá acesso a um espaço para dúvidas em cada aula e suporte exclusivo por e-mail. Todas as dúvidas são respondidas pela própria criadora do método em até 48h.",
+  },
+  {
+    pergunta: "Preciso comprar alimentos especiais ou equipamentos?",
+    resposta: "Não! O método trabalha com alimentos comuns do dia a dia. Não é necessário comprar nada específico ou caro.",
+  },
+  {
+    pergunta: "Como recebo acesso ao curso?",
+    resposta: "Imediatamente após a confirmação do pagamento, você receberá por e-mail seu login e senha para acessar a plataforma de ensino com todo o conteúdo disponível.",
+  },
+  {
+    pergunta: "Por quanto tempo tenho acesso ao curso? Vale para sempre?",
+    resposta: "Você terá acesso a todo o conteúdo do curso por 12 meses (1 ano) a partir da data da compra. Este período é mais que suficiente para aprender, implementar e consolidar o método, além de poder revisar o conteúdo sempre que precisar durante este ano.",
+  },
+];
+---
+
+<!-- Seção FAQ -->
+<section
+  class="py-16 md:py-24 px-6 md:px-10"
+  style="background-color: #FEF4DF;"
+>
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <h2
+        class="text-3xl md:text-5xl leading-tight"
+        style="font-family: 'Factul', sans-serif; color: #3A3A3A;"
+      >
+        Perguntas frequentes
+      </h2>
+    </div>
+
+    <!-- Acordeão -->
+    <div class="space-y-0">
+      {perguntas.map((perg, i) => (
+        <details
+          class="group"
+          style={i === 0 ? "border-top: 1px solid rgba(0,0,0,0.13);" : ""}
+        >
+          <summary
+            class="flex items-start justify-between gap-4 px-8 py-6 cursor-pointer list-none select-none bg-white"
+            style="border: none;"
+          >
+            <span
+              class="text-base font-semibold leading-snug"
+              style="font-family: 'Inter', sans-serif; color: rgba(16,16,16,0.8); letter-spacing: -0.4px;"
+            >
+              {perg.pergunta}
+            </span>
+            <svg
+              class="w-5 h-5 shrink-0 mt-0.5 transition-transform group-open:rotate-180"
+              style="color: #D8AA24;"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div
+            class="px-8 pb-6 bg-white text-base leading-relaxed"
+            style="color: rgba(0,0,0,0.77);"
+          >
+            {perg.resposta}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- CTA final -->
+    <div class="mt-12 flex flex-col items-center gap-4">
+      <p class="text-base md:text-lg text-center" style="color: rgba(0,0,0,0.7);">
+        Ainda com dúvidas? Entre em contato: <a href="mailto:suporte@comerbemsemestresse.com.br" style="color: #244030; text-decoration: underline;">suporte@comerbemsemestresse.com.br</a>
+      </p>
+      <a
+        href={HOTMART}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-grad inline-block text-white font-semibold tracking-widest uppercase text-sm md:text-base px-10 py-5 rounded-full transition-all duration-500"
+      >
+        Quero iniciar o acompanhamento
+      </a>
+    </div>
+  </div>
+</section>

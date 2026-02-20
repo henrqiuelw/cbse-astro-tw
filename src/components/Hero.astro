@@ -1,0 +1,92 @@
+---
+const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+---
+
+<!-- Hero Section -->
+<section class="hero-bg">
+  <div class="hero-inner-container">
+
+    <!-- Logo SVG -->
+    <div class="hero-logo-wrap">
+      <img
+        src="/img/095704.svg"
+        alt="Comer Bem Sem Estresse"
+        class="hero-logo-img"
+        width="222"
+        height="167"
+      />
+    </div>
+
+    <!-- Heading -->
+    <div class="hero-heading-wrap">
+      <p class="hero-heading">
+        Leve o seu filho de um <span class="dark-green">repertório alimentar restrito</span> para uma <span class="dark-green">alimentação variada e saudável</span>
+      </p>
+    </div>
+
+    <!-- Subtitle -->
+    <div class="hero-subtitle-wrap">
+      <p class="hero-subtitle">
+        UM MÉTODO ESTRUTURADO PARA FAMÍLIAS QUE QUEREM RESULTADOS CONSISTENTES
+      </p>
+    </div>
+
+    <!-- Video -->
+    <div class="hero-video-outer">
+      <div class="hero-video-wrap">
+        <video
+          src="https://comerbemsemestresse.com.br/wp-content/uploads/2025/12/VSL-4-1.mp4"
+          controls
+          preload="metadata"
+          controlslist="nodownload"
+          poster="/img/100104.webp"
+          style="width: 100%; height: 100%; object-fit: cover;"
+        ></video>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="hero-btn-wrap">
+      <a
+        href={HOTMART}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-hero animation-grow"
+        id="cta_inic_fin_compra"
+      >
+        QUERO INICIAR A TRANSFORMAÇÃO →
+      </a>
+    </div>
+
+    <!-- Lottie Ovo animation (mobile only) -->
+    <div class="block md:hidden" id="lottie-ovo" style="width: 60px; height: 60px;"></div>
+
+  </div>
+</section>
+
+<script>
+  // Lottie initialization for mobile ovo animation
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("lottie-ovo");
+    if (!container || typeof window === "undefined") return;
+
+    // Dynamic import lottie-web
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js";
+    script.crossOrigin = "anonymous";
+    script.onload = () => {
+      // @ts-ignore
+      if (typeof lottie !== "undefined") {
+        // @ts-ignore
+        lottie.loadAnimation({
+          container,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          path: "/lottie/ovo-animation.json",
+        });
+      }
+    };
+    document.head.appendChild(script);
+  });
+</script>

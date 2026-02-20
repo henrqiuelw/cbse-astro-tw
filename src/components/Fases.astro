@@ -1,0 +1,91 @@
+---
+const fases = [
+  {
+    numero: "FASE 1",
+    nome: "Diagnóstica",
+    descricao: "Identifique as causas das recusas e comece a mudar a percepção do seu filho com a comida.",
+    img: "/img/133907-copy.webp",
+  },
+  {
+    numero: "FASE 2",
+    nome: "Reestruturação",
+    descricao: "Reestruture e neutralize os fatores fortalecedores da seletividade alimentar, tornando o ambiente favorável a novas experimentações, aumentando a segurança e a autonomia do seu filho.",
+    img: "/img/133907-copy.webp",
+  },
+  {
+    numero: "FASE 3",
+    nome: "Alimentar",
+    descricao: "Estratégias de aproximação e exposição dos alimentos e a oferta lúdica. Nessa fase, o pequeno já foi preparado e está aberto a novas experimentações.",
+    img: "/img/133907-copy.webp",
+  },
+  {
+    numero: "FASE 4",
+    nome: "Consolidação",
+    descricao: "Ferramentas lúdicas para consolidar a aplicação da metodologia e incentivar o seu filho a comer com naturalidade e autonomia.",
+    img: "/img/133907-copy.webp",
+  },
+];
+---
+
+<!-- Seção Fases Resumo (visual) -->
+<section
+  class="py-16 md:py-24 px-6 md:px-10"
+  style="background: linear-gradient(145deg, #244030 0%, #4E8867 100%);"
+>
+  <div class="max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-10 md:mb-14">
+      <h2
+        class="text-2xl md:text-4xl leading-tight mb-3"
+        style="font-family: 'Factul', sans-serif; color: #FFFFFF;"
+      >
+        O Comer bem sem estresse vai lhe dar clareza e direção nessa transformação
+      </h2>
+      <p class="text-base md:text-lg" style="color: rgba(255,255,255,0.8); font-family: 'Inter', sans-serif;">
+        Na metodologia Comer bem sem estresse você seguirá uma trilha de conhecimento que vai preparar o seu filho para avançar com autonomia:
+      </p>
+    </div>
+
+    <!-- Grid de fases -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {fases.map((fase) => (
+        <div
+          class="rounded-2xl overflow-hidden flex flex-col shadow-lg"
+          style="background: radial-gradient(at center center, #5A866D 0%, #244030 100%);"
+        >
+          <!-- Image area -->
+          <div class="overflow-hidden" style="max-height: 200px;">
+            <img
+              src={fase.img}
+              alt={`Fase ${fase.nome}`}
+              class="w-full object-cover object-top"
+              style="max-height: 200px;"
+              loading="lazy"
+            />
+          </div>
+          <!-- Content -->
+          <div class="p-8 flex flex-col gap-3">
+            <span
+              class="self-start text-sm px-5 py-2 rounded-full"
+              style="background-color: rgba(90,134,109,0.45); border: 1px solid rgba(255,255,255,0.44); color: #FFFFFF; font-family: 'Factul', sans-serif;"
+            >
+              {fase.numero}
+            </span>
+            <h3
+              class="text-2xl"
+              style="font-family: 'Factul', sans-serif; color: #FFDDB5;"
+            >
+              {fase.nome}
+            </h3>
+            <p
+              class="text-base leading-relaxed pl-5 border-l-2"
+              style="border-color: #FEB45D; color: #FFFFFF;"
+            >
+              {fase.descricao}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+---
+const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+
+const diferenciais = [
+  {
+    badge: "Método Estruturado",
+    titulo: "Criado por especialista em Seletividade alimentar",
+    descricao: "É um método criado por uma nutricionista especialista em Seletividade alimentar e desenvolvimento infantil. Você não recebe opiniões soltas, mas um sistema com lógica clara de aplicação.",
+  },
+  {
+    badge: "Mudança de Fundamento",
+    titulo: "Atua na causa, não no comportamento",
+    descricao: "Atua na causa do repertório alimentar restrito, e não apenas no comportamento à mesa. O foco não é convencer a criança a comer, mas criar condições favoráveis para ela avançar.",
+  },
+  {
+    badge: "Sequência Progressiva",
+    titulo: "Etapas aplicáveis à rotina real",
+    descricao: "Segue uma sequência lógica de etapas, aplicáveis à rotina real da família. Cada fase prepara para a próxima, evitando tentativas aleatórias ou mudanças radicais.",
+  },
+  {
+    badge: "Autonomia Alimentar",
+    titulo: "Menos negociação, mais naturalidade",
+    descricao: "Desenvolve autonomia alimentar progressiva, com menos intervenção e menos negociação. A alimentação deixa de ocupar o centro da rotina e vira uma atividade normal.",
+  },
+  {
+    badge: "Flexível ao Desenvolvimento",
+    titulo: "Sem fórmulas engessadas",
+    descricao: "Permite ajustar o método às necessidades alimentares e ao momento de desenvolvimento do seu filho. Sem fórmulas engessadas: método com critério.",
+  },
+];
+---
+
+<!-- Seção O Método -->
+<section
+  class="py-16 md:py-24 px-6 md:px-10"
+  style="background: linear-gradient(145deg, #244030 0%, #4E8867 100%);"
+>
+  <div class="max-w-5xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <h2
+        class="text-3xl md:text-5xl leading-tight mb-4"
+        style="font-family: 'Factul', sans-serif; color: #FFFFFF;"
+      >
+        O Comer bem sem estresse é um método estruturado para sair do improviso e construir autonomia alimentar:
+      </h2>
+    </div>
+
+    <!-- Cards de diferenciais -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      {diferenciais.map((d) => (
+        <div
+          class="rounded-xl p-10 flex flex-col gap-4"
+          style="background: radial-gradient(at center center, #5A866D 0%, #244030 100%);"
+        >
+          <!-- Badge -->
+          <span
+            class="self-start text-sm px-6 py-2 rounded-full border"
+            style="background-color: rgba(90,134,109,0.36); border-color: rgba(255,255,255,0.44); color: #FFFFFF; font-family: 'Factul', sans-serif;"
+          >
+            {d.badge}
+          </span>
+          <!-- Titulo -->
+          <p
+            class="text-xl leading-snug"
+            style="font-family: 'Factul', sans-serif; color: #FFDDB5;"
+          >
+            {d.titulo}
+          </p>
+          <!-- Descricao com borda dourada -->
+          <p
+            class="text-base leading-relaxed pl-5 border-l-2"
+            style="border-color: #FEB45D; color: #FFFFFF;"
+          >
+            {d.descricao}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="flex justify-center">
+      <a
+        href={HOTMART}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-grad inline-block text-white font-semibold tracking-widest uppercase text-sm md:text-base px-10 py-5 rounded-full transition-all duration-500"
+      >
+        Quero um sistema que funcione
+      </a>
+    </div>
+  </div>
+</section>
