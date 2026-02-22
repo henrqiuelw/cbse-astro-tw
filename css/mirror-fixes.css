@@ -1,0 +1,31 @@
+/* Mirror v2.0 fixes - Equal height boxes */
+
+/* Section MÉTODO - Fix box heights to match production site */
+.elementor-element-ebff15c.e-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  grid-auto-rows: 1fr !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+
+.elementor-element-ebff15c .e-con.e-child {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Section FASES - If needed, add fix here */
+.elementor-element-9357eda.e-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  grid-auto-rows: 1fr !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+
+.elementor-element-9357eda .e-con.e-child {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
