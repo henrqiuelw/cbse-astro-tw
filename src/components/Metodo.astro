@@ -52,10 +52,24 @@ const diferenciais = [
       <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
     </h1>
 
-    <!-- 2-column layout: image left, cards right -->
+    <!-- Grid 2×3: 5 cards left column + 1 image right (spanning 3 rows) -->
     <div class="metodo-content">
       
-      <!-- Left column: decorative image (desktop only) -->
+      <!-- Cards: grid items in left column -->
+      {diferenciais.map((d) => (
+        <div class="metodo-card">
+          <!-- Checkmark icon -->
+          <img src="/img/141704.svg" alt="" width="46" height="46" class="metodo-icon" loading="lazy" />
+          <!-- Title -->
+          <p class="metodo-card-title">{d.titulo}</p>
+          <!-- Bold description with green border -->
+          <p class="metodo-card-desc-bold">{d.descBold}</p>
+          <!-- Regular description -->
+          <p class="metodo-card-desc">{d.descRegular}</p>
+        </div>
+      ))}
+
+      <!-- Decorative image: grid item in right column, spanning rows 1-3 (desktop only) -->
       <div class="metodo-img-col">
         <img
           src="/img/083313-copy.webp"
@@ -65,22 +79,6 @@ const diferenciais = [
           class="metodo-img"
           loading="lazy"
         />
-      </div>
-
-      <!-- Right column: 5 cards vertical -->
-      <div class="metodo-cards-col">
-        {diferenciais.map((d) => (
-          <div class="metodo-card">
-            <!-- Checkmark icon -->
-            <img src="/img/141704.svg" alt="" width="46" height="46" class="metodo-icon" loading="lazy" />
-            <!-- Title -->
-            <p class="metodo-card-title">{d.titulo}</p>
-            <!-- Bold description with green border -->
-            <p class="metodo-card-desc-bold">{d.descBold}</p>
-            <!-- Regular description -->
-            <p class="metodo-card-desc">{d.descRegular}</p>
-          </div>
-        ))}
       </div>
 
     </div>
@@ -114,7 +112,7 @@ const diferenciais = [
   }
 
   .metodo-inner {
-    max-width: 1280px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 60px 0 200px 0;
     display: flex;
@@ -128,7 +126,7 @@ const diferenciais = [
   }
   @media (max-width: 767px) {
     .metodo-inner {
-      padding: 10% 5% 15% 5%;
+      padding: 10% 10% 10% 10%;
     }
   }
 
@@ -169,27 +167,28 @@ const diferenciais = [
     }
   }
 
-  /* 2-column content (image left, cards right) */
+  /* Grid 2×3 (desktop) - 2 cols cards + 1 image */
   .metodo-content {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 30px;
     width: 100%;
-    max-width: 1280px;
+    max-width: 1140px;
     margin-bottom: 40px;
-    align-items: flex-start;
   }
   @media (max-width: 1024px) {
     .metodo-content {
+      display: flex;
       flex-direction: column;
       gap: 30px;
     }
   }
 
-  /* Left column: image (desktop only) */
+  /* Decorative image (grid item - right side spanning 3 rows) */
   .metodo-img-col {
-    flex: 0 0 auto;
-    width: 320px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -206,16 +205,9 @@ const diferenciais = [
     object-fit: contain;
   }
 
-  /* Right column: cards vertical */
-  .metodo-cards-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  /* Card */
+  /* Card - grid item in left column */
   .metodo-card {
+    grid-column: 1 / 2;
     background-color: #fffefb;
     border-radius: 10px;
     padding: 40px;
@@ -223,6 +215,11 @@ const diferenciais = [
     display: flex;
     flex-direction: column;
     gap: 0;
+  }
+  @media (max-width: 1024px) {
+    .metodo-card {
+      grid-column: auto;
+    }
   }
 
   /* Icon with hover rotation */
