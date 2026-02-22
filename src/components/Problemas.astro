@@ -59,26 +59,6 @@ const dores = [
 <section class="problemas-section-2">
   <div class="problemas-section-2-inner">
 
-    <!-- Mobile-only image -->
-    <img 
-      src="/img/115104.webp" 
-      alt="Comer Bem Sem Estresse — Dificuldades Alimentares"
-      width="800"
-      height="913"
-      class="problemas-img-mobile"
-      loading="lazy"
-    />
-
-    <!-- Desktop-only image -->
-    <img 
-      src="/img/091713-copy.webp" 
-      alt="Comer Bem Sem Estresse — Sistema Alimentar"
-      width="1038"
-      height="693"
-      class="problemas-img-desktop"
-      loading="lazy"
-    />
-
     <div class="problemas-card">
 
       <h1 class="problemas-card-heading">
@@ -94,6 +74,27 @@ const dores = [
       </p>
 
     </div>
+
+    <!-- Mobile-only image (hidden on desktop/laptop) -->
+    <img 
+      src="/img/115104.webp" 
+      alt="Comer Bem Sem Estresse — Dificuldades Alimentares"
+      width="800"
+      height="913"
+      class="problemas-img-mobile"
+      loading="lazy"
+    />
+
+    <!-- Desktop-only image (hidden on tablet/mobile) -->
+    <img 
+      src="/img/091713-copy.webp" 
+      alt="Comer Bem Sem Estresse — Sistema Alimentar"
+      width="1038"
+      height="693"
+      class="problemas-img-desktop"
+      loading="lazy"
+    />
+
   </div>
 </section>
 
@@ -280,7 +281,7 @@ const dores = [
     }
   }
 
-  /* Mobile-only image */
+  /* Mobile-only image (hidden on desktop/laptop) */
   .problemas-img-mobile {
     display: none;
     width: 100%;
@@ -295,7 +296,8 @@ const dores = [
   @media (max-width: 767px) {
     .problemas-img-mobile {
       display: block;
-      margin: 0 0 20px 0;
+      width: 100%;
+      margin: 20px 0 0 0;
     }
   }
 
@@ -325,14 +327,10 @@ const dores = [
     display: flex;
     align-items: center;
   }
-  @media (max-width: 1024px) {
-    .problemas-section-2-inner {
-      flex-direction: column-reverse;
-    }
-  }
   @media (max-width: 767px) {
     .problemas-section-2-inner {
       padding: 10% 5%;
+      flex-direction: column;
     }
   }
 
