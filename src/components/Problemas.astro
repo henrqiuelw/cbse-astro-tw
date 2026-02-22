@@ -286,10 +286,16 @@ const dores = [
     width: 100%;
     height: auto;
   }
-  @media (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     .problemas-img-mobile {
       display: block;
-      margin: -26% -7% -14% -6%;
+      margin: -50% -13% -26% -13%;
+    }
+  }
+  @media (max-width: 767px) {
+    .problemas-img-mobile {
+      display: block;
+      margin: 0 0 20px 0;
     }
   }
 
@@ -318,6 +324,11 @@ const dores = [
     padding: 40px 0 60px 0;
     display: flex;
     align-items: center;
+  }
+  @media (max-width: 1024px) {
+    .problemas-section-2-inner {
+      flex-direction: column-reverse;
+    }
   }
   @media (max-width: 767px) {
     .problemas-section-2-inner {
