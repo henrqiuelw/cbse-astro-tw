@@ -20,14 +20,14 @@ const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
     <!-- Heading -->
     <div class="hero-heading-wrap">
       <p class="hero-heading">
-        Leve o seu filho de um <span class="dark-green">repertório alimentar restrito</span> para uma <span class="dark-green">alimentação variada e saudável</span>
+        Leve o seu filho de um repertório alimentar restrito para <span class="underline-inner">uma alimentação variada e saudável</span>
       </p>
     </div>
 
     <!-- Subtitle -->
     <div class="hero-subtitle-wrap">
       <p class="hero-subtitle">
-        UM MÉTODO ESTRUTURADO PARA FAMÍLIAS QUE QUEREM RESULTADOS CONSISTENTES
+        um método estruturado para famílias que querem resultados consistentes
       </p>
     </div>
 
@@ -42,6 +42,8 @@ const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
           poster="/img/100104.webp"
           style="width: 100%; height: 100%; object-fit: cover;"
         ></video>
+        <!-- Preload poster with high priority -->
+        <link rel="preload" as="image" href="/img/100104.webp" fetchpriority="high" />
       </div>
     </div>
 
@@ -51,10 +53,11 @@ const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
         href={HOTMART}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-hero animation-grow"
+        class="btn-grad animation-grow"
         id="cta_inic_fin_compra"
+        style="font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.9px; padding: 20px 40px;"
       >
-        QUERO INICIAR A TRANSFORMAÇÃO →
+        Quero iniciar o acompanhamento
       </a>
     </div>
 

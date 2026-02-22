@@ -1,110 +1,399 @@
 ---
 const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
 
-const inclusos = [
-  { item: "Método Comer Bem Sem Estresse (4 semanas)", valor: null },
+const bonus = [
   { item: "Receitas para crianças seletivas", valor: "R$69,00" },
   { item: "Diário da Conexão com a comida", valor: "R$69,00" },
   { item: "Kit Brincando de Comer", valor: "R$99,00" },
 ];
+
+const features = [
+  "Acesso imediato após a confirmação do pagamento",
+  "Sem taxas escondidas.",
+  "Garantia de 7 dias",
+];
 ---
 
 <!-- Seção de Preços / Oferta -->
-<section
-  class="py-16 md:py-24 px-6 md:px-10 relative"
-  style="background: linear-gradient(90deg, #FEB45D 0%, #FDD8AC 100%);"
->
-  <div class="max-w-3xl mx-auto">
-    <!-- Container principal -->
-    <div class="rounded-2xl overflow-hidden shadow-2xl" style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%);">
+<section class="pricing-section">
+  <div class="pricing-inner">
 
-      <!-- Topo verde com titulo -->
-      <div
-        class="py-10 px-8 md:px-12 text-center"
-        style="background: linear-gradient(180deg, #244030 0%, #4E8867 100%);"
-      >
-        <h2
-          class="text-2xl md:text-4xl leading-tight text-white mb-2"
-          style="font-family: 'Factul', sans-serif;"
-        >
+    <!-- 3-column layout -->
+    <div class="pricing-grid">
+
+      <!-- Left column: items included -->
+      <div class="pricing-left">
+        <h2 class="pricing-left-title">
           Fazendo a sua inscrição hoje, você vai receber:
         </h2>
+        <div class="pricing-items">
+          {bonus.map((b) => (
+            <div class="pricing-item">
+              <span class="pricing-check">&#x2714;</span>
+              <span class="pricing-item-text">
+                {b.item} <span class="pricing-strikethrough">{b.valor}</span>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <!-- Itens inclusos -->
-      <div class="px-8 md:px-12 py-8 space-y-4">
-        {inclusos.map((inc) => (
-          <div class="flex items-center justify-between py-3 border-b" style="border-color: rgba(0,0,0,0.08);">
-            <div class="flex items-center gap-3">
-              <span style="color: #3DC935; font-size: 1.2rem;">&check;</span>
-              <span class="text-base font-medium" style="color: rgba(0,0,0,0.83);">{inc.item}</span>
-            </div>
-            {inc.valor && (
-              <span class="text-sm font-semibold ml-4 shrink-0" style="color: rgba(0,0,0,0.5);">{inc.valor}</span>
-            )}
+      <!-- Center column: price card -->
+      <div class="pricing-center">
+        <div class="pricing-card">
+          <p class="pricing-card-label">
+            <span class="underline-inner">Receba tudo isso</span><br/>
+            por apenas
+          </p>
+
+          <div class="pricing-price-row">
+            <span class="pricing-12x">12x</span>
+            <span class="pricing-rs">R$</span>
+            <span class="pricing-amount">30</span>
+            <span class="pricing-cents">,72</span>
+          </div>
+
+          <p class="pricing-avista">
+            ou R$ 297,00 à vista
+          </p>
+
+          <a
+            href={HOTMART}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-grad pricing-cta"
+          >
+            COMEÇAR COM O MÉTODO
+          </a>
+        </div>
+      </div>
+
+      <!-- Right column: features -->
+      <div class="pricing-right">
+        {features.map((f) => (
+          <div class="pricing-feature">
+            <span class="pricing-feature-check">&#x2714;</span>
+            <span class="pricing-feature-text">{f}</span>
           </div>
         ))}
       </div>
 
-      <!-- Preço -->
-      <div class="px-8 md:px-12 pb-10 flex flex-col items-center gap-4">
-        <p class="text-center text-base italic" style="color: rgba(116,116,116,0.72);">
-          Receba tudo isso por apenas
-        </p>
-
-        <div class="flex items-end gap-2 justify-center py-4 border-y w-full" style="border-color: rgba(0,0,0,0.11);">
-          <span class="text-xl" style="color: #474747;">12x</span>
-          <span class="text-6xl md:text-8xl font-semibold leading-none" style="color: rgba(36,34,35,0.28);">30</span>
-          <span class="text-lg" style="color: #202020;">,72</span>
-        </div>
-        <p class="text-base md:text-xl" style="color: #535353;">
-          ou <strong>R$ 297,00 à vista</strong>
-        </p>
-
-        <!-- CTA Principal -->
-        <a
-          href={HOTMART}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-grad w-full text-center inline-block text-white font-semibold tracking-widest uppercase text-sm md:text-base px-10 py-5 rounded-full mt-2 transition-all duration-500"
-        >
-          COMEÇAR COM O MÉTODO
-        </a>
-
-        <p class="text-sm text-center" style="color: rgba(0,0,0,0.65);">
-          Acesso imediato após a confirmação do pagamento
-        </p>
-        <p class="text-sm text-center font-semibold" style="color: rgba(0,0,0,0.65);">
-          Sem taxas escondidas. Garantia de 7 dias
-        </p>
-      </div>
     </div>
 
     <!-- Garantia box -->
-    <div
-      class="mt-10 rounded-2xl px-8 md:px-12 py-8 text-center flex flex-col items-center gap-4"
-      style="background-color: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.1);"
-    >
+    <div class="pricing-garantia">
       <img
         src="/img/113907.svg"
         alt="Garantia de 7 dias"
-        class="w-24 h-auto"
+        class="pricing-garantia-img"
         loading="lazy"
       />
-      <h3 class="text-xl font-semibold" style="color: #244030; font-family: 'Factul', sans-serif;">
-        Garantia de 7 dias
+      <h3 class="pricing-garantia-title">
+        <span class="underline-inner">Garantia de 7 dias</span>
       </h3>
-      <p class="text-base leading-relaxed" style="color: rgba(0,0,0,0.7);">
+      <p class="pricing-garantia-text">
         Se por qualquer motivo você não ficar satisfeita com o treinamento, basta entrar em contato com a nossa equipe de suporte e solicitar o reembolso do valor investido.
       </p>
     </div>
 
     <!-- Texto emocional -->
-    <div class="mt-10 text-center">
-      <p class="text-lg md:text-xl leading-relaxed" style="color: #363435;">
+    <div class="pricing-emotional">
+      <p>
         As refeições não precisam ser momentos de tensão! Elas podem ser <strong>memórias felizes, leves e cheias de afeto.</strong>
         O próximo passo está nas suas mãos. Descubra como essa transformação é possível.
       </p>
     </div>
+
   </div>
 </section>
+
+<style>
+  .pricing-section {
+    background: linear-gradient(90deg, #FEB45D 0%, #FDD8AC 100%);
+    padding: 60px 24px;
+  }
+  @media (max-width: 767px) {
+    .pricing-section {
+      padding: 40px 16px;
+    }
+  }
+
+  .pricing-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  /* 3-column grid */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 30px;
+  }
+  @media (max-width: 1024px) {
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  /* Left column */
+  .pricing-left {
+    background: linear-gradient(180deg, #244030 0%, #4E8867 100%);
+    border-radius: 16px;
+    padding: 40px 30px;
+    color: white;
+  }
+  @media (max-width: 1024px) {
+    .pricing-left {
+      text-align: center;
+    }
+  }
+
+  .pricing-left-title {
+    font-family: 'Factul', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.3em;
+    color: white;
+    margin: 0 0 30px 0;
+  }
+  @media (max-width: 767px) {
+    .pricing-left-title {
+      font-size: 22px;
+    }
+  }
+
+  .pricing-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pricing-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  @media (max-width: 1024px) {
+    .pricing-item {
+      justify-content: center;
+      text-align: left;
+    }
+  }
+
+  .pricing-check {
+    color: #4CAF50;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+
+  .pricing-item-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: white;
+    line-height: 1.4em;
+  }
+
+  .pricing-strikethrough {
+    color: #ff4444;
+    text-decoration: line-through;
+    font-weight: 600;
+  }
+
+  /* Center column: price card */
+  .pricing-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pricing-card {
+    background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    padding: 30px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 320px;
+  }
+  @media (max-width: 767px) {
+    .pricing-card {
+      min-width: auto;
+      width: 100%;
+      padding: 30px 24px;
+    }
+  }
+
+  .pricing-card-label {
+    font-family: 'Factul', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #363435;
+    margin: 0;
+    line-height: 1.3em;
+  }
+
+  .pricing-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    justify-content: center;
+    padding: 16px 0;
+    border-top: 1px solid rgba(0,0,0,0.11);
+    border-bottom: 1px solid rgba(0,0,0,0.11);
+    width: 100%;
+  }
+
+  .pricing-12x {
+    font-size: 20px;
+    color: #474747;
+    font-family: 'Factul', sans-serif;
+  }
+
+  .pricing-rs {
+    font-size: 36px;
+    color: rgba(36,34,35,0.28);
+    font-family: 'Factul', sans-serif;
+    font-weight: 400;
+  }
+
+  .pricing-amount {
+    font-size: 96px;
+    font-weight: 600;
+    line-height: 1;
+    color: #E8934A;
+    font-family: 'Factul', sans-serif;
+  }
+  @media (max-width: 767px) {
+    .pricing-amount {
+      font-size: 72px;
+    }
+  }
+
+  .pricing-cents {
+    font-size: 18px;
+    color: #202020;
+    font-family: 'Factul', sans-serif;
+  }
+
+  .pricing-avista {
+    font-size: 16px;
+    color: #535353;
+    margin: 0;
+  }
+
+  .pricing-cta {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 18px 32px;
+    border-radius: 999px;
+    margin-top: 8px;
+    text-decoration: none;
+  }
+
+  /* Right column: features */
+  .pricing-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  @media (max-width: 1024px) {
+    .pricing-right {
+      align-items: center;
+    }
+  }
+
+  .pricing-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pricing-feature-check {
+    color: white;
+    background: #4CAF50;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+
+  .pricing-feature-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #363435;
+    line-height: 1.4em;
+  }
+
+  /* Garantia */
+  .pricing-garantia {
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pricing-garantia-img {
+    width: 120px;
+    height: auto;
+  }
+
+  .pricing-garantia-title {
+    font-family: 'Factul', sans-serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #363435;
+    margin: 0;
+  }
+  @media (max-width: 767px) {
+    .pricing-garantia-title {
+      font-size: 28px;
+    }
+  }
+
+  .pricing-garantia-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: rgba(0,0,0,0.7);
+    line-height: 1.5em;
+    max-width: 700px;
+    margin: 0;
+  }
+
+  /* Emotional text */
+  .pricing-emotional {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .pricing-emotional p {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.6em;
+    color: #363435;
+    margin: 0;
+  }
+</style>

@@ -1,6 +1,4 @@
 ---
-const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
-
 const fases = [
   {
     semana: "Semana 1",
@@ -9,12 +7,12 @@ const fases = [
     descricao: "Entenda o que está por trás da seletividade e comece a mudar a percepção do seu filho com a comida.",
     modulos: [
       {
-        nome: "Módulo 1: O cérebro seletivo",
-        desc: "Aprenda como transformar o cérebro seletivo do seu filho em um cérebro aberto a novas experimentações – A hora é de reprogramar.",
+        nome: "Módulo 1:",
+        desc: "O cérebro seletivo – Aprenda como transformar o cérebro seletivo do seu filho em um cérebro aberto a novas experimentações – A hora é de reprogramar.",
       },
       {
-        nome: "Módulo 2: Compreendendo a seletividade",
-        desc: "Quais são as causas individualizadas, estágios e estratégias personalizadas.",
+        nome: "Módulo 2:",
+        desc: "Compreendendo a seletividade – Quais são as causas individualizadas, estágios e estratégias personalizadas.",
       },
     ],
   },
@@ -22,39 +20,39 @@ const fases = [
     semana: "Semana 2",
     fase: "FASE REESTRUTURAÇÃO",
     titulo: "Reestruture os fatores fortalecedores da Seletividade alimentar",
-    descricao: "Torne o ambiente favorável a novas experimentações, aumentando a segurança e autonomia do pequeno.",
+    descricao: "Torne o ambiente favorável a novas experimentações, aumentando a segurança e autonomia do pequeno",
     modulos: [
       {
-        nome: "Módulo 3: O método comer bem sem estresse",
-        desc: "Entenda o método e comece a implementar mudanças essenciais que trarão resultados reais.",
+        nome: "Módulo 3:",
+        desc: "O método comer bem sem estresse – Entenda o método e comece a implementar mudanças essenciais que trarão resultados reais.",
       },
     ],
   },
   {
     semana: "Semana 3",
     fase: "FASE ALIMENTAR",
-    titulo: "Estratégias eficazes de aproximação e oferta lúdica",
-    descricao: "Seu pequeno foi preparado nas semanas anteriores para chegar até aqui. Estratégias eficazes de aproximação, exposição e oferta lúdica para autonomia alimentar.",
+    titulo: "Seu pequeno foi preparado nas semanas anteriores para chegar até aqui",
+    descricao: "Estratégias eficazes de aproximação, exposição e oferta lúdica para autonomia alimentar do seu pequeno",
     modulos: [
       {
-        nome: "Módulo 4: Transformação sem resistência",
-        desc: "Torne a alimentação uma atividade natural da rotina.",
+        nome: "Módulo 4:",
+        desc: "Transformação sem resistência – Torne a alimentação uma atividade natural da rotina.",
       },
     ],
   },
   {
     semana: "Semana 4",
     fase: "FASE CONSOLIDAÇÃO",
-    titulo: "Ferramentas lúdicas para consolidar o aprendizado",
-    descricao: "Como incentivar o pequeno, de forma lúdica, a comer com naturalidade e autonomia.",
+    titulo: "Ferramentas lúdicas para auxiliar na consolidação da metodologia do aprendizado do comer",
+    descricao: "Como incentivar o pequeno, de forma lúdica, a comer com naturalidade e autonomia",
     modulos: [
       {
-        nome: "Módulo 5: Aprendizado consolidado",
-        desc: "Fixe o conhecimento com materiais complementares e práticos. Utilize o seu Diário da conexão com a comida e o livro de Receitas para crianças seletivas.",
+        nome: "Módulo 5:",
+        desc: "Aprendizado consolidado – Fixe o conhecimento com materiais complementares e práticos. Utilize aqui o seu Diário da conexão com a comida e o livro de Receitas para crianças seletivas, que você ganhou como bônus.",
       },
       {
-        nome: "Módulo de Atividades: Kit brincando de comer",
-        desc: "Imprima, brinque e transforme o momento da refeição em uma experiência divertida e sem estresse com vários joguinhos divertidos.",
+        nome: "Módulo de Atividades:",
+        desc: "Você terá acesso ao Kit brincando de comer, que você também recebeu de bônus. Imprima, brinque e transforme o momento da refeição em uma experiência divertida e sem estresse. Você terá acesso a vários joguinhos muito divertidos para utilizar com o seu pequeno que serão essenciais nessa transformação e terá muita conexão e alegria à mesa todos os dias.",
       },
     ],
   },
@@ -62,96 +60,318 @@ const fases = [
 ---
 
 <!-- Seção Como Funciona -->
-<section class="py-16 md:py-24 px-6 md:px-10" style="background-color: #FFFFFF;">
-  <div class="max-w-5xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <h2
-        class="text-3xl md:text-4xl leading-tight mb-4"
-        style="font-family: 'Factul', sans-serif; color: #363435;"
-      >
-        Confira como funciona o Comer bem sem estresse:
-      </h2>
-      <p class="text-lg md:text-xl" style="color: #363435; font-family: 'Factul', sans-serif;">
-        Um método em <strong>4 semanas</strong>
-      </p>
-    </div>
+<section class="como-section">
+  <div class="como-inner">
 
-    <!-- Fases acordeão -->
-    <div class="space-y-6 mb-12" id="fases-accordion">
-      {fases.map((fase, i) => (
-        <details class="rounded-2xl overflow-hidden shadow-md group" open={i === 0 ? true : undefined}>
-          <!-- Summary / Header -->
-          <summary
-            class="flex items-center justify-between px-8 py-5 cursor-pointer list-none"
-            style="background: linear-gradient(180deg, #C47519 0%, #E7B478 100%);"
-          >
-            <div class="flex items-center gap-4">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80">{fase.semana}</span>
-              <span
-                class="text-base font-semibold text-white"
-                style="font-family: 'Inter', sans-serif; line-height: 1.7em;"
-              >
-                {fase.fase}
+    <!-- Heading -->
+    <h1 class="como-heading">
+      <span class="underline-inner">Confira como funciona</span> o Comer bem sem estresse:
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="como-subtitle">Um método em 4 semanas</p>
+
+    <!-- Cream card container -->
+    <div class="como-card">
+
+      <!-- Hint text -->
+      <p class="como-hint">Clique nos módulos para saber mais</p>
+
+      <!-- Accordion -->
+      <div class="como-accordion">
+        {fases.map((fase, i) => (
+          <details class="como-details" >
+            <summary class="como-summary">
+              <!-- Caret icon -->
+              <span class="como-caret" aria-hidden="true">
+                <svg class="caret-closed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="15" height="15" fill="currentColor">
+                  <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8l-256 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
+                </svg>
+                <svg class="caret-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="15" height="15" fill="currentColor">
+                  <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/>
+                </svg>
               </span>
+              <!-- Text -->
+              <div class="como-summary-text">
+                <span class="como-semana">{fase.semana}</span><br/>
+                {fase.fase}
+              </div>
+            </summary>
+
+            <!-- Content -->
+            <div class="accordion-content">
+              <div class="como-content">
+                <!-- Title (bold italic) -->
+                <p class="como-fase-titulo">{fase.titulo}</p>
+                <!-- Description -->
+                <p class="como-fase-desc">{fase.descricao}</p>
+                <!-- Module list -->
+                <ul class="como-module-list">
+                  {fase.modulos.map((mod) => (
+                    <li class="como-module-item">
+                      <span class="como-module-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="22" height="22">
+                          <rect fill="#6bb577" height="58" rx="7" width="58" x="1" y="1"></rect>
+                          <path d="m24.375 47c-.892 0-1.751-.356-2.386-.996l-9-9.067c-1.318-1.327-1.318-3.481 0-4.808 1.317-1.328 3.455-1.328 4.772 0l6.248 6.294 17.915-24.064c1.121-1.502 3.238-1.805 4.725-.68 1.492 1.127 1.794 3.258.676 4.76l-20.25 27.2c-.587.789-1.485 1.282-2.46 1.351-.08.006-.16.009-.239.009z" fill="#fff"></path>
+                        </svg>
+                      </span>
+                      <span class="como-module-text">
+                        <span class="texto">{mod.nome}</span> {mod.desc}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <!-- Icon -->
-            <svg class="w-5 h-5 text-white shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </summary>
+          </details>
+        ))}
+      </div>
 
-          <!-- Content -->
-          <div class="px-8 py-8" style="background-color: #FCF9F2;">
-            <h3
-              class="text-xl md:text-2xl font-semibold mb-2"
-              style="font-family: 'Inter', sans-serif; color: rgba(0,0,0,0.83);"
-            >
-              {fase.titulo}
-            </h3>
-            <p class="text-base leading-relaxed mb-6" style="color: rgba(0,0,0,0.83);">{fase.descricao}</p>
-            <ul class="space-y-4">
-              {fase.modulos.map((mod) => (
-                <li class="flex items-start gap-3">
-                  <span class="shrink-0 mt-1 text-sm" style="color: #D8AA24;">&#9656;</span>
-                  <div>
-                    <strong class="text-base" style="color: rgba(16,16,16,0.8);">{mod.nome} –</strong>{" "}
-                    <span class="text-base" style="color: rgba(16,16,16,0.77);">{mod.desc}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </details>
-      ))}
     </div>
 
-    <!-- Resumo do conteudo -->
-    <div
-      class="rounded-xl p-6 md:p-8 text-center mb-10"
-      style="background-color: rgba(240,232,221,0.24); border: 1px solid rgba(0,0,0,0.08);"
-    >
-      <p class="text-base md:text-lg leading-relaxed mb-2" style="color: rgba(0,0,0,0.83);">
-        Tudo isso com <strong>vídeo aulas curtas e diretas</strong>, material de apoio para aplicar a cada passo,
-        atividades e jogos lúdicos e divertidos para aproximar seu filho dos alimentos.
-      </p>
-      <p class="text-base md:text-lg leading-relaxed" style="color: rgba(0,0,0,0.83);">
-        <strong>Acesso imediato e 100% online</strong>, para assistir de onde quiser.
-        Em apenas 4 semanas você vai entender que a sua necessidade não era mais esforço,
-        mas <em>direção, clareza e uma metodologia estruturada.</em>
-      </p>
-    </div>
-
-    <!-- CTA -->
-    <div class="flex justify-center">
-      <a
-        href={HOTMART}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-grad inline-block text-white font-semibold tracking-widest uppercase text-sm md:text-base px-10 py-5 rounded-full transition-all duration-500"
-      >
-        Quero um sistema que funcione
-      </a>
-    </div>
   </div>
 </section>
+
+<style>
+  /* Section — dark green gradient */
+  .como-section {
+    background: linear-gradient(145deg, #244030 0%, #4e8867 100%);
+    padding: 0;
+    margin-bottom: -4px;
+  }
+
+  .como-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  @media (max-width: 767px) {
+    .como-inner {
+      padding: 10% 5% 0;
+    }
+  }
+
+  /* Heading */
+  .como-heading {
+    font-family: 'Factul', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #ffffff;
+    text-align: center;
+    text-wrap: balance;
+    margin: 0;
+    max-width: 640px;
+  }
+  @media (max-width: 767px) {
+    .como-heading {
+      font-size: 6.5vw;
+      max-width: 100%;
+    }
+  }
+
+  /* Subtitle */
+  .como-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+  }
+  @media (max-width: 767px) {
+    .como-subtitle {
+      font-size: 4.5vw;
+    }
+  }
+
+  /* Cream card container */
+  .como-card {
+    background-color: #fcf9f2;
+    border-radius: 10px 10px 0 0;
+    padding: 20px 40px 60px;
+    width: 666px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (max-width: 767px) {
+    .como-card {
+      width: 100%;
+      padding: 20px 20px 40px;
+    }
+  }
+
+  /* Hint text */
+  .como-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(116, 116, 116, 0.72);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Accordion container */
+  .como-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Details item */
+  .como-details {
+    margin-bottom: 19px;
+  }
+  .como-details:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Summary header — orange gradient */
+  .como-summary {
+    background: linear-gradient(180deg, #c47519 0%, #e7b478 100%);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .como-summary::-webkit-details-marker {
+    display: none;
+  }
+  .como-summary::marker {
+    display: none;
+  }
+
+  /* Caret icon */
+  .como-caret {
+    flex-shrink: 0;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+  }
+  .como-caret svg {
+    width: 15px;
+    height: 15px;
+  }
+  /* Closed state: show down caret, hide right caret */
+  .caret-closed {
+    display: block;
+  }
+  .caret-open {
+    display: none;
+  }
+  /* Open state: show right caret, hide down caret */
+  .como-details[open] .caret-closed {
+    display: none;
+  }
+  .como-details[open] .caret-open {
+    display: block;
+  }
+
+  /* Summary text */
+  .como-summary-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.7em;
+    color: #ffffff;
+  }
+
+  /* Semana label (white pill on orange header) */
+  .como-semana {
+    color: #c47519;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.7em;
+    background-color: #ffffff;
+    border-radius: 100px;
+    padding: 5px 13px;
+  }
+
+  /* Accordion content */
+  .como-content {
+    padding: 10px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Phase title (bold italic) */
+  .como-fase-titulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5em;
+    color: rgba(0, 0, 0, 0.83);
+    margin: 0;
+  }
+
+  /* Phase description */
+  .como-fase-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: rgba(0, 0, 0, 0.83);
+    margin: 0;
+  }
+
+  /* Module list */
+  .como-module-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .como-module-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 14.5px;
+  }
+  .como-module-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .como-module-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+  }
+  .como-module-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .como-module-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5em;
+    color: #1c1e20;
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    .como-module-text {
+      font-size: 16px;
+    }
+  }
+</style>

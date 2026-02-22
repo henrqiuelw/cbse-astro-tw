@@ -1,88 +1,230 @@
 ---
 const bonus = [
   {
-    num: "01",
+    num: "BÔNUS 01",
     titulo: "Receitas para crianças seletivas",
-    descricao: "Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e vontade de experimentar.",
-    valor: "R$69,00",
+    descricao: "Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e a vontade de experimentar.",
     img: "/img/083507-copy.webp",
+    reverse: true,
+    gradient: "linear-gradient(103deg, #244030 0%, #4e8867 100%)",
   },
   {
-    num: "02",
+    num: "BÔNUS 02",
     titulo: "Diário da conexão com a comida",
     descricao: "Um guia prático com atividades diárias para transformar a mesa em momento de afeto.",
-    valor: "R$69,00",
     img: "/img/0917071.webp",
+    reverse: false,
+    gradient: "linear-gradient(180deg, #244030 0%, #4e8867 100%)",
   },
   {
-    num: "03",
+    num: "BÔNUS 03",
     titulo: "Kit brincando de comer",
     descricao: "Imprima, brinque e transforme o momento da refeição em uma experiência divertida. Jogos e atividades para que seu filho descubra o prazer de comer brincando.",
-    valor: "R$99,00",
     img: "/img/093507-copy.webp",
+    reverse: true,
+    gradient: "linear-gradient(103deg, #244030 0%, #4e8867 100%)",
   },
 ];
 ---
 
 <!-- Seção Bônus -->
-<section
-  class="py-16 md:py-24 px-6 md:px-10"
-  style="background: linear-gradient(90deg, #FEB45D 0%, #FDD8AC 100%);"
->
-  <div class="max-w-5xl mx-auto">
-    <!-- Header -->
-    <div
-      class="rounded-xl px-10 py-16 flex flex-col items-center gap-6 mb-10 relative overflow-hidden"
-      style="background-color: #FFFFFF;"
-    >
-      <!-- Logo flutuante -->
-      <div class="relative -mt-28 md:-mt-32">
-        <img
-          src="/img/095704.svg"
-          alt="Logo Comer Bem Sem Estresse"
-          class="w-36 h-auto object-contain"
-          loading="lazy"
-        />
-      </div>
+<section class="bonus-section">
+  <div class="bonus-inner">
 
-      <h2
-        class="text-3xl md:text-4xl leading-tight text-center"
-        style="font-family: 'Factul', sans-serif; color: #3A3A3A;"
-      >
-        Bônus Exclusivos
-      </h2>
-      <p class="text-base md:text-lg text-center" style="color: #525252;">
-        E para acelerar o seu avanço, você receberá de Bônus:
-      </p>
+    <!-- Heading -->
+    <h1 class="bonus-heading">
+      <span class="underline-inner">Bônus Exclusivos</span>
+    </h1>
 
-      <!-- Cards dos bônus -->
-      <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-        {bonus.map((b) => (
-          <div
-            class="rounded-2xl overflow-hidden shadow-sm"
-            style="background: radial-gradient(at center center, #3B634C 0%, #244030 100%);"
-          >
-            <!-- Topo -->
-            <div class="px-8 py-8">
-              <span
-                class="text-sm font-semibold uppercase tracking-widest mb-4 block"
-                style="color: #FFDDB5; font-family: 'Factul', sans-serif;"
-              >
-                BÔNUS {b.num}
-              </span>
-              <h3
-                class="text-xl leading-snug mb-3"
-                style="font-family: 'Factul', sans-serif; color: #FFFFFF;"
-              >
-                {b.titulo}
-              </h3>
-              <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.83);">
-                {b.descricao}
-              </p>
-            </div>
+    <!-- Subtitle -->
+    <p class="bonus-subtitle">E para acelerar o seu avanço, você receberá de Bônus:</p>
+
+    <!-- Bonus cards -->
+    {bonus.map((b) => (
+      <div class="bonus-card-wrap">
+        <div class:list={["bonus-card", b.reverse && "bonus-card-reverse"]} style={`background: ${b.gradient};`}>
+          <!-- Image column -->
+          <div class="bonus-img-col">
+            <img
+              src={b.img}
+              alt={b.titulo}
+              class="bonus-img"
+              loading="lazy"
+            />
           </div>
-        ))}
+          <!-- Text column -->
+          <div class="bonus-text-col">
+            <a class="bonus-badge" href="#" tabindex="-1" aria-hidden="true">{b.num}</a>
+            <h2 class="bonus-titulo">{b.titulo}</h2>
+            <div class="bonus-divider"></div>
+            <p class="bonus-desc">{b.descricao}</p>
+          </div>
+        </div>
       </div>
-    </div>
+    ))}
+
   </div>
 </section>
+
+<style>
+  /* Section — very subtle cream background */
+  .bonus-section {
+    background-color: rgba(240, 232, 221, 0.24);
+    padding: 0;
+  }
+
+  .bonus-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  @media (max-width: 1024px) {
+    .bonus-inner {
+      padding: 80px 40px;
+    }
+  }
+  @media (max-width: 767px) {
+    .bonus-inner {
+      padding: 10% 5%;
+    }
+  }
+
+  /* Heading */
+  .bonus-heading {
+    font-family: 'Factul', sans-serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 1.1em;
+    color: #232f30;
+    text-align: center;
+    margin: 0;
+  }
+  @media (max-width: 767px) {
+    .bonus-heading {
+      font-size: 8vw;
+    }
+  }
+
+  /* Subtitle */
+  .bonus-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: rgba(0, 0, 0, 0.83);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Card wrapper */
+  .bonus-card-wrap {
+    border-radius: 10px;
+    box-shadow:
+      0 0 0 1px rgba(113, 123, 152, 0.05),
+      0 1px 1px 0.5px rgba(113, 123, 152, 0.05),
+      0 3px 3px rgba(113, 123, 152, 0.05);
+    overflow: hidden;
+    width: 673px;
+    max-width: 100%;
+  }
+
+  /* Card — 2-column green gradient */
+  .bonus-card {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+  .bonus-card-reverse {
+    flex-direction: row-reverse;
+  }
+  @media (max-width: 767px) {
+    .bonus-card {
+      flex-direction: column !important;
+    }
+  }
+
+  /* Image column */
+  .bonus-img-col {
+    flex: 0 0 315px;
+    min-width: 0;
+    overflow: hidden;
+  }
+  @media (max-width: 767px) {
+    .bonus-img-col {
+      flex: none;
+      width: 100%;
+    }
+  }
+
+  .bonus-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Text column */
+  .bonus-text-col {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Badge */
+  .bonus-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #DBB953;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1.9px;
+    line-height: 1;
+    border-radius: 1000px;
+    padding: 12px 24px;
+    text-decoration: none;
+    pointer-events: none;
+    margin-bottom: 16px;
+  }
+
+  /* Title */
+  .bonus-titulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1em;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+  }
+  @media (max-width: 767px) {
+    .bonus-titulo {
+      font-size: 24px;
+    }
+  }
+
+  /* Divider */
+  .bonus-divider {
+    width: 100%;
+    max-width: 274px;
+    height: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    margin-bottom: 16px;
+  }
+
+  /* Description */
+  .bonus-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: rgba(255, 255, 255, 0.93);
+    margin: 0;
+  }
+</style>

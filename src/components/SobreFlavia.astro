@@ -1,96 +1,172 @@
 ---
-const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
 ---
 
-<!-- Sobre a Flávia Andrade -->
-<section class="relative overflow-hidden" style="background-color: #FFFFFF;">
+<!-- Gold gradient strip -->
+<div class="sobre-gold-strip"></div>
 
-  <!-- Parte superior verde: titulo + dados -->
-  <div
-    class="py-16 md:py-20 px-6 md:px-10 flex flex-col items-center gap-5 relative"
-    style="background: linear-gradient(11deg, #244030 0%, #39664C 100%);"
-  >
-    <div class="max-w-3xl text-center">
-      <h2
-        class="text-3xl md:text-4xl leading-tight mb-4"
-        style="font-family: 'Factul', sans-serif; color: #FFFFFF;"
-      >
-        Quem criou o Comer bem sem estresse?
-      </h2>
+<!-- Seção Sobre a Flávia -->
+<section class="sobre-section">
+  <div class="sobre-inner">
+
+    <!-- Left column: text -->
+    <div class="sobre-text-col">
+
+      <p class="sobre-label">Quem criou o Comer bem sem estresse?</p>
+
+      <h1 class="sobre-name">Flávia Andrade</h1>
+
+      <!-- Scroll indicator (decorative) -->
+      <img src="/img/mouse.svg" alt="" class="sobre-mouse" width="30" height="30" aria-hidden="true" />
+
+      <p class="sobre-bio">
+        Sou Flávia Andrade, <span class="texto">nutricionista há mais de 20 anos,</span> especialista em seletividade alimentar e desenvolvimento infantil.
+      </p>
+
+      <p class="sobre-bio">
+        <span class="texto">A minha filha, que desenvolveu a seletividade alimentar aos 2 anos,</span> foi o ponto de partida, mas não foi a dor que criou o método, e sim a análise técnica do que realmente estava acontecendo.
+      </p>
+
+      <p class="sobre-bio">
+        Quando percebi que a <span class="texto">seletividade alimentar não se resolvia com mais insistência, receitas ou negociações,</span> aprofundei meus estudos para entender a causa da restrição do repertório alimentar.
+      </p>
+
+      <p class="sobre-bio">
+        A partir disso, <span class="texto">desenvolvi um método estruturado, inicialmente aplicado na minha própria filha e, depois, validado em milhares de famílias</span> que buscavam previsibilidade, autonomia e menos desgaste na alimentação infantil.
+      </p>
+
+      <p class="sobre-bio">
+        Hoje, o Metodologia Comer bem sem estresse não é uma experiência pessoal – é <span class="texto">um sistema aplicado, que já apoiou mais de 5 mil famílias a sair do improviso e construir uma relação mais funcional com a alimentação.</span>
+      </p>
+
     </div>
 
-    <!-- Checklist de credenciais -->
-    <div class="max-w-2xl w-full">
-      <ul class="space-y-4">
-        {[
-          "Nutricionista há mais de 20 anos",
-          "Especialista em seletividade alimentar e desenvolvimento infantil",
-          "Criadora de um método testado e validado em mais de 5 mil famílias",
-          "Mãe que também viveu e superou a seletividade alimentar na própria filha",
-        ].map((item) => (
-          <li class="flex items-start gap-3 border-b pb-4" style="border-color: rgba(221,221,221,0.17);">
-            <span class="shrink-0 mt-0.5 text-lg" style="color: #3DC935;">&check;</span>
-            <span class="text-base leading-relaxed" style="color: #FFFFFF;">{item}</span>
-          </li>
-        ))}
-      </ul>
+    <!-- Right column: photo -->
+    <div class="sobre-photo-col">
+      <img
+        src="/img/142306.webp"
+        alt="Flávia Andrade com sua filha"
+        class="sobre-photo"
+        width="474"
+        height="604"
+        loading="lazy"
+      />
     </div>
+
   </div>
-
-  <!-- Bloco branco: Flávia + texto -->
-  <div class="relative -mt-12 md:-mt-16 z-10 px-4 md:px-10">
-    <div
-      class="max-w-xl mx-auto rounded-2xl shadow-xl px-8 md:px-12 py-12 flex flex-col items-center gap-6"
-      style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%);"
-    >
-      <!-- Foto -->
-      <div class="relative -mt-24 md:-mt-28">
-        <img
-          src="/img/113007.webp"
-          alt="Flávia Andrade – nutricionista"
-          class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-lg border-4 border-white"
-          loading="lazy"
-        />
-      </div>
-
-      <!-- Nome -->
-      <div class="text-center">
-        <h3
-          class="text-2xl md:text-4xl leading-tight mb-1"
-          style="font-family: 'Factul', sans-serif; color: #5A5A5A;"
-        >
-          Flávia Andrade
-        </h3>
-        <p class="text-lg md:text-xl" style="color: #535353; font-family: 'Inter', sans-serif;">
-          Nutricionista &middot; Especialista em Seletividade Alimentar
-        </p>
-      </div>
-
-      <!-- Contador -->
-      <div
-        class="flex items-end gap-1 justify-center py-3 border-y w-full"
-        style="border-color: rgba(0,0,0,0.11);"
-      >
-        <span class="text-xl" style="color: #474747;">mais de</span>
-        <span class="text-7xl md:text-8xl font-semibold leading-none" style="color: rgba(36,34,35,0.28);">5</span>
-        <span class="text-xl" style="color: #202020;">mil famílias</span>
-      </div>
-
-      <!-- Bio -->
-      <p class="text-center text-base md:text-lg leading-relaxed" style="color: #535353;">
-        Sou Flávia Andrade, nutricionista há mais de 20 anos, especialista em seletividade alimentar e desenvolvimento infantil.
-      </p>
-      <p class="text-center text-base md:text-lg leading-relaxed" style="color: #535353;">
-        A minha filha, que desenvolveu a seletividade alimentar aos 2 anos, foi o ponto de partida, mas não foi a dor que criou o método — e sim a análise técnica do que realmente estava acontecendo.
-      </p>
-      <p class="text-center text-base md:text-lg leading-relaxed" style="color: #535353;">
-        Quando percebi que a seletividade alimentar não se resolvia com mais insistência, receitas ou negociações, aprofundei meus estudos para entender a causa da restrição do repertório alimentar. A partir disso, desenvolvi um método estruturado, inicialmente aplicado na minha própria filha e, depois, validado em milhares de famílias.
-      </p>
-      <p class="text-center text-base md:text-lg leading-relaxed" style="color: #535353;">
-        Hoje, a Metodologia Comer bem sem estresse não é uma experiência pessoal — é um sistema aplicado, que já apoiou mais de <strong>5 mil famílias</strong> a sair do improviso e construir uma relação mais funcional com a alimentação.
-      </p>
-    </div>
-  </div>
-
-  <div class="h-24 md:h-32"></div>
 </section>
+
+<style>
+  /* Gold strip */
+  .sobre-gold-strip {
+    height: 20px;
+    background: linear-gradient(90deg, #feb45d 0%, #fdd8ac 100%);
+  }
+
+  /* Section */
+  .sobre-section {
+    background-color: #fcf9f2;
+    padding: 0;
+  }
+
+  .sobre-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 0;
+    display: flex;
+    gap: 27px;
+    align-items: flex-start;
+  }
+  @media (max-width: 1024px) {
+    .sobre-inner {
+      padding: 60px 40px;
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .sobre-inner {
+      flex-direction: column;
+      padding: 10% 5%;
+      gap: 30px;
+      align-items: center;
+    }
+  }
+
+  /* Photo column */
+  .sobre-photo-col {
+    flex: 0 0 378px;
+    min-width: 0;
+  }
+  @media (max-width: 1024px) {
+    .sobre-photo-col {
+      flex: 0 0 40%;
+    }
+  }
+  @media (max-width: 767px) {
+    .sobre-photo-col {
+      flex: none;
+      width: 100%;
+    }
+  }
+
+  .sobre-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  /* Text column */
+  .sobre-text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  @media (max-width: 767px) {
+    .sobre-text-col {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  /* Label */
+  .sobre-label {
+    font-family: 'Factul', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #363435;
+    margin: 0;
+  }
+
+  /* Name */
+  .sobre-name {
+    font-family: 'Factul', sans-serif;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1.1em;
+    color: #363435;
+    margin: 0;
+  }
+  @media (max-width: 767px) {
+    .sobre-name {
+      font-size: 10vw;
+    }
+  }
+
+  /* Mouse icon */
+  .sobre-mouse {
+    width: 30px;
+    height: auto;
+    opacity: 0.5;
+  }
+
+  /* Bio paragraphs */
+  .sobre-bio {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5em;
+    color: rgba(0, 0, 0, 0.83);
+    margin: 0;
+  }
+</style>

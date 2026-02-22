@@ -1,91 +1,224 @@
 ---
+const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+
 const fases = [
   {
     numero: "FASE 1",
     nome: "Diagnóstica",
-    descricao: "Identifique as causas das recusas e comece a mudar a percepção do seu filho com a comida.",
-    img: "/img/133907-copy.webp",
+    descricao: "Identificação das causas das recusas e comece a mudar a percepção do seu filho com a comida.",
+    watermark: "/img/031055.svg",
   },
   {
     numero: "FASE 2",
-    nome: "Reestruturação",
-    descricao: "Reestruture e neutralize os fatores fortalecedores da seletividade alimentar, tornando o ambiente favorável a novas experimentações, aumentando a segurança e a autonomia do seu filho.",
-    img: "/img/133907-copy.webp",
+    nome: "Estruturação",
+    descricao: "Reestruture e neutralize os fatores fortalecedores da seletividade alimentar, tornando o ambiente favorável a novas experimentações, aumentando a segurança e a autonomia do seu filho",
+    watermark: "/img/021055.svg",
   },
   {
     numero: "FASE 3",
     nome: "Alimentar",
     descricao: "Estratégias de aproximação e exposição dos alimentos e a oferta lúdica. Nessa fase, o pequeno já foi preparado e está aberto a novas experimentações.",
-    img: "/img/133907-copy.webp",
+    watermark: "/img/011055.svg",
   },
   {
     numero: "FASE 4",
     nome: "Consolidação",
-    descricao: "Ferramentas lúdicas para consolidar a aplicação da metodologia e incentivar o seu filho a comer com naturalidade e autonomia.",
-    img: "/img/133907-copy.webp",
+    descricao: "Ferramentas lúdicas para consolidar a aplicação da metodologia e incentivar o seu filho a comer com naturalidade e autonomia",
+    watermark: "/img/110074060.svg",
   },
 ];
 ---
 
-<!-- Seção Fases Resumo (visual) -->
-<section
-  class="py-16 md:py-24 px-6 md:px-10"
-  style="background: linear-gradient(145deg, #244030 0%, #4E8867 100%);"
->
-  <div class="max-w-5xl mx-auto">
-    <!-- Header -->
-    <div class="text-center mb-10 md:mb-14">
-      <h2
-        class="text-2xl md:text-4xl leading-tight mb-3"
-        style="font-family: 'Factul', sans-serif; color: #FFFFFF;"
-      >
-        O Comer bem sem estresse vai lhe dar clareza e direção nessa transformação
-      </h2>
-      <p class="text-base md:text-lg" style="color: rgba(255,255,255,0.8); font-family: 'Inter', sans-serif;">
-        Na metodologia Comer bem sem estresse você seguirá uma trilha de conhecimento que vai preparar o seu filho para avançar com autonomia:
-      </p>
-    </div>
+<!-- Seção Fases -->
+<section class="fases-section">
+  <div class="fases-inner">
 
-    <!-- Grid de fases -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <!-- Heading -->
+    <h1 class="fases-heading">
+      Na metodologia Comer bem sem estresse você seguirá <span class="underline-inner">uma trilha de conhecimento</span> que vai preparar o seu filho<span class="underline-inner"> para avançar com autonomia:</span>
+    </h1>
+
+    <!-- Grid 2×2 -->
+    <div class="fases-grid">
       {fases.map((fase) => (
-        <div
-          class="rounded-2xl overflow-hidden flex flex-col shadow-lg"
-          style="background: radial-gradient(at center center, #5A866D 0%, #244030 100%);"
-        >
-          <!-- Image area -->
-          <div class="overflow-hidden" style="max-height: 200px;">
-            <img
-              src={fase.img}
-              alt={`Fase ${fase.nome}`}
-              class="w-full object-cover object-top"
-              style="max-height: 200px;"
-              loading="lazy"
-            />
-          </div>
-          <!-- Content -->
-          <div class="p-8 flex flex-col gap-3">
-            <span
-              class="self-start text-sm px-5 py-2 rounded-full"
-              style="background-color: rgba(90,134,109,0.45); border: 1px solid rgba(255,255,255,0.44); color: #FFFFFF; font-family: 'Factul', sans-serif;"
-            >
-              {fase.numero}
-            </span>
-            <h3
-              class="text-2xl"
-              style="font-family: 'Factul', sans-serif; color: #FFDDB5;"
-            >
-              {fase.nome}
-            </h3>
-            <p
-              class="text-base leading-relaxed pl-5 border-l-2"
-              style="border-color: #FEB45D; color: #FFFFFF;"
-            >
-              {fase.descricao}
-            </p>
-          </div>
+        <div class="fases-card">
+          <!-- Badge -->
+          <span class="fases-badge">{fase.numero}</span>
+          <!-- Nome -->
+          <p class="fases-nome">{fase.nome}</p>
+          <!-- Descrição com borda dourada -->
+          <p class="fases-desc">{fase.descricao}</p>
+          <!-- Watermark SVG -->
+          <img src={fase.watermark} alt="" class="fases-watermark" loading="lazy" aria-hidden="true" />
         </div>
       ))}
     </div>
+
+    <!-- CTA -->
+    <div class="fases-cta-wrap">
+      <a
+        href={HOTMART}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-grad fases-cta"
+      >
+        Quero um sistema que funcione
+      </a>
+    </div>
+
   </div>
 </section>
+
+<style>
+  /* Section — same cream background as Metodo, connected visually */
+  .fases-section {
+    background-color: #fef4df;
+    padding: 0;
+  }
+
+  .fases-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 60px 0 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (max-width: 1024px) {
+    .fases-inner {
+      padding: 60px 40px;
+    }
+  }
+  @media (max-width: 767px) {
+    .fases-inner {
+      padding: 10% 5%;
+    }
+  }
+
+  /* Heading */
+  .fases-heading {
+    font-family: 'Factul', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #1c3124;
+    text-align: center;
+    text-wrap: balance;
+    margin: 0 0 40px 0;
+    max-width: 625px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .fases-heading {
+      font-size: 36px;
+    }
+  }
+  @media (max-width: 767px) {
+    .fases-heading {
+      font-size: 6.1vw;
+      max-width: 100%;
+    }
+  }
+
+  /* Grid */
+  .fases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 384px);
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 1024px) {
+    .fases-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 798px;
+      width: 100%;
+    }
+  }
+  @media (max-width: 767px) {
+    .fases-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  /* Card */
+  .fases-card {
+    background: radial-gradient(circle, #5a866d 0%, #244030 100%);
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Badge pill */
+  .fases-badge {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: 'Factul', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: rgba(90, 134, 109, 0.36);
+    border: 1px solid rgba(255, 255, 255, 0.44);
+    border-radius: 100px;
+    padding: 10px 30px 7px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Phase name */
+  .fases-nome {
+    font-family: 'Factul', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.3em;
+    color: #ffddb5;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Description with gold left border */
+  .fases-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: #ffffff;
+    border-left: 2px solid #feb45d;
+    padding-left: 20px;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Watermark SVG — absolute positioned, decorative */
+  .fases-watermark {
+    position: absolute;
+    right: 36px;
+    bottom: 32px;
+    width: 307px;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* CTA */
+  .fases-cta-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .fases-cta {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    padding: 20px 40px;
+  }
+</style>
