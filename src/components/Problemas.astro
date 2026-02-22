@@ -75,25 +75,29 @@ const dores = [
 
     </div>
 
-    <!-- Mobile-only image (hidden on desktop/laptop) -->
-    <img 
-      src="/img/115104.webp" 
-      alt="Comer Bem Sem Estresse — Dificuldades Alimentares"
-      width="800"
-      height="913"
-      class="problemas-img-mobile"
-      loading="lazy"
-    />
+    <!-- Mobile-only image wrapper (hidden on desktop/laptop) -->
+    <div class="problemas-img-mobile-wrap">
+      <img 
+        src="/img/115104.webp" 
+        alt="Comer Bem Sem Estresse — Dificuldades Alimentares"
+        width="800"
+        height="913"
+        class="problemas-img-mobile"
+        loading="lazy"
+      />
+    </div>
 
-    <!-- Desktop-only image (hidden on tablet/mobile) -->
-    <img 
-      src="/img/091713-copy.webp" 
-      alt="Comer Bem Sem Estresse — Sistema Alimentar"
-      width="1038"
-      height="693"
-      class="problemas-img-desktop"
-      loading="lazy"
-    />
+    <!-- Desktop-only image wrapper (hidden on tablet/mobile) -->
+    <div class="problemas-img-desktop-wrap">
+      <img 
+        src="/img/091713-copy.webp" 
+        alt="Comer Bem Sem Estresse — Sistema Alimentar"
+        width="1038"
+        height="693"
+        class="problemas-img-desktop"
+        loading="lazy"
+      />
+    </div>
 
   </div>
 </section>
@@ -281,43 +285,50 @@ const dores = [
     }
   }
 
-  /* Mobile-only image (hidden on desktop/laptop) */
-  .problemas-img-mobile {
+  /* Mobile-only image wrapper (hidden on desktop/laptop) */
+  .problemas-img-mobile-wrap {
     display: none;
-    width: 100%;
-    height: auto;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    .problemas-img-mobile {
+    .problemas-img-mobile-wrap {
       display: block;
       margin: -50% -13% -26% -13%;
     }
   }
   @media (max-width: 767px) {
-    .problemas-img-mobile {
+    .problemas-img-mobile-wrap {
       display: block;
-      width: 100%;
       margin: 20px 0 0 0;
     }
   }
 
-  /* Desktop-only image - 54% width with negative margins */
-  .problemas-img-desktop {
+  .problemas-img-mobile {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Desktop-only image wrapper (hidden on tablet/mobile) */
+  .problemas-img-desktop-wrap {
     display: block;
     width: 54%;
-    height: auto;
-    max-width: 54%;
     margin: 0 -32% -1% -15%;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
-    .problemas-img-desktop {
+    .problemas-img-desktop-wrap {
       margin: 0 -62% -1% -15%;
     }
   }
   @media (max-width: 1024px) {
-    .problemas-img-desktop {
+    .problemas-img-desktop-wrap {
       display: none;
     }
+  }
+
+  .problemas-img-desktop {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .problemas-section-2-inner {
