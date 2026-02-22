@@ -285,20 +285,26 @@ const dores = [
     display: none;
     width: 100%;
     height: auto;
-    margin-bottom: 20px;
   }
   @media (max-width: 1024px) {
     .problemas-img-mobile {
       display: block;
+      margin: -26% -7% -14% -6%;
     }
   }
 
-  /* Desktop-only image */
+  /* Desktop-only image - 54% width with negative margins */
   .problemas-img-desktop {
     display: block;
-    width: 100%;
+    width: 54%;
     height: auto;
-    max-width: 1038px;
+    max-width: 54%;
+    margin: 0 -32% -1% -15%;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .problemas-img-desktop {
+      margin: 0 -62% -1% -15%;
+    }
   }
   @media (max-width: 1024px) {
     .problemas-img-desktop {
@@ -307,20 +313,21 @@ const dores = [
   }
 
   .problemas-section-2-inner {
-    max-width: 1280px;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 60px 40px;
+    padding: 40px 0 60px 0;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
   }
   @media (max-width: 767px) {
     .problemas-section-2-inner {
-      padding: 0;
+      padding: 10% 5%;
     }
   }
 
   .problemas-card {
-    background: rgba(255, 255, 255, 0.85);
+    width: 44%;
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 0, 0, 0.14);
@@ -329,20 +336,21 @@ const dores = [
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 50%;
+    z-index: 99;
   }
   @media (min-width: 768px) and (max-width: 1024px) {
     .problemas-card {
-      max-width: 55%;
+      width: 55%;
     }
   }
-  @media (max-width: 767px) {
+  @media (max-width: 1024px) {
     .problemas-card {
-      max-width: 100%;
+      width: 100%;
+      border: 0;
       padding: 0;
-      border: none;
-      background: none;
+      background: transparent;
       backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
   }
 
