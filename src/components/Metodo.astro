@@ -42,32 +42,37 @@ const diferenciais = [
       <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
     </h1>
 
-    <!-- Grid 3×2 -->
-    <div class="metodo-grid">
-      {diferenciais.map((d) => (
-        <div class="metodo-card">
-          <!-- Checkmark icon -->
-          <img src="/img/141704.svg" alt="" width="46" height="46" class="metodo-icon" loading="lazy" />
-          <!-- Title -->
-          <p class="metodo-card-title">{d.titulo}</p>
-          <!-- Bold description with green border -->
-          <p class="metodo-card-desc-bold">{d.descBold}</p>
-          <!-- Regular description -->
-          <p class="metodo-card-desc">{d.descRegular}</p>
-        </div>
-      ))}
-
-      <!-- 6th cell: decorative image -->
-      <div class="metodo-img-cell">
+    <!-- 2-column layout: image left, cards right -->
+    <div class="metodo-content">
+      
+      <!-- Left column: decorative image (desktop only) -->
+      <div class="metodo-img-col">
         <img
           src="/img/083313-copy.webp"
           alt="Comer Bem Sem Estresse — módulos do curso"
-          width="570"
-          height="567"
-          class="metodo-laptop-img"
+          width="743"
+          height="740"
+          class="metodo-img"
           loading="lazy"
         />
       </div>
+
+      <!-- Right column: 5 cards vertical -->
+      <div class="metodo-cards-col">
+        {diferenciais.map((d) => (
+          <div class="metodo-card">
+            <!-- Checkmark icon -->
+            <img src="/img/141704.svg" alt="" width="46" height="46" class="metodo-icon" loading="lazy" />
+            <!-- Title -->
+            <p class="metodo-card-title">{d.titulo}</p>
+            <!-- Bold description with green border -->
+            <p class="metodo-card-desc-bold">{d.descBold}</p>
+            <!-- Regular description -->
+            <p class="metodo-card-desc">{d.descRegular}</p>
+          </div>
+        ))}
+      </div>
+
     </div>
 
     <!-- CTA -->
@@ -140,29 +145,49 @@ const diferenciais = [
     }
   }
 
-  /* Grid */
-  .metodo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 30px;
+  /* 2-column content (image left, cards right) */
+  .metodo-content {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
     width: 100%;
-    max-width: 950px;
+    max-width: 1140px;
     margin-bottom: 40px;
+    align-items: flex-start;
   }
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .metodo-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-      max-width: 700px;
+  @media (max-width: 1024px) {
+    .metodo-content {
+      flex-direction: column;
+      gap: 30px;
     }
   }
-  @media (max-width: 767px) {
-    .metodo-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-      gap: 20px;
+
+  /* Left column: image (desktop only) */
+  .metodo-img-col {
+    flex: 0 0 auto;
+    width: 320px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  @media (max-width: 1024px) {
+    .metodo-img-col {
+      display: none;
     }
+  }
+
+  .metodo-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Right column: cards vertical */
+  .metodo-cards-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   }
 
   /* Card */
@@ -176,11 +201,15 @@ const diferenciais = [
     gap: 0;
   }
 
-  /* Icon */
+  /* Icon with hover rotation */
   .metodo-icon {
     width: 46px;
     height: 46px;
     margin-bottom: 16px;
+    transition: transform 0.3s ease;
+  }
+  .metodo-card:hover .metodo-icon {
+    transform: rotate(136deg);
   }
 
   /* Card title */
@@ -213,27 +242,6 @@ const diferenciais = [
     line-height: 1.4em;
     color: #584c4d;
     margin: 0;
-  }
-
-  /* Image cell (6th grid position) */
-  .metodo-img-cell {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    overflow: visible;
-    position: relative;
-  }
-  @media (max-width: 1024px) {
-    .metodo-img-cell {
-      display: none;
-    }
-  }
-
-  .metodo-laptop-img {
-    width: 570px;
-    max-width: none;
-    height: auto;
-    object-fit: contain;
   }
 
   /* CTA */
