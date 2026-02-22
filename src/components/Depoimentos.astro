@@ -67,37 +67,88 @@ const depoimentos = Array.from({ length: 13 }, (_, i) => {
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Check if Swiper is loaded
-    if (typeof Swiper === 'undefined') {
-      console.error('Swiper library not loaded!');
-      return;
-    }
+  // Lazy load Swiper when section is visible
+  const initSwiper = () => {
+    const swiperContainer = document.querySelector('.depoimentos-swiper');
+    if (!swiperContainer) return;
 
-    new Swiper('.depoimentos-swiper', {
-      slidesPerView: 2,
-      spaceBetween: 15,
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-      },
-      speed: 500,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
+    // Check if already initialized
+    if (swiperContainer.classList.contains('swiper-initialized')) return;
+
+    // Load Swiper CSS
+    const loadCSS = () => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css';
+      document.head.appendChild(link);
+    };
+
+    // Load Swiper JS
+    const loadJS = () => {
+      return new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
+        script.onload = resolve;
+        document.head.appendChild(script);
+      });
+    };
+
+    // Init Swiper after loading
+    const setupSwiper = () => {
+      // @ts-ignore
+      new Swiper('.depoimentos-swiper', {
+        slidesPerView: 2,
+        spaceBetween: 15,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
         },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 20,
+        speed: 500,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
         },
-      },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
+        },
+      });
+    };
+
+    // Load assets and init
+    loadCSS();
+    loadJS().then(setupSwiper);
+  };
+
+  // Intersection Observer to lazy load Swiper
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          initSwiper();
+          observer.disconnect();
+        }
+      });
+    }, {
+      rootMargin: '50px' // Start loading 50px before section is visible
     });
-  });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.depoimentos-swiper')?.closest('section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  } else {
+    // Fallback for older browsers
+    document.addEventListener('DOMContentLoaded', initSwiper);
+  }
 </script>

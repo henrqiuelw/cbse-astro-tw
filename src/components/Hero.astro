@@ -1,5 +1,16 @@
 ---
+import { getImage } from 'astro:assets';
+import posterImage from '../assets/100104.webp';
+
 const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
+
+// Gerar versões otimizadas do poster
+const posterOptimized = await getImage({
+  src: posterImage,
+  width: 1080,
+  format: 'webp',
+  quality: 80
+});
 ---
 
 <!-- Hero Section -->
@@ -39,11 +50,9 @@ const HOTMART = "https://pay.hotmart.com/N90113161T?off=ukulpso1";
           controls
           preload="metadata"
           controlslist="nodownload"
-          poster="/img/100104.webp"
+          poster={posterOptimized.src}
           style="width: 100%; height: 100%; object-fit: cover;"
         ></video>
-        <!-- Preload poster with high priority -->
-        <link rel="preload" as="image" href="/img/100104.webp" fetchpriority="high" />
       </div>
     </div>
 

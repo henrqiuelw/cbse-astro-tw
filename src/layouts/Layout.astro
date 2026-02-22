@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import { getImage } from 'astro:assets';
+import posterImage from '../assets/100104.webp';
 
 export interface Props {
   title?: string;
@@ -10,6 +12,14 @@ const {
   title = "CBSE - Comer Bem Sem Estresse",
   description = "UM MÉTODO ESTRUTURADO PARA FAMÍLIAS QUE QUEREM RESULTADOS CONSISTENTES",
 } = Astro.props;
+
+// Gerar versão otimizada do poster para preload
+const posterOptimized = await getImage({
+  src: posterImage,
+  width: 1080,
+  format: 'webp',
+  quality: 80
+});
 ---
 
 <!doctype html>
@@ -53,6 +63,9 @@ const {
 
     <!-- Preload Hero Background -->
     <link rel="preload" as="image" href="/img/093713-copy.webp" fetchpriority="high" />
+    
+    <!-- Preload Video Poster (LCP) -->
+    <link rel="preload" as="image" href={posterOptimized.src} fetchpriority="high" />
 
     <title>{title}</title>
 
@@ -79,12 +92,6 @@ const {
         }
       ]
     })} />
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   </head>
   <body class="font-inter bg-creme text-texto">
     <slot />
