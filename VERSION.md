@@ -15,7 +15,8 @@
 | Framework | Astro 5.17.3 |
 | Deploy | Cloudflare Pages |
 | Build ID | df9283fd |
-| Commit | `[será preenchido após commit]` |
+| Commit | `59cb7c2` |
+| Tag Git | `v1.0.0` |
 
 ---
 
