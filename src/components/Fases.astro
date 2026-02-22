@@ -135,8 +135,14 @@ const fases = [
   }
   @media (max-width: 767px) {
     .fases-grid {
-      grid-template-columns: 1fr;
+      display: flex;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
       gap: 20px;
+      padding-bottom: 10px;
+      width: 100%;
     }
   }
 
@@ -150,6 +156,12 @@ const fases = [
     gap: 12px;
     position: relative;
     overflow: hidden;
+  }
+  @media (max-width: 767px) {
+    .fases-card {
+      flex: 0 0 85vw;
+      scroll-snap-align: start;
+    }
   }
 
   /* Badge pill */
