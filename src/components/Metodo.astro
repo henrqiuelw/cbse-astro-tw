@@ -37,6 +37,16 @@ const diferenciais = [
 <section class="metodo-section">
   <div class="metodo-inner">
 
+    <!-- Mobile-only image top -->
+    <img 
+      src="/img/083313-copy.webp" 
+      alt="Comer Bem Sem Estresse — módulos do curso"
+      width="743"
+      height="740"
+      class="metodo-img-mobile-top"
+      loading="lazy"
+    />
+
     <!-- Heading -->
     <h1 class="metodo-heading">
       <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
@@ -119,6 +129,20 @@ const diferenciais = [
   @media (max-width: 767px) {
     .metodo-inner {
       padding: 10% 5% 15% 5%;
+    }
+  }
+
+  /* Mobile-only image top */
+  .metodo-img-mobile-top {
+    display: none;
+    width: 100%;
+    height: auto;
+    max-width: 743px;
+    margin: 0 auto 30px;
+  }
+  @media (max-width: 1024px) {
+    .metodo-img-mobile-top {
+      display: block;
     }
   }
 

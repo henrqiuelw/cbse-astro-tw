@@ -58,6 +58,27 @@ const dores = [
 <!-- Seção do Problema – Parte 2 (card com blur + background image) -->
 <section class="problemas-section-2">
   <div class="problemas-section-2-inner">
+
+    <!-- Mobile-only image -->
+    <img 
+      src="/img/115104.webp" 
+      alt="Comer Bem Sem Estresse — Dificuldades Alimentares"
+      width="800"
+      height="913"
+      class="problemas-img-mobile"
+      loading="lazy"
+    />
+
+    <!-- Desktop-only image -->
+    <img 
+      src="/img/091713-copy.webp" 
+      alt="Comer Bem Sem Estresse — Sistema Alimentar"
+      width="1038"
+      height="693"
+      class="problemas-img-desktop"
+      loading="lazy"
+    />
+
     <div class="problemas-card">
 
       <h1 class="problemas-card-heading">
@@ -250,18 +271,39 @@ const dores = [
   /* ---- Part 2 (card blur + bg image) ---- */
   .problemas-section-2 {
     background-color: #f9f9f9;
-    background-image: url('/img/115104.webp');
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: cover;
     padding: 0;
     position: relative;
   }
   @media (max-width: 767px) {
     .problemas-section-2 {
-      background-image: none;
       padding: 10% 5%;
       margin-top: -51px;
+    }
+  }
+
+  /* Mobile-only image */
+  .problemas-img-mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 1024px) {
+    .problemas-img-mobile {
+      display: block;
+    }
+  }
+
+  /* Desktop-only image */
+  .problemas-img-desktop {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 1038px;
+  }
+  @media (max-width: 1024px) {
+    .problemas-img-desktop {
+      display: none;
     }
   }
 

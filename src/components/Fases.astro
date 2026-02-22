@@ -33,6 +33,16 @@ const fases = [
 <section class="fases-section">
   <div class="fases-inner">
 
+    <!-- Mobile-only image -->
+    <img 
+      src="/img/133907-copy.webp" 
+      alt="Comer Bem Sem Estresse — Fases da Metodologia"
+      width="800"
+      height="1088"
+      class="fases-img-mobile"
+      loading="lazy"
+    />
+
     <!-- Heading -->
     <h1 class="fases-heading">
       Na metodologia Comer bem sem estresse você seguirá <span class="underline-inner">uma trilha de conhecimento</span> que vai preparar o seu filho<span class="underline-inner"> para avançar com autonomia:</span>
@@ -92,6 +102,20 @@ const fases = [
   @media (max-width: 767px) {
     .fases-inner {
       padding: 10% 5%;
+    }
+  }
+
+  /* Mobile-only image */
+  .fases-img-mobile {
+    display: none;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto 30px;
+  }
+  @media (max-width: 1024px) {
+    .fases-img-mobile {
+      display: block;
     }
   }
 
