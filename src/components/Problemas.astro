@@ -276,10 +276,18 @@ const dores = [
     position: relative;
     display: flex;
   }
+  @media (max-width: 1024px) {
+    .problemas-section-2 {
+      padding: 10% 5%;
+      flex-direction: column-reverse;
+    }
+  }
   @media (max-width: 767px) {
     .problemas-section-2 {
-      padding: 0 5%;
+      padding: 10% 5% 17%;
       margin: -51px 0 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      gap: 20px;
     }
   }
 
@@ -298,7 +306,7 @@ const dores = [
   @media (max-width: 767px) {
     .problemas-img-mobile {
       display: block;
-      margin: 20px 0 0 0;
+      margin: -26% -7% -14% -6%;
     }
   }
 
@@ -327,10 +335,15 @@ const dores = [
     display: flex;
     align-items: center;
   }
+  @media (max-width: 1024px) {
+    .problemas-section-2-inner {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
   @media (max-width: 767px) {
     .problemas-section-2-inner {
-      padding: 9% 0 15.3%;
-      flex-direction: column-reverse;
+      padding: 0;
     }
   }
 
@@ -354,10 +367,10 @@ const dores = [
   }
   @media (max-width: 1024px) {
     .problemas-card {
-      width: 90%;
+      width: 100%;
       border: 0;
       padding: 0;
-      background: rgba(255, 255, 255, 0.05);
+      background: transparent;
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
     }
@@ -383,11 +396,11 @@ const dores = [
   }
   @media (max-width: 767px) {
     .problemas-card-heading {
-      width: 100.67%;
+      width: 100%;
       font-size: 4.4vw;
       line-height: 1.3em;
       text-align: center;
-      margin: 0;
+      margin: 0 -20px 0 -20px;
     }
   }
 
@@ -422,8 +435,8 @@ const dores = [
   @media (max-width: 1024px) {
     .problemas-card-p2 {
       width: 100%;
-      font-size: 20px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 400;
       text-align: center;
     }
   }
