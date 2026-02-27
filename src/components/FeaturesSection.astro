@@ -1,10 +1,41 @@
 ---
 // FeaturesSection.astro — Container 5 (id: 3704ea8)
-// 5 cards in flex-row wrap, 950px container, gap 30px
-// Each card: icon + title(20px/400) + desc(16px/600 border-left green) + detail(18px/400)
+// JSON source: page-2.json, all values from _elementor_data
+//
+// Section (3704ea8): flex-row wrap, boxed 1140px, align center, justify center
+//   padding: 60px 0 200px 0 (desktop), 10% (mobile)
+//   gap: 20px (desktop), 30px (mobile)
+//   bg: #FEF4DF
+//
+// Image top (08dadbe): hidden desktop/laptop, visible mobile
+//   _margin_mobile: -31% -13% -22% -22%
+//
+// Heading (03949ff): Factul 32px/400, color #1C3124, center
+//   width: 87% desktop, 67.837% mobile (but renders full-width)
+//   _margin_mobile: 0 -20px 0 -20px
+//
+// Cards grid (ebff15c): CSS Grid, 950px, gap 30px (desktop), 20px (mobile)
+//   padding: 40px 0 0 0 (desktop), 0 (mobile)
+//   tablet: width 70%, gap 42px col / 80px row
+//
+// Each card: bg #FFFEFB, padding 40px (desktop), 10% (mobile)
+//   box-shadow: 0px 34.319px 44.764px 0px rgba(0,0,0,0.06)
+//   border-radius: 10px
+//   bg_image_mobile: 142704-copy.webp (decorative curve)
+//
+// Card texts:
+//   [0] title: Factul 20px/400, #584C4D
+//   [1] desc: Inter 16px/600, #584C4D, border-left 2px #58DBB1, pl 20px
+//   [2] detail: Inter 18px/400, #584C4D
+//
+// Image bottom (7d5ad76): hidden mobile, visible desktop
+//   widget width 31% of grid, img 570px via margins -11% -52% -40% -40%
+//
+// Button (7820224): same gradient CTA
 
 const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083313-copy.webp';
 const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/141704.svg';
+const cardBgMobile = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/142704-copy.webp';
 
 const cards = [
   {
@@ -35,29 +66,53 @@ const cards = [
 ];
 ---
 
-<section class="overflow-visible" style="background-color: #FEF4DF;">
-  <div class="max-w-[1140px] mx-auto px-[5%] lg:px-0 py-[10%] lg:py-[60px] relative">
+<!-- Section (3704ea8): flex-row wrap, boxed 1140px -->
+<section
+  class="flex flex-row flex-wrap justify-center items-center
+    overflow-visible
+    px-[10%] py-[10%]
+    md:px-[5%] md:py-[10%]
+    lg:px-0 lg:pt-[60px] lg:pb-[200px]
+    gap-[30px] md:gap-[20px] lg:gap-[20px]"
+  style="background-color: #FEF4DF; border-top: 1px solid #FFFFFF0F; max-width: 100%;"
+>
+  <div class="w-full max-w-[1140px] mx-auto flex flex-row flex-wrap justify-center items-center gap-[30px] md:gap-[20px]">
 
-    <!-- Imagem decorativa topo (08dadbe): visible mobile, hidden desktop -->
-    <!-- Widget 300px, container 405px via negative margins -->
-    <div class="lg:hidden overflow-visible mb-[30px]">
+    <!-- Image top (08dadbe): hidden desktop, visible mobile -->
+    <!-- _margin_mobile: -31% -13% -22% -22%, widget full-width -->
+    <div class="lg:hidden w-full overflow-visible">
       <div style="margin: -31% -13% -22% -22%;">
         <img src={decorativeUrl} alt="" class="w-full h-auto" loading="lazy" />
       </div>
     </div>
 
-    <!-- Heading (03949ff) -->
-    <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center mb-[30px]">
-      <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
-    </h2>
+    <!-- Heading (03949ff): Factul 32px/400 desktop, 6.1vw mobile -->
+    <!-- width: 87% desktop, _margin_mobile: 0 -20px -->
+    <div class="w-full lg:w-[87%] self-start lg:self-start text-center">
+      <div class="mx-[-20px] md:mx-0">
+        <h2 class="font-factul font-normal text-[6.1vw] md:text-[33px] lg:text-[32px]
+          leading-[1.2em] md:leading-[1.3em] lg:leading-[1.2em]
+          text-[#1C3124] text-center"
+          style="text-wrap: balance !important;">
+          <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
+        </h2>
+      </div>
+    </div>
 
-    <!-- Cards wrapper (ebff15c): 950px, flex-row wrap, gap 30px -->
-    <div class="w-full max-w-[950px] mx-auto flex flex-row flex-wrap gap-[30px] pt-0 lg:pt-[40px]">
+    <!-- Cards grid (ebff15c): 950px desktop, 70% tablet, gap 30px/20px -->
+    <!-- padding: 40px 0 0 0 desktop, 0 mobile -->
+    <div class="w-full lg:w-[950px] md:w-[70%]
+      grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+      gap-[20px] lg:gap-[30px]
+      pt-0 lg:pt-[40px]
+      items-stretch md:items-start">
 
       {cards.map((card) => (
         <div
-          class="flex-1 min-w-[250px] flex flex-col gap-[20px] p-[40px] rounded-[10px]"
-          style="background-color: #FFFEFB; border-width: 0 1px 1px 1px; border-style: solid; border-color: #00000026;"
+          class="flex flex-col gap-[20px]
+            p-[10%] md:p-[40px]
+            rounded-[10px]"
+          style={`background-color: #FFFEFB; box-shadow: 0px 34.319px 44.764px 0px rgba(0, 0, 0, 0.06); background-image: url('${cardBgMobile}'); background-size: cover; background-position: top center;`}
         >
           <!-- Ícone -->
           <img src={iconUrl} alt="" class="w-[46px] h-auto" width="46" loading="lazy" />
@@ -67,23 +122,23 @@ const cards = [
             {card.title}
           </p>
 
-          <!-- Desc: Inter 16px/600, #584C4D, border-left 2px #58DBB1, pl-[20px] -->
-          <p
-            class="text-[16px] leading-[1.4em] text-[#584C4D] pl-[20px]"
-            style="font-family: Inter, sans-serif; font-weight: 600; border-left: 2px solid #58DBB1;"
-          >
+          <!-- Desc: Inter 16px/600, #584C4D, border-left 2px #58DBB1, pl 20px -->
+          <p class="text-[16px] leading-[1.4em] text-[#584C4D] pl-[20px]"
+            style="font-family: Inter, sans-serif; font-weight: 600; border-left: 2px solid #58DBB1;">
             {card.desc}
           </p>
 
           <!-- Detail: Inter 18px(desktop) 16px(mobile)/400, #584C4D -->
-          <p class="text-[16px] lg:text-[18px] leading-[1.4em] text-[#584C4D]" style="font-family: Inter, sans-serif;">
+          <p class="text-[16px] lg:text-[18px] leading-[1.4em] text-[#584C4D]"
+            style="font-family: Inter, sans-serif;">
             {card.detail}
           </p>
         </div>
       ))}
 
-      <!-- Imagem decorativa mid (7d5ad76): hidden mobile, visible desktop -->
-      <div class="hidden lg:block w-[31%] overflow-visible">
+      <!-- Image bottom (7d5ad76): hidden mobile, visible desktop -->
+      <!-- Widget 31% of grid, img 570px via margins -11% -52% -40% -40% -->
+      <div class="hidden lg:block overflow-visible">
         <img
           src={decorativeUrl}
           alt=""
@@ -94,16 +149,14 @@ const cards = [
       </div>
     </div>
 
-    <!-- Botão CTA (7820224) -->
-    <div class="text-center mt-[20px]">
-      <a
-        href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-        class="inline-block text-[16px] font-semibold uppercase tracking-[0.9px] text-white
-          px-[40px] py-[20px] rounded-[1000px] text-center"
-        style="font-family: Inter, sans-serif; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
-      >
-        Quero um sistema que funcione
-      </a>
-    </div>
+    <!-- Button CTA (7820224) -->
+    <a
+      href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+      class="inline-block text-[16px] font-semibold uppercase tracking-[0.9px] text-white
+        px-[40px] py-[20px] rounded-[1000px] text-center"
+      style="font-family: Inter, sans-serif; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
+    >
+      Quero um sistema que funcione
+    </a>
   </div>
 </section>
