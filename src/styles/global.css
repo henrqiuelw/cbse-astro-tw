@@ -6,9 +6,7 @@
 
 /* Custom CSS do Elementor (extraído do JSON, campo custom_css) */
 
-::-webkit-scrollbar { width: 12px; }
-::-webkit-scrollbar-track { background: #EFEFF0; }
-::-webkit-scrollbar-thumb { background-color: #FEB45D; border-radius: 10px; }
+/* Scrollbar: original só customiza dentro de Swiper, não globalmente */
 
 p { margin-bottom: 0 !important; }
 p, h1, h2, h3 { text-wrap: balance !important; }
@@ -43,7 +41,7 @@ p, h1, h2, h3 { text-wrap: balance !important; }
 
 /* Reset */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; overflow-y: overlay; }
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Factul', 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;

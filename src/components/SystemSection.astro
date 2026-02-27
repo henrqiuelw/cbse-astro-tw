@@ -1,95 +1,80 @@
 ---
 // SystemSection.astro — Container 3 (id: 9881de1)
-// "Quando não existe um sistema alimentar claro e estruturado..."
-// Estilos APLICADOS do JSON do Elementor, NUNCA computados
+// Desktop: textBox left (44%) + image right overflows container
+// Mobile/Tablet: column-reverse
 ---
 
-<!--
-  📋 Estilos APLICADOS do JSON:
-  Container externo (9881de1):
-    bg: #F9F9F9 | flex_direction: row (tablet: column-reverse, mobile: column-reverse)
-    flex_align: center | flex_justify: center | flex_wrap: wrap
-    flex_gap: 20px (laptop: 0)
-    padding: 0 | padding_laptop: 0 40px
-    padding_tablet: 10% 5% 10% 5%
-    padding_mobile: 10% 5% 17% 5%
-    margin_mobile: -51px 0 0 0
-    boxed_width: 1140px
-    border: solid 1px top #FFFFFF0F
-    border_mobile: 1px top only
+<section
+  class="relative overflow-hidden
+    flex flex-col-reverse lg:flex-row flex-wrap justify-center items-center
+    gap-[20px] xl:gap-0
+    px-[5%] pt-[10%] pb-[17%]
+    md:px-[5%] md:pt-[10%] md:pb-[10%]
+    lg:p-0
+    -mt-[51px] md:mt-0
+    border-t border-[#FFFFFF0F]"
+  style="background-color: #F9F9F9;"
+>
+  <div class="w-full max-w-[1140px] mx-auto flex flex-col-reverse lg:flex-row flex-wrap justify-center items-center gap-[20px] xl:gap-0 lg:overflow-visible">
 
-  Child 0 - Text container (5acd04f):
-    width: 44% (tablet: 100%)
-    padding: 40px all (mobile: 0)
-    bg: #FFFFFF0D | border: solid 1px #00000024 | border_radius: 10px
-    border_mobile: 0
-    z-index: 99
-    custom_css: backdrop-filter: blur(20px)
+    <!-- Text container (5acd04f) - glassmorphism, 44% desktop -->
+    <div
+      class="w-full lg:w-[44%] p-0 lg:p-[40px]
+        bg-transparent lg:bg-[#FFFFFF0D]
+        border-0 lg:border lg:border-[#00000024] lg:rounded-[10px]
+        z-[99]"
+      style="backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"
+    >
+      <h2
+        class="font-factul font-normal text-[4.4vw] md:text-[36px] lg:text-[32px]
+          leading-[1.2em] text-[#1C3124]
+          text-center lg:text-left mb-[20px]"
+        style="text-wrap: balance;"
+      >
+        Quando não existe um sistema alimentar claro e estruturado,
+        <span class="texto" style="font-weight: 400 !important;">cada refeição exige decisão, adaptação e negociação.</span>
+      </h2>
 
-    Heading (5a31cf3): Factul 32px/1.2em (mobile: 4.4vw), weight:400, color:#1C3124
-      align: start (tablet/mobile: center), tag: h1
-    Text 1 (3cc8c10): Inter 20px/1.4em, weight:600, color:#0F0F0F, align:start (mobile:center)
-    Text 2 (1aa2be7): Inter 18px/1.4em (mobile:16px), weight:400, color:#0F0F0F, align:start (mobile:center)
+      <p class="font-normal text-[20px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left mb-[20px]"
+        style="font-family: Inter, sans-serif; font-weight: 600;">
+        <span class="texto">Isso gera desgaste,</span> mesmo em famílias comprometidas.
+      </p>
 
-  Child 1 - Image (d7394c9):
-    url: .../115104.webp
-    _element_width: initial, _element_custom_width: 43%
-    margin: 0 | margin_mobile: -26% -7% -14% -6%
-    margin_tablet: -50% -13% -26% -13%
+      <p class="font-normal text-[16px] lg:text-[18px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left"
+        style="font-family: Inter, sans-serif;">
+        Famílias que alcançam autonomia alimentar, que veem seus filhos voltarem a comer, não fazem &ldquo;mais força&rdquo;, elas <span class="texto">seguem um processo estruturado, claro, com constância e direção.</span>
+      </p>
+    </div>
 
-  Child 2 - Image (4297d9a):
-    url: .../091713-copy.webp | image_size: full
-    _element_width: initial, _element_custom_width: 54%
-    margin: 0 -32% -1% -15%
-    margin_mobile: -26% -7% -14% -6%
--->
+    <!-- Image 1 (d7394c9): hidden desktop, visible mobile/tablet -->
+    <div class="w-[43%] lg:w-0 lg:h-0 lg:overflow-hidden
+      -mt-[26%] -mr-[7%] -mb-[14%] -ml-[6%]
+      md:-mt-[50%] md:-mr-[13%] md:-mb-[26%] md:-ml-[13%]
+      lg:m-0">
+      <img
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/115104.webp"
+        alt=""
+        class="w-full h-auto"
+        loading="lazy"
+      />
+    </div>
 
-<section class="bg-bg-off-white flex flex-col-reverse lg:flex-row flex-wrap justify-center items-center gap-[20px] xl:gap-0 pt-10p px-5p pb-17p md:pt-10p md:px-5p md:pb-10p lg:p-0 xl:px-[40px] xl:py-0 -mt-[51px] md:mt-0 border-t border-[#FFFFFF0F] max-w-elementor mx-auto">
+    <!-- Image 2 (4297d9a): widget 54%, container overflows to show full image -->
+    <!-- Original: widget=616px, container=905px, img=905x604 -->
+    <div class="w-[54%] overflow-visible
+      -mt-[26%] -mr-[7%] -mb-[14%] -ml-[6%]
+      lg:m-0">
+      <div class="lg:w-[905px] lg:max-w-none lg:-ml-[92px]">
+        <img
+          src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/091713-copy.webp"
+          alt=""
+          class="w-full h-auto"
+          loading="lazy"
+          width="1038"
+          height="693"
+        />
+      </div>
+    </div>
 
-  <!-- Text container (glassmorphism) -->
-  <div class="w-full lg:w-[44%] p-0 md:p-[40px] bg-white/5 lg:bg-[#FFFFFF0D] border-0 lg:border lg:border-[#00000024] rounded-[10px] lg:backdrop-blur-[20px] z-[99]">
-
-    <!-- Heading -->
-    <h2 class="font-factul font-normal text-[4.4vw] md:text-[32px] leading-[1.2em] text-brand-green-darker text-center lg:text-left mb-4">
-      Quando não existe um sistema alimentar claro e estruturado,
-      <span class="font-normal">cada refeição exige decisão, adaptação e negociação.</span>
-    </h2>
-
-    <!-- Text 1 - destaque -->
-    <p class="font-inter font-semibold text-[20px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left mb-4">
-      <span class="texto">Isso gera desgaste,</span> mesmo em famílias comprometidas.
-    </p>
-
-    <!-- Text 2 - corpo -->
-    <p class="font-inter font-normal text-[16px] md:text-[18px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left">
-      Famílias que alcançam autonomia alimentar, que veem seus filhos voltarem a comer, não fazem "mais força", elas <span class="texto">seguem um processo estruturado, claro, com constância e direção.</span>
-    </p>
   </div>
-
-  <!-- Image 1 (43% width) -->
-  <div class="w-[43%] -mt-[50%] -mx-[13%] -mb-[26%] md:-mt-[50%] md:-mx-[13%] md:-mb-[26%] lg:mt-0 lg:mx-0 lg:mb-0">
-    <img
-      src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/115104.webp"
-      alt=""
-      class="w-full h-auto"
-      loading="lazy"
-    />
-  </div>
-
-  <!-- Image 2 (54% width, overlapping) -->
-  <div class="w-[54%] -mt-[26%] -mr-[7%] -mb-[14%] -ml-[6%] md:-mt-[26%] md:-mr-[7%] md:-mb-[14%] md:-ml-[6%] lg:mt-0 lg:-mr-[32%] lg:-mb-[1%] lg:-ml-[15%]">
-    <img
-      src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/091713-copy.webp"
-      alt=""
-      class="w-full h-auto"
-      loading="lazy"
-    />
-  </div>
-
 </section>
-
-<style>
-  .texto {
-    font-weight: 600;
-  }
-</style>
