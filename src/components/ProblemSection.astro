@@ -50,8 +50,10 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
       <ul class="w-[78%] md:w-[78%] lg:w-[65.778%] self-center flex flex-col">
         {problems.map((problem, i) => (
           <li class:list={["flex items-start pb-[12.5px] md:pb-[15px] lg:pb-[14.5px]", i > 0 && "problem-divider", i === problems.length - 1 && "!pb-0"]}>
-            <img src={iconUrl} alt="" class="w-[27.5px] h-[22px] flex-shrink-0 mt-[5px] md:mt-0 object-contain object-left" width="22" height="22" />
-            <span class="font-normal text-[16px] leading-[1.5em] italic text-[#1C1E20]" style="font-family: Inter, sans-serif;" set:html={problem.text} />
+            <div class="flex-shrink-0 w-[27.5px] mt-[5px] md:mt-0">
+              <img src={iconUrl} alt="" class="w-[22px] h-[22px]" width="22" height="22" />
+            </div>
+            <span class="font-normal text-[16px] leading-[1.5em] italic text-[#1C1E20]" style="font-family: Inter, sans-serif; width: calc(100% - 27.5px);" set:html={problem.text} />
           </li>
         ))}
       </ul>
