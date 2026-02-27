@@ -43,7 +43,7 @@ p, h1, h2, h3 { text-wrap: balance !important; }
 
 /* Reset */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-y: overlay; }
 body {
   font-family: 'Factul', 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
