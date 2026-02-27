@@ -1,1 +1,62 @@
-@import "tailwindcss";
+/* Importar fontes CBSE */
+@import './fonts.css';
+
+/* Importar Tailwind */
+@import 'tailwindcss';
+
+/* Estilos globais baseados no custom CSS do Elementor */
+
+/* Scrollbar personalizada do Elementor */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EFEFF0; /* scrollbar-track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #FEB45D; /* scrollbar-thumb */
+  border-radius: 10px;
+}
+
+/* Balanceamento de texto do custom CSS */
+.elementor-widget-container,
+.elementor-button,
+p, h1, h2, h3 {
+  text-wrap: balance !important;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Factul', 'Lato', 'Mulish', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilitários */
+.underline-inner {
+  position: relative;
+  display: inline;
+}
+
+.underline-inner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 8px;
+  background-color: #B93060;
+  opacity: 0.25;
+  z-index: -1;
+  border-radius: 2px;
+}

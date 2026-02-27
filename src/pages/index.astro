@@ -2,6 +2,8 @@
 import HeroSection from '../components/HeroSection.astro';
 import ProblemSection from '../components/ProblemSection.astro';
 import SystemSection from '../components/SystemSection.astro';
+import DividerBar from '../components/DividerBar.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
 import '../styles/global.css';
 ---
 
@@ -15,11 +17,10 @@ import '../styles/global.css';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Mulish:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Factul é fonte local (não está no Google Fonts) -->
   </head>
   <body class="font-sans text-text-primary bg-white overflow-x-hidden">
-    <!-- Container 0: Divider bar (#FEB45D) — vazio no original -->
-    <div class="h-1 bg-brand-orange"></div>
+    <!-- Container 0: Divider bar topo -->
+    <div class="h-1" style="background-color: #FEB45D;"></div>
 
     <!-- Container 1: Hero -->
     <HeroSection />
@@ -30,6 +31,12 @@ import '../styles/global.css';
     <!-- Container 3: System -->
     <SystemSection />
 
-    <!-- Containers 4-18: TODO -->
+    <!-- Container 4: Divider bar -->
+    <DividerBar />
+
+    <!-- Container 5: Features -->
+    <FeaturesSection />
+
+    <!-- Containers 6-18: TODO -->
   </body>
 </html>

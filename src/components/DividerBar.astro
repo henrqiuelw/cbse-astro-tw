@@ -1,0 +1,37 @@
+---
+// DividerBar.astro — Container 4 (id: ?)
+// Barra divisória laranja (#FEB45D)
+// Estilos APLICADOS do JSON do Elementor, NUNCA computados
+// LIÇÃO APRENDIDA: Containers simples podem não ter widgets filhos
+---
+
+<!--
+  📋 Estilos APLICADOS do JSON:
+  Container externo:
+    background_color: #FEB45D
+    flex_direction: column
+    padding_mobile: 0px 0px 0px 0px
+    (sem padding desktop/tablet definidos)
+    (sem min_height definido)
+    (sem boxed_width definido)
+
+  Observação: Este container não tem elementos filhos (elements: []).
+  É apenas uma barra divisória colorida.
+-->
+
+<section
+  class="flex flex-col"
+  style="background-color: #FEB45D;"
+>
+  <!-- 
+    Container vazio - apenas background color.
+    No site original, esta é uma barra laranja fina entre seções.
+    A altura é determinada pelo conteúdo mínimo do container.
+  -->
+  <div class="h-1 w-full"></div>
+</section>
+
+<!-- 
+  Nota: O JSON não especifica altura, então usamos h-1 (0.25rem = 4px).
+  Se precisar ajustar, podemos verificar no site original a altura exata.
+-->

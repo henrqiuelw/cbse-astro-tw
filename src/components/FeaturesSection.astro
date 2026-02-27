@@ -1,0 +1,147 @@
+---
+// FeaturesSection.astro — Container 5
+// Estilos APLICADOS do JSON do Elementor, NUNCA computados
+
+const cards = [
+  {
+    title: 'Método Estruturado',
+    desc: 'É um método criado por uma nutricionista especialista em Seletividade alimentar e desenvolvimento infantil',
+    detail: 'Você não recebe opiniões soltas, mas um sistema com lógica clara de aplicação',
+  },
+  {
+    title: 'Mudança de Fundamento',
+    desc: 'Atua na causa do repertório alimentar restrito, e não apenas no comportamento à mesa.',
+    detail: 'O foco não é convencer a criança a comer, mas criar condições favoráveis para ela avançar.',
+  },
+  {
+    title: 'Sequência Progressiva',
+    desc: 'Segue uma sequência lógica de etapas, aplicáveis à rotina real da família.',
+    detail: 'Cada fase prepara para a próxima, evitando tentativas aleatórias ou mudanças radicais.',
+  },
+  {
+    title: 'Autonomia Alimentar',
+    desc: 'Desenvolve autonomia alimentar progressiva, com menos intervenção e menos negociação.',
+    detail: 'A alimentação deixa de ocupar o centro da rotina e vira uma atividade normal.',
+  },
+  {
+    title: 'Flexível ao Desenvolvimento',
+    desc: 'Permite ajustar o método às necessidades alimentares e ao momento de desenvolvimento do seu filho.',
+    detail: '"Sem fórmulas engessadas: método com critério."',
+  },
+];
+
+const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/141704.svg';
+const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083313-copy.webp';
+---
+
+<!--
+  📋 Estilos APLICADOS do JSON:
+  Container externo:
+    bg: #FEF4DF | direction: row
+    padding: 60px 0 200px 0
+    padding_tablet: 10% 5% 10% 5%
+    padding_mobile: 10% 10% 10% 10%
+    boxed_width: 1140px | flex_gap: 20px | flex_gap_mobile: 30px
+
+  Top image (08dadbe): margin_mobile: -31% -13% -22% -22%
+  
+  Heading: Factul 32px/1.2em (mobile: 6.1vw), weight:400, color:#1C3124, align:center
+
+  Cards container (ebff15c):
+    width: 950px (tablet: 70%) | direction: row | flex_wrap: wrap
+    padding: 40px 0 0 0 (mobile: 0)
+
+  Each card:
+    bg: #FFFEFB | padding: 40px (mobile: 10%)
+    border_radius: 10px | border: 0 1px 1px 1px solid #00000026
+    Icon: 46px wide, align: left
+    Title: Factul 20px, weight:400, color:#584C4D
+    Desc: Inter 16px, weight:600, color:#584C4D
+    Detail: Inter 18px (mobile:16px), weight:400, color:#584C4D
+
+  Mid image (7d5ad76): margin: -11% -52% -40% -40%
+
+  Button: Inter 16px uppercase, weight:600, color:white
+    padding: 20px 40px | radius: 1000px
+    gradient: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%)
+    bg-size: 200% auto | hover: bg-position right center
+-->
+
+<section style="background-color: #FEF4DF;">
+  <div class="max-w-[1140px] mx-auto pt-[60px] px-0 pb-[200px] md:pt-10p md:px-5p md:pb-10p py-10p px-10p relative">
+
+    <!-- Imagem decorativa topo -->
+    <img
+      src={decorativeUrl}
+      alt=""
+      class="relative z-0"
+      style="margin: 0 0 0 0;"
+      loading="lazy"
+    />
+
+    <!-- Heading -->
+    <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-brand-green-darker text-center">
+      <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
+    </h2>
+
+    <!-- Cards container: 950px, row, wrap -->
+    <div class="w-full max-w-[950px] lg:max-w-[950px] md:max-w-[70%] mx-auto flex flex-row flex-wrap pt-[40px] pr-0 pb-0 pl-0 md:pt-0 gap-[30px] lg:gap-[20px]">
+
+      {cards.map((card) => (
+        <div
+          class="flex-1 min-w-[250px] flex flex-col p-[40px] md:p-[40px] rounded-[10px]"
+          style="background-color: #FFFEFB; border-width: 0 1px 1px 1px; border-style: solid; border-color: #00000026;"
+        >
+          <!-- Ícone -->
+          <img src={iconUrl} alt="" class="w-[46px] h-auto mb-4" width="46" loading="lazy" />
+
+          <!-- Título: Factul 20px, weight 400, color #584C4D -->
+          <p class="font-factul font-normal text-[20px] text-[#584C4D] mb-3">
+            {card.title}
+          </p>
+
+          <!-- Desc: Inter 16px, weight 600, color #584C4D -->
+          <p class="font-inter font-semibold text-[16px] text-[#584C4D] leading-[1.4em] mb-3">
+            {card.desc}
+          </p>
+
+          <!-- Detail: Inter 18px (mobile 16px), weight 400, color #584C4D -->
+          <p class="font-inter font-normal text-[16px] md:text-[18px] text-[#584C4D] leading-[1.4em]">
+            {card.detail}
+          </p>
+        </div>
+      ))}
+
+      <!-- Imagem decorativa mid -->
+      <img
+        src={decorativeUrl}
+        alt=""
+        class="relative z-0"
+        style="margin: -11% -52% -40% -40%;"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Botão CTA -->
+    <div class="text-center mt-8">
+      <a
+        href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+        class="btn-grad inline-block font-inter font-semibold text-[16px] uppercase tracking-[0.9px] text-white px-[40px] py-[20px] rounded-[1000px] text-center"
+      >
+        Quero um sistema que funcione
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .btn-grad {
+    background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%);
+    background-size: 200% auto;
+    transition: 0.5s;
+    display: block;
+  }
+  .btn-grad:hover {
+    background-position: right center;
+  }
+</style>

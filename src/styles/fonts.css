@@ -1,0 +1,37 @@
+/* Fontes CBSE - Extraídas do site original */
+
+/* Factul Regular */
+@font-face {
+  font-family: 'Factul';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://comerbemsemestresse.com.br/wp-content/uploads/2024/03/fractul-regular-webfont.woff2') format('woff2');
+}
+
+/* Factul Light */
+@font-face {
+  font-family: 'Factul Light';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('https://comerbemsemestresse.com.br/wp-content/uploads/2024/03/fractul-light-webfont.woff2') format('woff2');
+}
+
+/* Factul Medium (para weight: 500) */
+@font-face {
+  font-family: 'Factul';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('https://comerbemsemestresse.com.br/wp-content/uploads/2024/03/fractul-regular-webfont.woff2') format('woff2');
+}
+
+/* Factul Bold (para weight: 700) */
+@font-face {
+  font-family: 'Factul';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://comerbemsemestresse.com.br/wp-content/uploads/2024/03/fractul-regular-webfont.woff2') format('woff2');
+}
