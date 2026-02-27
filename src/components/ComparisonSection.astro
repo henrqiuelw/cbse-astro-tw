@@ -1,0 +1,87 @@
+---
+// ComparisonSection.astro — Container 6 (id: 97edb0a)
+// Gradient bg #BB7D34 → #F8B361 (304deg), card #F5F1E9, rounded 10px
+
+const problemItems = [
+  'Repertório alimentar limitado e sem evolução previsível',
+  'Refeições dependentes de negociações constantes',
+  'Muitas tentativas, poucas respostas claras',
+  'Alimentação ocupando energia mental excessiva',
+];
+
+const solutionItems = [
+  'Repertório alimentar ampliando de forma progressiva',
+  'Refeições integradas à rotina, com menos intervenção e sem desgaste emocional',
+  'Decisões alimentares mais claras e seguras',
+  'Criança desenvolvendo maior autonomia à mesa',
+];
+
+const iconX = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/button.svg';
+const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/check-box.svg';
+---
+
+<section
+  class="flex flex-col items-center
+    p-0 md:px-[5%] md:py-0"
+  style="background: linear-gradient(304deg, #F8B361, #BB7D34);"
+>
+  <div class="w-full max-w-[1280px] mx-auto flex flex-row flex-wrap justify-center gap-[40px]">
+
+    <!-- Card (b19187b) -->
+    <div
+      class="w-full lg:w-[54%] bg-[#F5F1E9] rounded-[10px]
+        p-[10%] md:p-[40px_80px]
+        flex flex-col items-center gap-[20px]"
+    >
+      <!-- Heading 1: "Hoje, sem um sistema..." (f1f03dc) -->
+      <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124] text-center">
+        Hoje, <span class="underline-red">sem</span> um sistema alimentar estruturado:
+      </h2>
+
+      <!-- Icon list 1: problems (a5b474b) -->
+      <ul class="w-full flex flex-col gap-[5px]">
+        {problemItems.map((item) => (
+          <li class="flex items-start gap-[10px]">
+            <img src={iconX} alt="" class="w-[22px] h-[22px] mt-[3px] flex-shrink-0" width="22" height="22" />
+            <span class="text-[16px] leading-[1.5em] text-[#1C1E20]" style="font-family: Inter, sans-serif;">{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Divider (e1d4723) -->
+      <div class="w-full border-t border-[#0000002B]"></div>
+
+      <!-- Heading 2: "Com um método..." (22ee301) -->
+      <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124] text-center">
+        <span class="underline-verde">Com</span> um método aplicado com constância:
+      </h2>
+
+      <!-- Icon list 2: solutions (a3a66ac) -->
+      <ul class="w-full flex flex-col gap-[5px]">
+        {solutionItems.map((item) => (
+          <li class="flex items-start gap-[10px]">
+            <img src={iconCheck} alt="" class="w-[22px] h-[22px] mt-[3px] flex-shrink-0" width="22" height="22" />
+            <span class="text-[16px] leading-[1.5em] text-[#1C1E20]" style="font-family: Inter, sans-serif;">{item}</span>
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA Button (bd1b9f8) -->
+      <a
+        href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+        class="btn-grad inline-block text-[16px] font-semibold text-white uppercase
+          px-[40px] py-[20px] rounded-[1000px]
+          text-center z-[99]"
+        style="font-family: Inter, sans-serif; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
+      >
+        Quero iniciar o acompanhamento
+      </a>
+
+      <!-- Text (954b989) -->
+      <p class="text-[16px] leading-[1.5em] text-[#584C4D] text-center" style="font-family: Inter, sans-serif;">
+        O Comer bem sem estresse vai lhe dar <span class="texto">clareza e direção nessa transformação</span>
+      </p>
+    </div>
+
+  </div>
+</section>
