@@ -19,7 +19,7 @@
   <!-- Wrapper (7d4521e): w:100%, justify:center, align:center -->
   <div class="w-full flex flex-col justify-center items-center">
 
-    <!-- Glassmorphism (cc9604c): 800px, transparent desktop -->
+    <!-- Glassmorphism (cc9604c): 800px, transparent desktop, mb:-20px -->
     <div
       class="glass-container w-full max-w-[800px] flex flex-col justify-center items-center
         p-[6%_5%_5%_5%] md:p-[40px_40px_20px_40px]
@@ -31,7 +31,7 @@
         border-color: #FFFFFF59;
       "
     >
-      <!-- Logo: 201px desktop, 40.888% mobile, self:center todos -->
+      <!-- Logo: 201px desktop, 40.888% mobile, self:center -->
       <img
         src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/095704.svg"
         alt="Comer Bem Sem Estresse"
@@ -40,9 +40,10 @@
         width="201"
       />
 
-      <!-- Título: 87% desktop(self-start), 516px tablet(self-center), 67.837% mobile(self-center) -->
-      <!-- MOBILE: margin 0 -4% -3% -4% expande visualmente além do width -->
-      <div class="self-center md:self-center lg:self-start
+      <!-- Título: CENTRALIZADO em todos os breakpoints -->
+      <!-- width: 87% desktop, 516px tablet, 67.837% mobile -->
+      <!-- mobile: margin 0 -4% -3% -4% expande visualmente -->
+      <div class="self-center
         w-[67.837%] md:w-[516px] lg:w-[87%]
         mx-[-4%] mb-[-3%] md:mx-0 md:mb-0
         text-center">
@@ -52,7 +53,7 @@
       </div>
 
       <!-- Subtítulo: 683px desktop, 73% tablet -->
-      <div class="self-center md:self-center
+      <div class="self-center
         w-full md:w-[73%] lg:w-auto lg:max-w-[683px]
         text-center mt-4">
         <p class="font-inter font-normal text-[4.1vw] md:text-[20px] leading-[1.4em] text-[#0F0F0F]">
@@ -61,8 +62,9 @@
       </div>
     </div>
 
-    <!-- Video: 801px, border_radius:10px, margin_mobile: 0 -4% 0 -4% -->
-    <div class="w-full max-w-[801px] mx-[-4%] md:mx-0 rounded-[10px] overflow-hidden relative cursor-pointer group">
+    <!-- Video: 801px, border_radius:10px -->
+    <!-- Elementor default widget spacing: 20px (--widgets-spacing) -->
+    <div class="w-full max-w-[801px] mx-[-4%] md:mx-0 mt-[20px] mb-[20px] rounded-[10px] overflow-hidden relative cursor-pointer group">
       <img
         src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/100104.webp"
         alt="Assistir vídeo"
@@ -79,7 +81,6 @@
     </div>
 
     <!-- Botão CTA: z-99, self:center, full-width mobile -->
-    <!-- pb:0 no hero + mt:-28px no Container 2 = botão "transborda" -->
     <a
       href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
       class="btn-grad self-center relative
@@ -106,7 +107,6 @@
     background-position: right center;
   }
 
-  /* Background image desktop */
   @media (min-width: 1025px) {
     .hero-section {
       background-image: url('https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093713-copy.webp') !important;
@@ -114,7 +114,6 @@
     }
   }
 
-  /* Glassmorphism: transparent desktop (Elementor custom_css) */
   @media (min-width: 1025px) {
     .glass-container {
       background: transparent !important;
