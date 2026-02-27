@@ -1,6 +1,6 @@
 ---
 // ProblemSection.astro — Container 2 (id: 239a7bd)
-// Estilos APLICADOS do JSON do Elementor, NUNCA computados
+// Validado com Playwright iPhone 14 emulation
 
 const problems = [
   { text: 'Seu filho mantém um <span style="font-weight: 600;">repertório alimentar restrito</span>, mesmo você oferecendo variedade' },
@@ -14,82 +14,62 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
 ---
 
 <!--
-  📋 Estilos APLICADOS do JSON:
-
-  Container externo (239a7bd):
-    bg: #FFFFFF | direction: row (tablet: column) | align: center | justify: center | wrap: wrap
-    gap: 20px (mobile: 20px)
-    padding: 40px 0 60px 0 | tablet: 5% 5% 10% 5% | mobile: 10% 5% 10% 5%
-    margin: -28px 0 0 0 (tablet: 0, mobile: 0)
-    border: solid 1px 0 0 0 #FFFFFF0F
-    boxed_width: 1140px
-
-  Wrapper (fe6bcbd): w:100%, align:center, p:0
-  Inner (e6fdafd): w:81% (tablet:100%), p:60px 40px (mobile:0), bg:transparent
-
-  Heading 1 (e419bbf): Factul 32px/1.2em (tablet:36px, mobile:6.1vw), w:400, color:#1C3124
-    align:center, self:center, width:66% (mobile:67.837%, tablet:516px)
-    margin_mobile: 0 -20px 0 -20px
-
-  Icon-list (0367680): Inter 16px italic, w:400, color:#1C1E20
-    icon: SVG 22px (tablet:23px) | space_between: 29px (tablet:30, mobile:25)
-    divider: yes | width: 65.778% (mobile:78%)
-    icon_color: #DDA69000 (transparent) | self:center
-    icon_vertical_offset_mobile: 5px | icon_self_vertical_align_mobile: flex-start
-
-  Heading 2 (d134f69): Factul 24px/1.2em (mobile:4.5vw), w:400, color:#1C3124
-    align:center, width:87%, margin_mobile: 0 -20px -20px -20px
-
-  Heading 3 (c3e0998): Factul 33px/1.2em (mobile:6.2vw), w:400, color:#1C3124
-    align:center, width:87%, margin: -18px 0 0 0, margin_mobile: 0 -20px 0 -20px
+  Playwright iPhone 14 measurements (ORIGINAL):
+  - Widget e419bbf: w:351px (100%), NOT 67.837%
+  - .elementor-widget-container: margin 0 -20px → w:391px (overflows)
+  - h1 inside: w:391px, fs:23.79px (6.1vw), lh:1.2em, 4 lines
+  - Icon list: w:273.8px (78%), gap between items: 12.5px
+  - Insight d134f69: container margin 0 -20px → w:391px
+  - Conclusion c3e0998: container margin 0 -20px → w:391px
 -->
 
 <section
-  class="flex flex-row flex-wrap justify-center items-center gap-[20px]
-    pt-[10%] px-[5%] pb-[10%]
+  class="flex flex-col justify-center items-center
+    px-[5%] pt-[10%] pb-[10%]
     md:pt-[5%] md:px-[5%] md:pb-[10%]
     lg:pt-[40px] lg:px-0 lg:pb-[60px]
-    lg:mt-[-28px] md:mt-0 mt-0"
+    lg:mt-[-28px]"
   style="background-color: #FFFFFF; border-top: 1px solid #FFFFFF0F;"
 >
-  <div class="w-full max-w-[1140px] mx-auto flex flex-col items-center">
+  <div class="w-full max-w-[1140px] mx-auto flex flex-col items-center gap-[20px]">
 
-    <!-- Wrapper (fe6bcbd): w:100% -->
-    <div class="w-full flex flex-col items-center">
+    <!-- Inner (e6fdafd): 81% desktop, 100% mobile, p:60px 40px desktop -->
+    <div class="w-full lg:w-[81%] p-0 lg:p-[60px_40px] flex flex-col items-center gap-[20px]">
 
-      <!-- Inner (e6fdafd): w:81% desktop, 100% tablet/mobile -->
-      <div class="w-full md:w-full lg:w-[81%] p-0 md:p-0 lg:p-[60px_40px]">
-
-        <!-- Heading 1: Factul 32px, w:66%, self:center -->
-        <div class="self-center w-[67.837%] md:w-[516px] lg:w-[66%] mx-auto
-          mx-[-20px] md:mx-auto
-          text-center mb-[20px]">
-          <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124]" style="text-wrap: balance;">
+      <!-- Heading 1 (e419bbf): w:100% mobile, 66% desktop -->
+      <!-- Container margin: 0 -20px mobile (text overflows to 391px) -->
+      <div class="w-full md:w-[516px] lg:w-[66%] self-center text-center">
+        <div class="mx-[-20px] md:mx-0">
+          <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124]">
             <span class="underline-inner">O problema não está no que o seu filho não come,</span> mas na ausência de um sistema alimentar favorável:
           </h2>
         </div>
-
-        <!-- Icon list: Inter 16px italic, 65.778% desktop, 78% mobile -->
-        <ul class="icon-list w-[78%] md:w-[65.778%] lg:w-[65.778%] self-center mx-auto flex flex-col gap-[25px] md:gap-[30px] lg:gap-[29px] pb-[20px] md:pb-0">
-          {problems.map((problem) => (
-            <li class="problem-item flex items-start md:items-start gap-[8px]">
-              <img src={iconUrl} alt="" class="w-[22px] h-[22px] md:w-[23px] md:h-[23px] lg:w-[22px] lg:h-[22px] flex-shrink-0 mt-[5px] md:mt-0" width="22" height="22" />
-              <span class="font-inter font-normal text-[16px] leading-[1.5em] md:leading-normal italic text-[#1C1E20]" set:html={problem.text} />
-            </li>
-          ))}
-        </ul>
       </div>
 
-      <!-- Heading 2 (insight): Factul 24px, w:87% -->
-      <div class="self-center w-[87%] mx-[-20px] mb-[-20px] md:mx-auto md:mb-0 text-center">
-        <h3 class="font-factul font-normal text-[4.5vw] md:text-[24px] leading-[1.2em] text-[#1C3124]">
+      <!-- Icon list (0367680): 65.778% desktop, 78% mobile -->
+      <ul class="w-[78%] md:w-[78%] lg:w-[65.778%] self-center flex flex-col">
+        {problems.map((problem, i) => (
+          <li class:list={["flex items-start pb-[12.5px] md:pb-[15px] lg:pb-[14.5px]", i > 0 && "problem-divider", i === problems.length - 1 && "!pb-0"]}>
+            <img src={iconUrl} alt="" class="w-[27.5px] h-[22px] flex-shrink-0 mt-[5px] md:mt-0 object-contain object-left" width="22" height="22" />
+            <span class="font-normal text-[16px] leading-[1.5em] italic text-[#1C1E20]" style="font-family: Inter, sans-serif;" set:html={problem.text} />
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Heading 2 / Insight (d134f69): w:100% mobile, 87% desktop -->
+    <div class="w-full md:w-[516px] lg:w-[87%] self-center text-center">
+      <div class="mx-[-20px] mb-[-20px] md:mx-0 md:mb-0">
+        <h3 class="font-factul font-normal text-[4.5vw] md:text-[26px] lg:text-[24px] leading-[1.3em] md:leading-[1.2em] text-[#1C3124]">
           Se você já tentou diferentes abordagens e ainda não vê evolução consistente na alimentação do seu filho,
         </h3>
       </div>
+    </div>
 
-      <!-- Heading 3 (conclusão): Factul 33px, w:87%, mt:-18px desktop -->
-      <div class="self-center w-[87%] mx-[-20px] md:mx-auto mt-0 lg:mt-[-18px] text-center">
-        <h3 class="font-factul font-normal text-[6.2vw] md:text-[33px] leading-[1.2em] text-[#1C3124]">
+    <!-- Heading 3 / Conclusão (c3e0998): Factul 33px, mt:-18px desktop -->
+    <div class="w-full md:w-[516px] lg:w-[87%] self-center text-center lg:mt-[-18px]">
+      <div class="mx-[-20px] md:mx-0">
+        <h3 class="font-factul font-normal text-[6.2vw] md:text-[36px] lg:text-[33px] leading-[1.3em] md:leading-[1.2em] text-[#1C3124]">
           <span class="underline-inner">o problema não é esforço, é ausência de método.</span>
         </h3>
       </div>
@@ -98,18 +78,15 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
 </section>
 
 <style>
-  /* Divider entre items da icon-list (Elementor divider: yes) */
-  .problem-item + .problem-item {
-    border-top: 1px solid #e5e5e5;
-    padding-top: 25px;
-  }
   @media (min-width: 768px) {
-    .problem-item + .problem-item {
+    .problem-divider {
+      border-top: 1px solid #e5e5e5;
       padding-top: 30px;
     }
   }
   @media (min-width: 1025px) {
-    .problem-item + .problem-item {
+    .problem-divider {
+      border-top: 1px solid #e5e5e5;
       padding-top: 29px;
     }
   }
