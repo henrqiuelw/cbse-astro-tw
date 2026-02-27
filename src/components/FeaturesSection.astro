@@ -1,6 +1,10 @@
 ---
-// FeaturesSection.astro — Container 5
-// Estilos APLICADOS do JSON do Elementor, NUNCA computados
+// FeaturesSection.astro — Container 5 (id: 3704ea8)
+// 5 cards in flex-row wrap, 950px container, gap 30px
+// Each card: icon + title(20px/400) + desc(16px/600 border-left green) + detail(18px/400)
+
+const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083313-copy.webp';
+const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/124501.svg';
 
 const cards = [
   {
@@ -26,94 +30,60 @@ const cards = [
   {
     title: 'Flexível ao Desenvolvimento',
     desc: 'Permite ajustar o método às necessidades alimentares e ao momento de desenvolvimento do seu filho.',
-    detail: '"Sem fórmulas engessadas: método com critério."',
+    detail: 'Sem fórmulas engessadas: método com critério.',
   },
 ];
-
-const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/141704.svg';
-const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083313-copy.webp';
 ---
 
-<!--
-  📋 Estilos APLICADOS do JSON:
-  Container externo:
-    bg: #FEF4DF | direction: row
-    padding: 60px 0 200px 0
-    padding_tablet: 10% 5% 10% 5%
-    padding_mobile: 10% 10% 10% 10%
-    boxed_width: 1140px | flex_gap: 20px | flex_gap_mobile: 30px
-
-  Top image (08dadbe): margin_mobile: -31% -13% -22% -22%
-  
-  Heading: Factul 32px/1.2em (mobile: 6.1vw), weight:400, color:#1C3124, align:center
-
-  Cards container (ebff15c):
-    width: 950px (tablet: 70%) | direction: row | flex_wrap: wrap
-    padding: 40px 0 0 0 (mobile: 0)
-
-  Each card:
-    bg: #FFFEFB | padding: 40px (mobile: 10%)
-    border_radius: 10px | border: 0 1px 1px 1px solid #00000026
-    Icon: 46px wide, align: left
-    Title: Factul 20px, weight:400, color:#584C4D
-    Desc: Inter 16px, weight:600, color:#584C4D
-    Detail: Inter 18px (mobile:16px), weight:400, color:#584C4D
-
-  Mid image (7d5ad76): margin: -11% -52% -40% -40%
-
-  Button: Inter 16px uppercase, weight:600, color:white
-    padding: 20px 40px | radius: 1000px
-    gradient: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%)
-    bg-size: 200% auto | hover: bg-position right center
--->
-
 <section style="background-color: #FEF4DF;">
-  <div class="max-w-[1140px] mx-auto pt-[60px] px-0 pb-[200px] md:pt-10p md:px-5p md:pb-10p py-10p px-10p relative">
+  <div class="max-w-[1140px] mx-auto px-[5%] lg:px-0 py-[10%] lg:py-[60px] relative">
 
     <!-- Imagem decorativa topo (08dadbe): visible mobile, hidden desktop -->
     <img
       src={decorativeUrl}
       alt=""
-      class="relative z-0 lg:hidden"
-      style="margin: 0 0 0 0;"
+      class="relative z-0 lg:hidden w-full"
+      style="margin: -31% -13% -22% -22%;"
       loading="lazy"
     />
 
-    <!-- Heading -->
-    <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-brand-green-darker text-center">
+    <!-- Heading (03949ff) -->
+    <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center mb-[20px]">
       <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
     </h2>
 
-    <!-- Cards container: 950px, row, wrap -->
-    <div class="w-full max-w-[950px] lg:max-w-[950px] md:max-w-[70%] mx-auto flex flex-row flex-wrap pt-[40px] pr-0 pb-0 pl-0 md:pt-0 gap-[30px] lg:gap-[20px]">
+    <!-- Cards wrapper (ebff15c): 950px, flex-row wrap, gap 30px -->
+    <div class="w-full max-w-[950px] mx-auto flex flex-row flex-wrap gap-[30px] pt-[40px] lg:pt-[40px]">
 
       {cards.map((card) => (
         <div
-          class="flex-1 min-w-[250px] flex flex-col p-[40px] md:p-[40px] rounded-[10px]"
+          class="flex-1 min-w-[250px] flex flex-col gap-[20px] p-[40px] rounded-[10px]"
           style="background-color: #FFFEFB; border-width: 0 1px 1px 1px; border-style: solid; border-color: #00000026;"
         >
           <!-- Ícone -->
-          <img src={iconUrl} alt="" class="w-[46px] h-auto mb-4" width="46" loading="lazy" />
+          <img src={iconUrl} alt="" class="w-[46px] h-auto" width="46" loading="lazy" />
 
-          <!-- Título: Factul 20px, weight 400, color #584C4D -->
-          <p class="font-factul font-normal text-[20px] text-[#584C4D] mb-3">
+          <!-- Título: Factul 20px/400, #584C4D -->
+          <p class="font-factul font-normal text-[20px] text-[#584C4D]">
             {card.title}
           </p>
 
-          <!-- Desc: Inter 16px, weight 600, color #584C4D -->
-          <p class="font-inter font-semibold text-[16px] text-[#584C4D] leading-[1.4em] mb-3">
+          <!-- Desc: Inter 16px/600, #584C4D, border-left 2px #58DBB1, pl-[20px] -->
+          <p
+            class="text-[16px] leading-[1.4em] text-[#584C4D] pl-[20px]"
+            style="font-family: Inter, sans-serif; font-weight: 600; border-left: 2px solid #58DBB1;"
+          >
             {card.desc}
           </p>
 
-          <!-- Detail: Inter 18px (mobile 16px), weight 400, color #584C4D -->
-          <p class="font-inter font-normal text-[16px] md:text-[18px] text-[#584C4D] leading-[1.4em]">
+          <!-- Detail: Inter 18px(desktop) 16px(mobile)/400, #584C4D -->
+          <p class="text-[16px] lg:text-[18px] leading-[1.4em] text-[#584C4D]" style="font-family: Inter, sans-serif;">
             {card.detail}
           </p>
         </div>
       ))}
 
       <!-- Imagem decorativa mid (7d5ad76): hidden mobile, visible desktop -->
-      <!-- Widget 297px (31%), widget-container 570px via negative margins -->
       <div class="hidden lg:block w-[31%] overflow-visible">
         <img
           src={decorativeUrl}
@@ -125,26 +95,16 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
       </div>
     </div>
 
-    <!-- Botão CTA -->
-    <div class="text-center mt-8">
+    <!-- Botão CTA (7820224) -->
+    <div class="text-center mt-[20px]">
       <a
         href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-        class="btn-grad inline-block font-inter font-semibold text-[16px] uppercase tracking-[0.9px] text-white px-[40px] py-[20px] rounded-[1000px] text-center"
+        class="inline-block text-[16px] font-semibold uppercase tracking-[0.9px] text-white
+          px-[40px] py-[20px] rounded-[1000px] text-center"
+        style="font-family: Inter, sans-serif; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
       >
         Quero um sistema que funcione
       </a>
     </div>
   </div>
 </section>
-
-<style>
-  .btn-grad {
-    background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%);
-    background-size: 200% auto;
-    transition: 0.5s;
-    display: inline-block;
-  }
-  .btn-grad:hover {
-    background-position: right center;
-  }
-</style>
