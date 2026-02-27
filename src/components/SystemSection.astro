@@ -1,7 +1,5 @@
 ---
 // SystemSection.astro — Container 3 (id: 9881de1)
-// Desktop: textBox left (44%) + image right overflows container
-// Mobile/Tablet: column-reverse
 ---
 
 <section
@@ -17,7 +15,7 @@
 >
   <div class="w-full max-w-[1140px] mx-auto flex flex-col-reverse lg:flex-row flex-wrap justify-center items-center gap-[20px] xl:gap-0 lg:overflow-visible">
 
-    <!-- Text container (5acd04f) - glassmorphism, 44% desktop -->
+    <!-- Text container (5acd04f) - glassmorphism -->
     <div
       class="w-full lg:w-[44%] p-0 lg:p-[40px]
         bg-transparent lg:bg-[#FFFFFF0D]
@@ -35,22 +33,20 @@
         <span class="texto" style="font-weight: 400 !important;">cada refeição exige decisão, adaptação e negociação.</span>
       </h2>
 
-      <p class="font-normal text-[20px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left mb-[20px]"
+      <p class="font-normal text-[20px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left"
         style="font-family: Inter, sans-serif; font-weight: 600;">
         <span class="texto">Isso gera desgaste,</span> mesmo em famílias comprometidas.
       </p>
 
-      <p class="font-normal text-[16px] lg:text-[18px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left"
+      <p class="font-normal text-[16px] lg:text-[18px] leading-[1.4em] text-[#0F0F0F] text-center lg:text-left mt-[20px]"
         style="font-family: Inter, sans-serif;">
         Famílias que alcançam autonomia alimentar, que veem seus filhos voltarem a comer, não fazem &ldquo;mais força&rdquo;, elas <span class="texto">seguem um processo estruturado, claro, com constância e direção.</span>
       </p>
     </div>
 
-    <!-- Image 1 (d7394c9): hidden desktop, visible mobile/tablet -->
-    <div class="w-[43%] lg:w-0 lg:h-0 lg:overflow-hidden
-      -mt-[26%] -mr-[7%] -mb-[14%] -ml-[6%]
-      md:-mt-[50%] md:-mr-[13%] md:-mb-[26%] md:-ml-[13%]
-      lg:m-0">
+    <!-- Image 1 (d7394c9): mobile full-bleed, hidden desktop -->
+    <!-- Original: widget=351px but widget-container=397px (overflow visible, ~102% vw) -->
+    <div class="w-[calc(100%+13%)] -ml-[5%] lg:w-0 lg:h-0 lg:overflow-hidden lg:ml-0">
       <img
         src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/115104.webp"
         alt=""
@@ -59,11 +55,8 @@
       />
     </div>
 
-    <!-- Image 2 (4297d9a): widget 54%, container overflows to show full image -->
-    <!-- Original: widget=616px, container=905px, img=905x604 -->
-    <div class="w-[54%] overflow-visible
-      -mt-[26%] -mr-[7%] -mb-[14%] -ml-[6%]
-      lg:m-0">
+    <!-- Image 2 (4297d9a): hidden mobile, visible desktop (overflow 905px) -->
+    <div class="hidden lg:block lg:w-[54%] overflow-visible">
       <div class="lg:w-[905px] lg:max-w-none lg:-ml-[92px]">
         <img
           src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/091713-copy.webp"
