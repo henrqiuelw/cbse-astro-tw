@@ -70,11 +70,11 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
 <section style="background-color: #FEF4DF;">
   <div class="max-w-[1140px] mx-auto pt-[60px] px-0 pb-[200px] md:pt-10p md:px-5p md:pb-10p py-10p px-10p relative">
 
-    <!-- Imagem decorativa topo -->
+    <!-- Imagem decorativa topo (08dadbe): visible mobile, hidden desktop -->
     <img
       src={decorativeUrl}
       alt=""
-      class="relative z-0"
+      class="relative z-0 lg:hidden"
       style="margin: 0 0 0 0;"
       loading="lazy"
     />
@@ -112,14 +112,17 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
         </div>
       ))}
 
-      <!-- Imagem decorativa mid -->
-      <img
-        src={decorativeUrl}
-        alt=""
-        class="relative z-0"
-        style="margin: -11% 0 -40% 0; max-width: 100%;"
-        loading="lazy"
-      />
+      <!-- Imagem decorativa mid (7d5ad76): hidden mobile, visible desktop -->
+      <!-- Widget 297px (31%), widget-container 570px via negative margins -->
+      <div class="hidden lg:block w-[31%] overflow-visible">
+        <img
+          src={decorativeUrl}
+          alt=""
+          class="relative z-0 w-[570px] max-w-none"
+          style="margin: -11% -52% -40% -40%;"
+          loading="lazy"
+        />
+      </div>
     </div>
 
     <!-- Botão CTA -->
