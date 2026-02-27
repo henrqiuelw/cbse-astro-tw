@@ -1,0 +1,110 @@
+---
+// ProblemSection.astro — Container 2 (id: 239a7bd)
+// Estilos APLICADOS do JSON do Elementor, NUNCA computados
+
+const problems = [
+  { text: 'Seu filho mantém um <strong>repertório alimentar restrito</strong>, mesmo você oferecendo variedade', icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/102804.svg' },
+  { text: 'A alimentação dele depende de <strong>negociação constante</strong>', icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/102804.svg' },
+  { text: 'Você sente que faz "tudo certo", mas <strong>não vê evolução consistente</strong>', icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/102804.svg' },
+  { text: 'Falta clareza sobre <strong>o que fazer, quando insistir e quando recuar</strong>', icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/102804.svg' },
+  { text: 'A alimentação ocupa <strong>energia mental excessiva da família</strong>', icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/102804.svg' },
+];
+---
+
+<!--
+  📋 Estilos APLICADOS do JSON:
+  Container externo (239a7bd):
+    bg: #FFFFFF | flex_direction: row
+    padding: 40px 0 60px 0
+    padding_tablet: 5% 5% 10% 5%
+    padding_mobile: 10% 5% 10% 5%
+    boxed_width: 1140px | flex_gap: 20px
+
+  Container wrapper (fe6bcbd): w:100%
+  Container inner (e6fdafd): w:81% (tablet:100%)
+    padding: 60px 40px (mobile: 0)
+
+  Heading 1 (título problema):
+    font: Factul 32px/1.2em (mobile: 6.1vw)
+    weight: 400 | color: #1C3124 | align: center
+
+  Icon-list (0367680):
+    icon: SVG 22px (tablet:23px, mobile:22px)
+    text: Inter 16px/italic, weight:400, color:#1C1E20
+    space_between: 29px (tablet:30, mobile:25)
+    divider: yes
+    _element_width: 65.778% (mobile: 78%)
+    icon_color: #DDA69000 (transparent - SVG é a cor)
+
+  Heading 2 (insight):
+    font: Factul 24px/1.2em (mobile: 4.5vw)
+    weight: 400 | color: #1C3124 | align: center
+
+  Heading 3 (conclusão):
+    font: Factul 33px/1.2em (mobile: 6.2vw)
+    weight: 400 | color: #1C3124 | align: center
+-->
+
+<section class="bg-white flex flex-row pt-10p px-5p pb-10p md:pt-5p md:px-5p md:pb-10p lg:pt-[40px] lg:px-0 lg:pb-[60px]">
+  <div class="w-full max-w-elementor mx-auto flex flex-col items-center gap-[20px]">
+
+    <!-- Inner container -->
+    <div class="w-full md:w-[81%] p-0 md:p-[60px_40px] flex flex-col items-center">
+
+      <!-- Título do problema -->
+      <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-brand-green-darker text-center mb-8">
+        <span class="underline-inner">O problema não está no que o seu filho não come,</span> mas na ausência de um sistema alimentar favorável:
+      </h2>
+
+      <!-- Lista de problemas com ícone SVG -->
+      <ul class="w-[78%] md:w-[65.778%] flex flex-col gap-[25px] md:gap-[29px] self-center mb-8">
+        {problems.map((problem) => (
+          <li class="flex items-start md:items-center gap-3 problem-item">
+            <img src={problem.icon} alt="" class="w-[22px] h-[22px] md:w-[22px] md:h-[22px] flex-shrink-0 mt-[5px] md:mt-0" width="22" height="22" />
+            <span class="font-inter text-[16px] leading-[1.5em] md:leading-normal font-normal italic text-text-primary" set:html={problem.text} />
+          </li>
+        ))}
+      </ul>
+
+      <!-- Insight -->
+      <p class="font-factul font-normal text-[4.5vw] md:text-[24px] leading-[1.2em] text-brand-green-darker text-center mb-4">
+        Se você já tentou diferentes abordagens e ainda não vê evolução consistente na alimentação do seu filho,
+      </p>
+
+      <!-- Conclusão com destaque -->
+      <p class="font-factul font-normal text-[6.2vw] md:text-[33px] leading-[1.2em] text-brand-green-darker text-center">
+        <span class="underline-inner">o problema não é esforço, é ausência de método.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .underline-inner {
+    position: relative;
+    display: inline;
+  }
+  .underline-inner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 8px;
+    background-color: #B93060;
+    opacity: 0.25;
+    z-index: -1;
+    border-radius: 2px;
+  }
+
+  /* Divider entre items (Elementor divider: yes) */
+  .problem-item + .problem-item {
+    border-top: 1px solid #e5e5e5;
+    padding-top: 25px;
+  }
+  @media (min-width: 768px) {
+    .problem-item + .problem-item {
+      padding-top: 29px;
+    }
+  }
+</style>

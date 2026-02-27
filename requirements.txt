@@ -1,0 +1,14 @@
+# Python dependencies for CBSE migration
+# Install with: pip3 install -r requirements.txt
+
+# XML/JSON processing
+# (built-in: xml.etree.ElementTree, json)
+
+# HTTP requests (for API calls)
+# requests==2.31.0
+
+# Image processing (for screenshot analysis)
+# Pillow==10.1.0
+
+# Optional: for better XML parsing
+# lxml==4.9.3

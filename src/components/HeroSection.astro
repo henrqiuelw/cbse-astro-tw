@@ -1,0 +1,117 @@
+---
+// HeroSection.astro — Container 1 (id: 43c1cc8)
+// Estilos APLICADOS do JSON do Elementor, NUNCA computados
+---
+
+<!--
+  📋 Estilos APLICADOS do JSON:
+  Container externo:
+    bg_color: #F0E9DE
+    bg_image desktop: .../093713-copy.webp | position: top center | size: cover
+    bg_image mobile: .../100004.webp | position: bottom center | size: cover
+    flex_direction: row (desktop), column (tablet)
+    flex_justify: center | flex_align: center
+    padding: 20px 0 0 0
+    padding_tablet: 5% 5% 10% 5%
+    padding_mobile: 0 5% 15% 5%
+
+  Container interno (cc9604c):
+    width: 800px | padding: 40px 40px 20px 40px
+    padding_mobile: 6% 5% 5% 5%
+    bg: #FFFFFF1A | border_radius: 10px
+    backdrop-filter: blur(20px)
+
+  Logo (a413a28):
+    width: 201px (custom) | _element_width: initial
+
+  Título (b5e6d6b):
+    font: Factul 43px/1.1em (desktop), 6.3vw (mobile)
+    weight: 400 | color: #3B3B3B | align: center
+
+  Subtítulo (864af24):
+    font: Inter 20px/1.4em (desktop), 4.1vw (mobile)
+    weight: 400 | color: #0F0F0F | align: center
+
+  Botão (14f4e7e):
+    font: Inter 18px uppercase, 16px mobile | weight: 600
+    letter-spacing: 0.9px | color: #FFFFFF
+    padding: 20px 40px | border-radius: 1000px (pill)
+    gradient: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%)
+    bg-size: 200% auto | hover: bg-position right center
+    align_mobile: justify (full-width)
+-->
+
+<section
+  class="bg-brand-cream bg-cover bg-no-repeat bg-top flex flex-col lg:flex-row justify-center items-center pt-0 px-5p pb-15p md:pt-5p md:px-5p md:pb-10p lg:pt-[20px] lg:px-0 lg:pb-0"
+  style="background-image: url('https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/100004.webp'); background-position: bottom center;"
+>
+  <!-- Troca bg-image por breakpoint via <style> -->
+  <div class="hero-bg-swap w-full flex justify-center items-center">
+    <!-- Container interno glassmorphism -->
+    <div class="w-full max-w-[800px] bg-white/10 backdrop-blur-[20px] rounded-[10px] p-[6%_5%_5%_5%] md:p-[40px] lg:p-[40px_40px_20px_40px] flex flex-col items-center">
+
+      <!-- Logo -->
+      <img
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/095704.svg"
+        alt="Comer Bem Sem Estresse"
+        class="w-[201px] mb-6"
+        width="201"
+        height="auto"
+      />
+
+      <!-- Título -->
+      <h1 class="font-factul font-normal text-[6.3vw] md:text-[43px] leading-[1.1em] text-[#3B3B3B] text-center mb-4">
+        Leve o seu filho de um repertório alimentar restrito para <span class="underline-inner">uma alimentação variada e saudável</span>
+      </h1>
+
+      <!-- Subtítulo -->
+      <p class="font-inter font-normal text-[4.1vw] md:text-[20px] leading-[1.4em] text-[#0F0F0F] text-center mb-8">
+        um método estruturado para famílias que querem resultados consistentes
+      </p>
+
+      <!-- CTA Button -->
+      <a
+        href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+        class="btn-grad self-center w-full md:w-auto font-inter font-semibold text-[16px] md:text-[18px] leading-[1.2em] uppercase tracking-[0.9px] text-white px-[40px] py-[20px] rounded-[1000px] text-center z-[99]"
+      >
+        Quero iniciar o acompanhamento
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .btn-grad {
+    background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%);
+    background-size: 200% auto;
+    transition: 0.5s;
+  }
+  .btn-grad:hover {
+    background-position: right center;
+  }
+
+  /* Background image swap por breakpoint */
+  @media (min-width: 1025px) {
+    section {
+      background-image: url('https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093713-copy.webp') !important;
+      background-position: top center !important;
+    }
+  }
+
+  .underline-inner {
+    position: relative;
+    display: inline;
+  }
+  .underline-inner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 2px;
+    height: 8px;
+    background-color: #B93060;
+    opacity: 0.25;
+    z-index: -1;
+    border-radius: 2px;
+  }
+</style>

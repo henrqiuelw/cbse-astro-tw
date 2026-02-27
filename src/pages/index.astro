@@ -1,17 +1,35 @@
 ---
-
+import HeroSection from '../components/HeroSection.astro';
+import ProblemSection from '../components/ProblemSection.astro';
+import SystemSection from '../components/SystemSection.astro';
+import '../styles/global.css';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Comer Bem Sem Estresse - Nutrição Infantil" />
+    <title>Comer Bem Sem Estresse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Mulish:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Factul é fonte local (não está no Google Fonts) -->
+  </head>
+  <body class="font-sans text-text-primary bg-white overflow-x-hidden">
+    <!-- Container 0: Divider bar (#FEB45D) — vazio no original -->
+    <div class="h-1 bg-brand-orange"></div>
+
+    <!-- Container 1: Hero -->
+    <HeroSection />
+
+    <!-- Container 2: Problem -->
+    <ProblemSection />
+
+    <!-- Container 3: System -->
+    <SystemSection />
+
+    <!-- Containers 4-18: TODO -->
+  </body>
 </html>
