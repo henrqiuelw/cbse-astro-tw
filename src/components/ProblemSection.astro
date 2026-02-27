@@ -5,7 +5,7 @@
 const problems = [
   { text: 'Seu filho mantém um <span style="font-weight: 600;">repertório alimentar restrito</span>, mesmo você oferecendo variedade' },
   { text: 'A alimentação dele depende de <span style="font-weight: 600;">negociação constante</span>' },
-  { text: 'Você sente que faz "tudo certo", mas <span style="font-weight: 600;">não vê evolução consistente</span>' },
+  { text: 'Você sente que faz \u201ctudo certo\u201d, mas <span style="font-weight: 600;">não vê evolução consistente</span>' },
   { text: 'Falta clareza sobre <span style="font-weight: 600;">o que fazer, quando insistir e quando recuar</span>' },
   { text: 'A alimentação ocupa <span style="font-weight: 600;">energia mental excessiva da família</span>' },
 ];
@@ -15,12 +15,12 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
 
 <!--
   Playwright iPhone 14 measurements (ORIGINAL):
-  - Widget e419bbf: w:351px (100%), NOT 67.837%
-  - .elementor-widget-container: margin 0 -20px → w:391px (overflows)
-  - h1 inside: w:391px, fs:23.79px (6.1vw), lh:1.2em, 4 lines
-  - Icon list: w:273.8px (78%), gap between items: 12.5px
-  - Insight d134f69: container margin 0 -20px → w:391px
-  - Conclusion c3e0998: container margin 0 -20px → w:391px
+  Section (239a7bd): px:5%, conInner pt:35px pb:35px, gap:20px
+  Inner (e6fdafd): bg: gradient transparent→#FEF4DF, p:0 mobile, gap:20px
+  Heading (e419bbf): widget=351px, container margin 0 -20px → h1=391px
+  Icon list: widget=273.8px (78%), no separators
+    Items: pb:12.5px (except last), mt:12.5px (except first)
+    Total gap between: 25px
 -->
 
 <section
@@ -33,11 +33,11 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
 >
   <div class="w-full max-w-[1140px] mx-auto flex flex-col items-center gap-[20px]">
 
-    <!-- Inner (e6fdafd): 81% desktop, 100% mobile, p:60px 40px desktop -->
-    <div class="w-full lg:w-[81%] p-0 lg:p-[60px_40px] flex flex-col items-center gap-[20px]" style="background: linear-gradient(rgba(255,255,255,0) 0%, #FEF4DF 100%);">
+    <!-- Inner (e6fdafd): gradient bg, 81% desktop, 100% mobile -->
+    <div class="w-full lg:w-[81%] p-0 lg:p-[60px_40px] flex flex-col items-center gap-[20px]"
+      style="background: linear-gradient(rgba(255,255,255,0) 0%, #FEF4DF 100%);">
 
-      <!-- Heading 1 (e419bbf): w:100% mobile, 66% desktop -->
-      <!-- Container margin: 0 -20px mobile (text overflows to 391px) -->
+      <!-- Heading 1 (e419bbf): w:100% mobile, container margin 0 -20px -->
       <div class="w-full md:w-[516px] lg:w-[66%] self-center text-center">
         <div class="mx-[-20px] md:mx-0">
           <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124]">
@@ -47,9 +47,15 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
       </div>
 
       <!-- Icon list (0367680): 65.778% desktop, 78% mobile -->
+      <!-- Items: pb:12.5px (except last), mt:12.5px (except first) = 25px gap -->
       <ul class="w-[78%] md:w-[78%] lg:w-[65.778%] self-center flex flex-col">
         {problems.map((problem, i) => (
-          <li class:list={["flex items-start pb-[12.5px] md:pb-[15px] lg:pb-[14.5px]", i > 0 && "problem-divider", i === problems.length - 1 && "!pb-0"]}>
+          <li class:list={[
+            "flex items-start",
+            i > 0 && "mt-[12.5px]",
+            i < problems.length - 1 && "pb-[12.5px]",
+            i > 0 && "problem-divider"
+          ]}>
             <div class="flex-shrink-0 w-[27.5px] mt-[5px] md:mt-0">
               <img src={iconUrl} alt="" class="w-[22px] h-[22px]" width="22" height="22" />
             </div>
@@ -59,7 +65,7 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
       </ul>
     </div>
 
-    <!-- Heading 2 / Insight (d134f69): w:100% mobile, 87% desktop -->
+    <!-- Heading 2 / Insight (d134f69): w:100% mobile, container margin 0 -20px -->
     <div class="w-full md:w-[516px] lg:w-[87%] self-center text-center">
       <div class="mx-[-20px] mb-[-20px] md:mx-0 md:mb-0">
         <h3 class="font-factul font-normal text-[4.5vw] md:text-[26px] lg:text-[24px] leading-[1.3em] md:leading-[1.2em] text-[#1C3124]">
