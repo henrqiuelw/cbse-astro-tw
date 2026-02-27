@@ -38,7 +38,7 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
       style="background: linear-gradient(rgba(255,255,255,0) 0%, #FEF4DF 100%);">
 
       <!-- Heading 1 (e419bbf): w:100% mobile, container margin 0 -20px -->
-      <div class="w-full md:w-[516px] lg:w-[66%] self-center text-center">
+      <div class="w-full md:w-[516px] lg:w-full self-center text-center">
         <div class="mx-[-20px] md:mx-0">
           <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124]">
             <span class="underline-inner">O problema não está no que o seu filho não come,</span> mas na ausência de um sistema alimentar favorável:
@@ -48,13 +48,12 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
 
       <!-- Icon list (0367680): 65.778% desktop, 78% mobile -->
       <!-- Items: pb:12.5px (except last), mt:12.5px (except first) = 25px gap -->
-      <ul class="w-[78%] md:w-[78%] lg:w-[65.778%] self-center flex flex-col">
+      <ul class="w-[78%] md:w-[78%] lg:w-[65.778%] self-center flex flex-col ">
         {problems.map((problem, i) => (
           <li class:list={[
             "flex items-start",
-            i > 0 && "mt-[12.5px]",
-            i < problems.length - 1 && "pb-[12.5px]",
-            i > 0 && "problem-divider"
+            i > 0 && "mt-[12.5px] lg:mt-[14.5px]",
+            i < problems.length - 1 && "pb-[12.5px] lg:pb-[14.5px]"
           ]}>
             <div class="flex-shrink-0 w-[27.5px] mt-[5px] md:mt-0">
               <img src={iconUrl} alt="" class="w-[22px] h-[22px]" width="22" height="22" />
@@ -85,17 +84,4 @@ const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/1
   </div>
 </section>
 
-<style>
-  @media (min-width: 768px) {
-    .problem-divider {
-      border-top: 1px solid #e5e5e5;
-      padding-top: 30px;
-    }
-  }
-  @media (min-width: 1025px) {
-    .problem-divider {
-      border-top: 1px solid #e5e5e5;
-      padding-top: 29px;
-    }
-  }
-</style>
+
