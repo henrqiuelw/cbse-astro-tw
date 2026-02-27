@@ -4,7 +4,7 @@
 // Each card: icon + title(20px/400) + desc(16px/600 border-left green) + detail(18px/400)
 
 const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083313-copy.webp';
-const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/124501.svg';
+const iconUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/141704.svg';
 
 const cards = [
   {
@@ -35,25 +35,24 @@ const cards = [
 ];
 ---
 
-<section style="background-color: #FEF4DF;">
+<section class="overflow-visible" style="background-color: #FEF4DF;">
   <div class="max-w-[1140px] mx-auto px-[5%] lg:px-0 py-[10%] lg:py-[60px] relative">
 
     <!-- Imagem decorativa topo (08dadbe): visible mobile, hidden desktop -->
-    <img
-      src={decorativeUrl}
-      alt=""
-      class="relative z-0 lg:hidden w-full"
-      style="margin: -31% -13% -22% -22%;"
-      loading="lazy"
-    />
+    <!-- Widget 300px, container 405px via negative margins -->
+    <div class="lg:hidden overflow-visible mb-[30px]">
+      <div style="margin: -31% -13% -22% -22%;">
+        <img src={decorativeUrl} alt="" class="w-full h-auto" loading="lazy" />
+      </div>
+    </div>
 
     <!-- Heading (03949ff) -->
-    <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center mb-[20px]">
+    <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center mb-[30px]">
       <span class="underline-inner">O Comer bem sem estresse é um método estruturado</span> para sair do improviso e construir autonomia alimentar:
     </h2>
 
     <!-- Cards wrapper (ebff15c): 950px, flex-row wrap, gap 30px -->
-    <div class="w-full max-w-[950px] mx-auto flex flex-row flex-wrap gap-[30px] pt-[40px] lg:pt-[40px]">
+    <div class="w-full max-w-[950px] mx-auto flex flex-row flex-wrap gap-[30px] pt-0 lg:pt-[40px]">
 
       {cards.map((card) => (
         <div
