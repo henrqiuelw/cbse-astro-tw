@@ -1,62 +1,51 @@
-/* Importar fontes CBSE */
+/* Fontes CBSE */
 @import './fonts.css';
 
-/* Importar Tailwind */
+/* Tailwind */
 @import 'tailwindcss';
 
-/* Estilos globais baseados no custom CSS do Elementor */
+/* Custom CSS do Elementor (extraído do JSON, campo custom_css) */
 
-/* Scrollbar personalizada do Elementor */
-::-webkit-scrollbar {
-  width: 12px;
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: #EFEFF0; }
+::-webkit-scrollbar-thumb { background-color: #FEB45D; border-radius: 10px; }
+
+p { margin-bottom: 0 !important; }
+p, h1, h2, h3 { text-wrap: balance !important; }
+
+.underline-inner {
+  display: inline;
+  box-shadow: inset 0px -7px 0px 0px #FEB45D90;
 }
 
-::-webkit-scrollbar-track {
-  background: #EFEFF0; /* scrollbar-track */
+.underline-red {
+  display: inline;
+  box-shadow: inset 0px -7px 0px 0px #FF0B00;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #FEB45D; /* scrollbar-thumb */
-  border-radius: 10px;
+.underline-verde {
+  display: inline;
+  box-shadow: inset 0px -7px 0px 0px #25A75C;
 }
 
-/* Balanceamento de texto do custom CSS */
-.elementor-widget-container,
-.elementor-button,
-p, h1, h2, h3 {
-  text-wrap: balance !important;
+.destaque { color: #F89A2B; }
+.destaque-texto { color: #CD0C4F; font-weight: 700; }
+.destaque-white { color: #fff; font-weight: 700; }
+.texto { font-weight: 600; color: #d28123; }
+
+.aulas {
+  background: #fff !important;
+  color: #C47519 !important;
+  border-radius: 100px !important;
+  padding: 5px 13px !important;
+  margin-right: 8px !important;
 }
 
-/* Reset básico */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* Reset */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  font-family: 'Factul', 'Lato', 'Mulish', system-ui, sans-serif;
+  font-family: 'Factul', 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Utilitários */
-.underline-inner {
-  position: relative;
-  display: inline;
-}
-
-.underline-inner::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 2px;
-  height: 8px;
-  background-color: #B93060;
-  opacity: 0.25;
-  z-index: -1;
-  border-radius: 2px;
 }

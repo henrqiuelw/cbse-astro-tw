@@ -1,30 +1,80 @@
 ---
 // HeroSection.astro — Container 1 (id: 43c1cc8)
 // Estilos APLICADOS do JSON do Elementor, NUNCA computados
-// LIÇÃO APRENDIDA: Background images precisam de prioridade sobre classes Tailwind
 ---
 
 <!--
-  📋 Estilos APLICADOS do JSON:
-  Container externo:
+  📋 Estilos APLICADOS do JSON — Container 1 (43c1cc8):
+  
+  Externo (43c1cc8):
     bg_color: #F0E9DE
-    bg_image desktop: .../093713-copy.webp | position: top center | size: cover
+    bg_image desktop: .../093713-copy.webp | position: top center | size: cover | repeat: no-repeat
     bg_image mobile: .../100004.webp | position: bottom center | size: cover
-    flex_direction: row (desktop), column (tablet)
+    bg_image tablet: (vazio, herda desktop) | position: bottom center | size: cover
+    custom_height: 800px
+    flex_direction: row (tablet: column)
     flex_justify: center | flex_align: center
+    flex_gap: 10px
     padding: 20px 0 0 0
     padding_tablet: 5% 5% 10% 5%
     padding_mobile: 0 5% 15% 5%
+    border_width_mobile: 4px 0 0 0
 
-  Container interno (cc9604c):
-    width: 800px | padding: 40px 40px 20px 40px
+  Wrapper (7d4521e):
+    width: 100% | flex_justify: center | flex_align: center
+    width_tablet: 100% | flex_align_tablet: center
+
+  Glassmorphism container (cc9604c):
+    width: 800px
+    bg: #FFFFFF1A
+    border: solid 0 1px 0 1px #FFFFFF59
+    border_radius: none
+    padding: 40px 40px 20px 40px
     padding_mobile: 6% 5% 5% 5%
-    bg: #FFFFFF1A | border_radius: 10px
-    backdrop-filter: blur(20px)
+    margin_bottom: -20px
+    CUSTOM CSS desktop: background: transparent !important
+    → glassmorphism é SÓ mobile/tablet
+
+  Logo (a413a28):
+    width: 201px | align: left (mobile: center)
+    margin: -20px 0 20px 0 | margin_mobile: 0 0 5% 0
+    mobile_width: 40.888%
+
+  Título (b5e6d6b) — TEXT-EDITOR, não heading:
+    font: Factul 43px/1.1em (tablet: 36px, mobile: 6.3vw/1.2em)
+    weight: 400 | color: #3B3B3B | align: center
+    _element_width: inherit, custom: 87%
+    tablet_width: 516px | mobile_width: 67.837%
+    text-wrap: balance
+
+  Subtítulo (864af24) — TEXT-EDITOR:
+    font: Inter 20px/1.4em (mobile: 4.1vw/1.4em)
+    weight: 400 | color: #0F0F0F | align: center
+    _element_width: initial, custom: 683px
+    tablet_width: 73%
+
+  Video (fora do glassmorphism):
+    type: hosted | url: .../VSL-4-1.mp4
+    overlay: .../100104.webp
+    width: 801px | border_radius: 10px
+    margin_mobile: 0 -4% 0 -4%
+
+  Botão CTA (fora do glassmorphism):
+    text: "Quero iniciar o acompanhamento"
+    font: Inter 18px uppercase (mobile: 16px)
+    weight: 600 | letter-spacing: 0.9px | color: #FFFFFF
+    padding: 20px 40px | border-radius: 1000px (mobile: 100px)
+    gradient: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%)
+    bg-size: 200% auto | hover: bg-position right center
+    z-index: 99 | align_mobile: justify (full-width)
+    css_class: btn-grad
 -->
 
 <section
-  class="flex flex-col lg:flex-row justify-center items-center pt-0 px-5p pb-15p md:pt-5p md:px-5p md:pb-10p lg:pt-[20px] lg:px-0 lg:pb-0"
+  class="hero-section flex flex-col lg:flex-row justify-center items-center gap-[10px]
+    pt-0 px-5p pb-15p
+    md:pt-5p md:px-5p md:pb-10p
+    lg:pt-[20px] lg:px-0 lg:pb-0"
   style="
     background-color: #F0E9DE;
     background-image: url('https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/100004.webp');
@@ -33,32 +83,87 @@
     background-repeat: no-repeat;
   "
 >
-  <!-- Container interno glassmorphism -->
-  <div class="w-full max-w-[800px] bg-white/10 backdrop-blur-[20px] rounded-[10px] p-[6%_5%_5%_5%] md:p-[40px] lg:p-[40px_40px_20px_40px] flex flex-col items-center">
+  <!-- Wrapper (7d4521e): w:100%, justify:center, align:center -->
+  <div class="w-full flex flex-col justify-center items-center md:items-center">
 
-    <!-- Logo -->
-    <img
-      src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/095704.svg"
-      alt="Comer Bem Sem Estresse"
-      class="w-[201px] mb-6"
-      width="201"
-      height="auto"
-    />
+    <!-- Glassmorphism container (cc9604c): 800px, transparent on desktop -->
+    <div
+      class="w-full max-w-[800px] flex flex-col justify-center items-center
+        p-[6%_5%_5%_5%] md:p-[40px_40px_20px_40px]
+        mb-[-20px]
+        rounded-none
+        lg:!bg-transparent"
+      style="
+        background-color: #FFFFFF1A;
+        border-style: solid;
+        border-width: 0 1px 0 1px;
+        border-color: #FFFFFF59;
+      "
+    >
+      <!-- Logo (a413a28): 201px desktop, 40.888% mobile -->
+      <img
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/095704.svg"
+        alt="Comer Bem Sem Estresse"
+        class="w-[201px] md:w-[201px] self-start md:self-center
+          mt-[-20px] mb-[20px]
+          md:mt-0 md:mb-[5%]"
+        style="max-width: 40.888%;"
+        width="201"
+      />
 
-    <!-- Título -->
-    <h1 class="font-factul font-normal text-[6.3vw] md:text-[43px] leading-[1.1em] text-[#3B3B3B] text-center mb-4">
-      Leve o seu filho de um repertório alimentar restrito para <span class="underline-inner">uma alimentação variada e saudável</span>
-    </h1>
+      <!-- Título (b5e6d6b): Factul 43px, width 87%, tablet 516px, mobile 67.837% -->
+      <div
+        class="w-[67.837%] md:w-[516px] lg:w-[87%]
+          self-center md:self-center lg:self-start
+          text-center"
+      >
+        <p class="font-factul font-normal text-[6.3vw] md:text-[36px] lg:text-[43px] leading-[1.2em] lg:leading-[1.1em] text-[#3B3B3B]" style="text-wrap: balance;">
+          Leve o seu filho de um repertório alimentar restrito para <span class="underline-inner">uma alimentação variada e saudável</span>
+        </p>
+      </div>
 
-    <!-- Subtítulo -->
-    <p class="font-inter font-normal text-[4.1vw] md:text-[20px] leading-[1.4em] text-[#0F0F0F] text-center mb-8">
-      um método estruturado para famílias que querem resultados consistentes
-    </p>
+      <!-- Subtítulo (864af24): Inter 20px, width 683px, tablet 73% -->
+      <div class="w-full md:w-[73%] lg:w-auto lg:max-w-[683px] text-center mt-4">
+        <p class="font-inter font-normal text-[4.1vw] md:text-[20px] leading-[1.4em] text-[#0F0F0F]">
+          um método estruturado para famílias que querem resultados consistentes
+        </p>
+      </div>
+    </div>
 
-    <!-- CTA Button -->
+    <!-- Video (fora do glassmorphism): 801px, hosted MP4 com overlay -->
+    <div class="w-full max-w-[801px] mx-[-4%] md:mx-0 rounded-[10px] overflow-hidden relative cursor-pointer group">
+      <!-- Overlay image -->
+      <img
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/100104.webp"
+        alt="Assistir vídeo"
+        class="w-full h-auto"
+        loading="lazy"
+      />
+      <!-- Play button overlay -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-16 h-16 md:w-20 md:h-20 bg-white/80 rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
+          <svg class="w-6 h-6 md:w-8 md:h-8 text-brand-green ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Video (hidden until play) -->
+      <video
+        class="absolute inset-0 w-full h-full object-cover hidden"
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2025/12/VSL-4-1.mp4"
+        preload="none"
+      ></video>
+    </div>
+
+    <!-- Botão CTA (fora do glassmorphism): z-99, gradient -->
     <a
       href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-      class="btn-grad self-center w-full md:w-auto font-inter font-semibold text-[16px] md:text-[18px] leading-[1.2em] uppercase tracking-[0.9px] text-white px-[40px] py-[20px] rounded-[1000px] text-center z-[99]"
+      class="btn-grad w-full md:w-auto
+        font-inter font-semibold text-[16px] md:text-[18px]
+        leading-[1.2em] uppercase tracking-[0.9px]
+        text-white px-[40px] py-[20px]
+        rounded-[100px] md:rounded-[1000px]
+        text-center z-[99]"
     >
       Quero iniciar o acompanhamento
     </a>
@@ -70,16 +175,31 @@
     background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%);
     background-size: 200% auto;
     transition: 0.5s;
+    display: block;
   }
   .btn-grad:hover {
     background-position: right center;
   }
 
-  /* Background image swap por breakpoint - LIÇÃO: !important necessário para sobrescrever inline style */
+  /* Background image swap por breakpoint */
   @media (min-width: 1025px) {
-    section {
+    .hero-section {
       background-image: url('https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093713-copy.webp') !important;
       background-position: top center !important;
     }
+  }
+
+  /* Glassmorphism: transparent on desktop (from Elementor custom_css) */
+  @media (min-width: 1025px) {
+    .lg\:\!bg-transparent {
+      background: transparent !important;
+      border: none !important;
+    }
+  }
+
+  /* underline-inner from Elementor custom CSS */
+  .underline-inner {
+    display: inline;
+    box-shadow: inset 0px -7px 0px 0px #FEB45D90;
   }
 </style>
