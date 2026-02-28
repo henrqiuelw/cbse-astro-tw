@@ -33,7 +33,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
       </h2>
       <ul class="flex flex-col">
         {leftItems.map((item, i) => (
-          <li class="flex items-start gap-[10px] py-[12px]" style={i < leftItems.length - 1 ? 'border-bottom: 1px solid rgba(255,255,255,0.15);' : ''}>
+          <li class="flex items-start gap-[10px]" style="padding-bottom: 15px;">
             <span class="flex-shrink-0 w-[24px] h-[24px]" set:html={checkIcon} />
             <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
               {item.text} <s>{item.price}</s>
@@ -45,20 +45,20 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
 
     <!-- Center: Image + Price + CTA (a89e89a) -->
     <div
-      class="flex flex-col items-center rounded-[10px] lg:flex-1 w-full relative overflow-visible"
-      style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%); padding: 80px 40px 40px; gap: 15px;"
+      class="pricing-center-card flex flex-col items-center rounded-[10px] lg:flex-1 w-full relative overflow-visible"
+      style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%); padding: 35px; gap: 15px;"
     >
       <!-- Product image — overflows top -->
       <img
         src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113007.webp"
         alt="Comer Bem Sem Estresse - Kit completo"
-        class="w-full max-w-[513px] h-auto lg:-mt-[140px]"
+        class="w-[463px] max-w-none lg:max-w-[513px] lg:w-full h-auto -mt-[131px] lg:-mt-[140px]"
         loading="lazy"
       />
 
       <!-- "Receba tudo isso" -->
       <h3
-        class="text-[36px] leading-[1.2em] font-normal text-center"
+        class="text-[30px] lg:text-[36px] leading-[1.2em] font-normal text-center"
         style="font-family: Factul, sans-serif; color: #5A5A5A;"
       >
         <span class="underline-inner">Receba tudo isso</span>
@@ -98,7 +98,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
     <div class="flex flex-col justify-center lg:w-[291px] w-full">
       <ul class="flex flex-col">
         {rightItems.map((item, i) => (
-          <li class="flex items-start gap-[10px] py-[12px]" style={i < rightItems.length - 1 ? 'border-bottom: 1px solid rgba(255,255,255,0.15);' : ''}>
+          <li class="flex items-start gap-[10px]" style="padding-bottom: 15px;">
             <span class="flex-shrink-0 w-[24px] h-[24px]" set:html={checkIcon} />
             <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
               {item}
@@ -116,6 +116,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
     background-image: linear-gradient(279deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
   }
   @media (min-width: 1025px) {
+    .pricing-center-card { padding: 80px 40px 40px !important; }
     .pricing-section {
       background-image: linear-gradient(11deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
     }
