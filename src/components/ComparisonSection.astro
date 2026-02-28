@@ -35,7 +35,7 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 <section
   class="comparison-section relative flex flex-col
     px-[5%] lg:px-0 py-0 overflow-visible"
-  style="background: linear-gradient(304deg, #F8B361, #BB7D34);"
+  style="background: linear-gradient(304deg, #BB7D34 0%, #F8B361 100%);"
 >
   <!-- Inner: relative, z:1, margin: 0 desktop / 0 0 -20% mobile -->
   <div class="comparison-inner relative z-[1] w-full max-w-[1280px] mx-auto
@@ -91,15 +91,18 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 
       <!-- CTA Button: inline-block, 16px/600/uppercase, bg transparent, transition 0.3s, lh 16px -->
       <div class="text-center">
-        <a
-          href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-          class="inline-block text-[16px] font-semibold text-white uppercase tracking-[0.9px]
-            px-[40px] py-[20px] leading-[16px] rounded-[1000px]
-            text-center transition-all duration-300"
-          style="font-family: Inter, sans-serif; background-color: rgba(97, 206, 112, 0);"
-        >
-          Quero iniciar o acompanhamento
-        </a>
+        <div class="inline-block rounded-[100px] transition-all duration-300"
+          style="background: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%);">
+          <a
+            href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+            class="inline-block text-[16px] font-semibold text-white uppercase tracking-[0.9px]
+              px-[40px] py-[20px] leading-[16px] rounded-[1000px]
+              text-center transition-all duration-300"
+            style="font-family: Inter, sans-serif; background-color: rgba(97, 206, 112, 0);"
+          >
+            Quero iniciar o acompanhamento
+          </a>
+        </div>
       </div>
 
       <!-- Texto: Inter 18px/600/italic, lh 23.4px, #584C4D, .texto=#D28123 -->
@@ -121,7 +124,7 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
   /* Desktop: card margin -10%, card bg #F5F1E9, border, inner mb 0 */
   @media (min-width: 1025px) {
     .comparison-card {
-      background-color: #F5F1E9;
+      background: radial-gradient(#F5F1E9 0%, #FFFFFF 100%);
       margin: -10% 0;
       border: 1px solid #0000001F;
     }
