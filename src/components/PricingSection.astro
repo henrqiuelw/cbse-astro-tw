@@ -1,8 +1,31 @@
 ---
 // PricingSection.astro — Container 13 (ec10d26)
-// Computed: Section gradient full-width, inner max-w 1080px, 3-col row desktop
-// Center card: gradient(360deg, #EBE4DF→#FFF), borderRadius 10px, image overflows top
-// Price: flex-row, align-items flex-end, gap 5px — "12x R$ 30 ,72" on one line
+// ALL values from computed (Playwright, mobile iPhone 14 + desktop 1440px)
+//
+// SECTION: gradient 279deg mobile / 11deg desktop, pad 0 19.5px mobile / 0 40px desktop
+// Inner: max-w min(100%,767px) mobile / 1080px desktop, flex-col mobile / flex-row desktop, gap 20px
+//
+// LEFT (75514e9): w=351/291, flex-col, items-center mobile / normal desktop, gap 20px
+//   Heading (cc5220e): Factul 26.13px/29px, #FFF, text-center mobile / text-start desktop
+//   List (5715063): 3 items, icon 46px, text Inter 16px/24px #FFF, paddingBottom 15px, <s> on prices
+//
+// CENTER (a89e89a): w=351/458, pad 35px mobile / 80px 40px desktop
+//   bg: gradient(360deg, #EBE4DF→#FFF), borderRadius 10px, box-shadow rgba(0,0,0,0.09) 0px 10px 30px
+//   overflow visible, flex-col, gap 20px
+//   Image widget: 52px/4px height, wrapper margin-top -171px/-242px, img 463/513px
+//   "Receba tudo isso" (e433eaf): Factul 30.03px/36px, #5A5A5A, text-center
+//   "por apenas" (4394b31): Inter 22px, #535353
+//   Price (81528ab): flex-row, align-items flex-end, gap 5px
+//     "12x" (9975cac): Inter 26px, #474747
+//     "R$ 30" (2e31162): Inter 62.4px/94px, fw 600, rgba(36,34,35,0.28), "30" #f89a2b
+//     ",72" (7011658): Inter 23px/26px, #202020
+//   "ou R$ 297,00 à vista" (39a6bd3): Inter 20px/22px, #535353
+//   Button (9abaca9): Inter 14px/16px, fw 600, pad 20px 30px / 20px 40px
+//     Gradient: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%), bgSize 200%
+//     borderRadius 100px, align-self center
+//
+// RIGHT (d287692): w=351/291, flex-col, gap 20px
+//   List (e6ee8d8): 3 items, same icon, Inter 16px/24px #FFF, paddingBottom 15px
 
 const leftItems = [
   { text: 'Receitas para crianças seletivas', price: 'R$69,00' },
@@ -16,25 +39,25 @@ const rightItems = [
   'Garantia de 7 dias',
 ];
 
-const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none"><g clip-path="url(#clip0)"><path d="M24.4769 0H4.99849C2.2379 0 0 2.18585 0 4.88224V24.6582C0 27.3546 2.2379 29.5404 4.99849 29.5404H24.4769C27.2375 29.5404 29.4754 27.3546 29.4754 24.6582V4.88224C29.4754 2.18585 27.2375 0 24.4769 0Z" fill="#3DC935"/><path d="M22.168 8.06348L11.5691 19.7693L7.30737 15.0625" stroke="white" stroke-width="3.41113" stroke-linecap="round" stroke-linejoin="round"/></g></svg>`;
+// SVG from original: rounded-square #42A456 with wavy badge + checkmark inside
+const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><g clip-path="url(#clip0_17180_10784)"><path d="M24.4769 0H4.99849C2.2379 0 0 2.18585 0 4.88224V24.6582C0 27.3546 2.2379 29.5404 4.99849 29.5404H24.4769C27.2375 29.5404 29.4754 27.3546 29.4754 24.6582V4.88224C29.4754 2.18585 27.2375 0 24.4769 0Z" fill="#42A456"/><mask id="mask0_17180_10784" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="4" y="4" width="21" height="21"><path d="M24.8069 4.93262H4.66602V24.6052H24.8069V4.93262Z" fill="white"/></mask><g mask="url(#mask0_17180_10784)"><path d="M8.94918 20.4205C8.22539 19.7135 8.70532 18.2281 8.33711 17.3582C7.95475 16.4599 6.55273 15.7299 6.55273 14.7693C6.55273 13.8088 7.95475 13.0787 8.33711 12.1804C8.70532 11.3112 8.22539 9.82504 8.94918 9.11808C9.67296 8.41106 11.1946 8.87983 12.0844 8.52018C13.008 8.14671 13.7515 6.77734 14.735 6.77734C15.7184 6.77734 16.4658 8.14671 17.3855 8.52018C18.2762 8.87983 19.797 8.41106 20.5208 9.11808C21.2446 9.82504 20.7647 11.3105 21.1329 12.1804C21.5152 13.0825 22.9172 13.8088 22.9172 14.7693C22.9172 15.7299 21.5152 16.4599 21.1329 17.3582C20.7647 18.2281 21.2446 19.7135 20.5208 20.4205C19.797 21.1275 18.2762 20.6587 17.3855 21.0184C16.4658 21.3919 15.7184 22.7612 14.735 22.7612C13.7515 22.7612 13.0041 21.3919 12.0844 21.0184C11.1946 20.6587 9.67296 21.1275 8.94918 20.4205Z" stroke="white" stroke-width="1.32175" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5918 15.3819L13.48 17.2262L17.8858 12.9229" stroke="white" stroke-width="1.32175" stroke-linecap="round" stroke-linejoin="round"/></g></g><defs><clipPath id="clip0_17180_10784"><rect width="30" height="30" fill="white"/></clipPath></defs></svg>`;
 ---
 
-<!-- Container 13: Pricing/CTA (ec10d26) -->
-<section class="pricing-section w-full flex flex-col items-center">
-  <div class="w-full max-w-[1080px] flex flex-col lg:flex-row items-center lg:items-stretch gap-[20px] px-[19.5px] lg:px-[40px] py-[40px] lg:py-[60px]">
+<section class="pricing-section w-full flex flex-col items-center px-[19.5px] lg:px-[40px]">
+  <div class="w-full max-w-[767px] lg:max-w-[1080px] flex flex-col lg:flex-row items-center justify-center" style="gap: 20px; padding-top: 52.64px; padding-bottom: 126.36px;">
 
-    <!-- Left: Bonus items (75514e9) -->
-    <div class="flex flex-col justify-center gap-[20px] lg:w-[291px] w-full">
+    <!-- Left: Heading + Bonus items (75514e9) -->
+    <div class="flex flex-col items-center lg:items-start lg:w-[291px] w-full" style="gap: 20px;">
       <h2
-        class="text-[6.7vw] lg:text-[29px] leading-[1.3em] text-white font-normal text-center lg:text-left"
+        class="text-[6.7vw] lg:text-[29px] leading-[1.2em] text-white font-normal text-center lg:text-left"
         style="font-family: Factul, sans-serif;"
       >
         Fazendo a sua inscrição hoje, você vai receber:
       </h2>
-      <ul class="flex flex-col">
-        {leftItems.map((item, i) => (
+      <ul class="flex flex-col w-full">
+        {leftItems.map((item) => (
           <li class="flex items-start gap-[10px]" style="padding-bottom: 15px;">
-            <span class="flex-shrink-0 w-[24px] h-[24px]" set:html={checkIcon} />
+            <span class="flex-shrink-0 w-[46px] h-[46px]" set:html={checkIcon} />
             <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
               {item.text} <s>{item.price}</s>
             </span>
@@ -45,10 +68,10 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
 
     <!-- Center: Image + Price + CTA (a89e89a) -->
     <div
-      class="pricing-center-card flex flex-col items-center rounded-[10px] lg:flex-1 w-full relative overflow-visible"
-      style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%); padding: 35px; gap: 15px;"
+      class="pricing-center-card flex flex-col rounded-[10px] w-full lg:w-[458px] overflow-visible mt-[137px] lg:-mt-[60px]"
+      style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%); padding: 35px; gap: 20px; box-shadow: rgba(0, 0, 0, 0.09) 0px 10px 30px 0px;"
     >
-      <!-- Product image — widget height limits layout space, wrapper margin-top pulls image up -->
+      <!-- Product image: widget height + wrapper margin-top from computed -->
       <div class="pricing-img-widget w-full overflow-visible">
         <div class="pricing-img-wrapper overflow-visible">
           <img
@@ -60,50 +83,53 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
         </div>
       </div>
 
-      <!-- "Receba tudo isso" -->
+      <!-- "Receba tudo isso" (e433eaf) -->
       <h3
-        class="text-[30px] lg:text-[36px] leading-[1.2em] font-normal text-center"
-        style="font-family: Factul, sans-serif; color: #5A5A5A;"
+        class="text-[30px] lg:text-[36px] font-normal text-center"
+        style="font-family: Factul, sans-serif; color: rgb(90, 90, 90); line-height: 1.1em;"
       >
-        <span class="underline-inner">Receba tudo isso</span>
+        Receba tudo isso
       </h3>
 
-      <!-- "por apenas" -->
-      <p class="text-[22px] leading-[1.3em] font-normal text-center" style="font-family: Inter, sans-serif; color: #5A5A5A;">
+      <!-- "por apenas" (4394b31) -->
+      <p
+        class="text-[22px] font-normal text-center"
+        style="font-family: Inter, sans-serif; color: rgb(83, 83, 83); line-height: 33px;"
+      >
         por apenas
       </p>
 
-      <!-- Divider above price -->
-      <div class="w-full" style="border-top: 1px solid rgba(0,0,0,0.1);"></div>
-
-      <!-- Price block: flex row, align-items flex-end, gap 5px — SINGLE LINE -->
-      <div class="flex items-end" style="gap: 5px;">
-        <span class="text-[26px] font-normal leading-[1em]" style="font-family: Inter, sans-serif; color: rgb(71, 71, 71);">12x</span>
-        <span class="text-[62.4px] lg:text-[94px] font-semibold leading-[0.85em]" style="font-family: Inter, sans-serif; color: rgba(36, 34, 35, 0.28);">R$&nbsp;<span style="color: #f89a2b;">30</span></span>
-        <span class="text-[23px] lg:text-[26px] font-normal leading-[1em]" style="font-family: Inter, sans-serif; color: rgb(32, 32, 32);">,72</span>
+      <!-- Price block (81528ab): flex-row, align-items flex-end, gap 5px -->
+      <div class="flex items-end justify-center" style="gap: 5px;">
+        <span class="text-[26px] font-normal" style="font-family: Inter, sans-serif; color: rgb(71, 71, 71); line-height: 39px;">12x</span>
+        <span class="text-[62.4px] lg:text-[94px] font-semibold pricing-price-main" style="font-family: Inter, sans-serif; color: rgba(36, 34, 35, 0.28);">R$&nbsp;<span style="color: #f89a2b;">30</span></span>
+        <span class="text-[23px] lg:text-[26px] font-normal" style="font-family: Inter, sans-serif; color: rgb(32, 32, 32); line-height: 1em;">,72</span>
       </div>
 
-      <!-- "ou R$ 297,00 à vista" -->
-      <p class="text-[20px] lg:text-[22px] font-normal text-center" style="font-family: Inter, sans-serif; color: rgb(83, 83, 83);">
+      <!-- "ou R$ 297,00 à vista" (39a6bd3) -->
+      <p
+        class="text-[20px] lg:text-[22px] font-normal text-center leading-[33px]"
+        style="font-family: Inter, sans-serif; color: rgb(83, 83, 83); line-height: 30px;"
+      >
         ou R$ 297,00 à vista
       </p>
 
-      <!-- CTA Button -->
+      <!-- CTA Button (9abaca9) -->
       <a
         href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-        class="btn-sweep text-center text-[14px] lg:text-[16px] font-semibold uppercase tracking-[0.9px] text-white rounded-full self-center"
-        style="font-family: Inter, sans-serif; padding: 20px 30px; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
+        class="pricing-btn text-center text-[14px] lg:text-[16px] font-semibold uppercase text-white self-center inline-block leading-[1.2em]"
+        style="font-family: Inter, sans-serif; padding: 20px 30px; letter-spacing: 0.9px; border-radius: 100px; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
       >
         COMEÇAR COM O MÉTODO
       </a>
     </div>
 
     <!-- Right: Benefits list (d287692) -->
-    <div class="flex flex-col justify-center lg:w-[291px] w-full">
-      <ul class="flex flex-col">
-        {rightItems.map((item, i) => (
+    <div class="flex flex-col lg:w-[291px] w-full" style="gap: 20px;">
+      <ul class="flex flex-col w-full">
+        {rightItems.map((item) => (
           <li class="flex items-start gap-[10px]" style="padding-bottom: 15px;">
-            <span class="flex-shrink-0 w-[24px] h-[24px]" set:html={checkIcon} />
+            <span class="flex-shrink-0 w-[46px] h-[46px]" set:html={checkIcon} />
             <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
               {item}
             </span>
@@ -116,29 +142,23 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
 </section>
 
 <style>
-  /* Mobile: widget 52px, wrapper -171px */
-  .pricing-img-widget { height: 52px; }
-  .pricing-img-wrapper { margin-top: -171px; }
-  /* Desktop: widget 4px, wrapper -242px */
-  @media (min-width: 1025px) {
-    .pricing-img-widget { height: 4px; }
-    .pricing-img-wrapper { margin-top: -242px; }
-  }
   .pricing-section {
     background-image: linear-gradient(279deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
   }
-  @media (min-width: 1025px) {
-    .pricing-center-card { padding: 80px 40px 40px !important; }
-    /* Mobile: widget 52px, wrapper -171px */
   .pricing-img-widget { height: 52px; }
   .pricing-img-wrapper { margin-top: -171px; }
-  /* Desktop: widget 4px, wrapper -242px */
+  .pricing-btn:hover { background-position: right center; }
+  .pricing-price-main { line-height: 93.6px; }
+  @media (min-width: 1025px) { .pricing-price-main { line-height: 141px; } }
+
   @media (min-width: 1025px) {
-    .pricing-img-widget { height: 4px; }
-    .pricing-img-wrapper { margin-top: -242px; }
-  }
-  .pricing-section {
+    .pricing-section {
       background-image: linear-gradient(11deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
     }
+    .pricing-center-card { padding: 80px 40px !important; }
+    .pricing-img-widget { height: 4px; }
+    .pricing-img-wrapper { margin-top: -242px; }
+    .pricing-btn { padding: 20px 40px !important; }
+    .pricing-section > div { padding-top: 0 !important; padding-bottom: 0 !important; }
   }
 </style>
