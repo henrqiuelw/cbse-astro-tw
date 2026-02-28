@@ -1,31 +1,36 @@
 ---
 // PricingSection.astro — Container 13 (ec10d26)
-// ALL values from computed (Playwright, mobile iPhone 14 + desktop 1440px)
+// Sources: JSON (_elementor_data) + computed styles (Playwright)
 //
-// SECTION: gradient 279deg mobile / 11deg desktop, pad 0 19.5px mobile / 0 40px desktop
-// Inner: max-w min(100%,767px) mobile / 1080px desktop, flex-col mobile / flex-row desktop, gap 20px
+// SECTION (ec10d26):
+//   JSON: flex-row desktop, flex-col tablet/mobile, justify-center, align-center, gap 20px
+//   JSON: gradient #244030→#39664C, angle 11deg desktop / 279deg mobile
+//   JSON: pad desktop 0 40px, pad_mobile 15% 5% 36% 5%, boxed_width 1080px
 //
-// LEFT (75514e9): w=351/291, flex-col, items-center mobile / normal desktop, gap 20px
-//   Heading (cc5220e): Factul 26.13px/29px, #FFF, text-center mobile / text-start desktop
-//   List (5715063): 3 items, icon 46px, text Inter 16px/24px #FFF, paddingBottom 15px, <s> on prices
+// LEFT (75514e9): width 30% desktop, 100% tablet/mobile, pad 0, align-items center tablet
+// CENTER (a89e89a): width 500px desktop, 100% mobile
+//   JSON: gradient 360deg #EBE4DF→#FFF, borderRadius 10px, box-shadow 0 10 30 rgba(0,0,0,0.09)
+//   JSON: pad 80px 40px desktop, pad_mobile 10%, margin -60px 0 desktop, margin_mobile 39% 0 0 0
+//   JSON custom_css: border-image gradient 90deg #FEB45D→#C47519, 6px top/bottom (5px mobile)
+//   JSON: z-index 22
 //
-// CENTER (a89e89a): w=351/458, pad 35px mobile / 80px 40px desktop
-//   bg: gradient(360deg, #EBE4DF→#FFF), borderRadius 10px, box-shadow rgba(0,0,0,0.09) 0px 10px 30px
-//   overflow visible, flex-col, gap 20px
-//   Image widget: 52px/4px height, wrapper margin-top -171px/-242px, img 463/513px
-//   "Receba tudo isso" (e433eaf): Factul 30.03px/36px, #5A5A5A, text-center
-//   "por apenas" (4394b31): Inter 22px, #535353
-//   Price (81528ab): flex-row, align-items flex-end, gap 5px
-//     "12x" (9975cac): Inter 26px, #474747
-//     "R$ 30" (2e31162): Inter 62.4px/94px, fw 600, rgba(36,34,35,0.28), "30" #f89a2b
-//     ",72" (7011658): Inter 23px/26px, #202020
-//   "ou R$ 297,00 à vista" (39a6bd3): Inter 20px/22px, #535353
-//   Button (9abaca9): Inter 14px/16px, fw 600, pad 20px 30px / 20px 40px
-//     Gradient: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%), bgSize 200%
-//     borderRadius 100px, align-self center
+// IMAGE (0c38d96): width 100%, _margin desktop -64% -13% -12% -23%, mobile -61% -29% -14% -36%
+// HEADING (e433eaf): Factul 36px/7.7vw mobile, 400, #5A5A5A, underline-inner, center, lh 1.1em
+// "por apenas" (4394b31): Inter 22px, #535353, center
+// PRICE (81528ab): flex-row, flex-end, gap 5px, border solid 1px #0000001C top/bottom, pad_mobile 20px 0
+//   "12x" (9975cac): Inter 26px, #474747, margin desktop -10px 0, alignSelf center
+//   "R$ 30" (2e31162): Inter 94px/16vw mobile, 600, #24222347, span #f89a2b, margin_mobile -26px 0 -24px 0
+//   ",72" (7011658): Inter 26px/23px mobile, #202020, margin desktop -10px 0, alignSelf center
+// "ou R$297" (39a6bd3): Inter 22px/20px mobile, #535353, center
+// BUTTON (9abaca9): Inter 16px/14px mobile, 600, uppercase, tracking 0.9px
+//   JSON: pad 20px 40px desktop, 20px 30px mobile, borderRadius 1000px/100px mobile
+//   JSON: btn-grad class on widget, gradient to right #2D8050→#1FBF63→#2D8050, bgSize 200%
+//   JSON: align_mobile justify (full-width)
 //
-// RIGHT (d287692): w=351/291, flex-col, gap 20px
-//   List (e6ee8d8): 3 items, same icon, Inter 16px/24px #FFF, paddingBottom 15px
+// LEFT LIST (5715063): icon from 103930.svg, icon_size 32px, icon_color #3DC935
+//   space_between 30px, divider yes, divider_color #DDDDDD2B, text_indent 6px
+//   Items with <s> strikethrough on prices
+// RIGHT LIST (e6ee8d8): same icon/config, mobile width 259px, alignSelf center
 
 const leftItems = [
   { text: 'Receitas para crianças seletivas', price: 'R$69,00' },
@@ -39,25 +44,26 @@ const rightItems = [
   'Garantia de 7 dias',
 ];
 
-// SVG from original: rounded-square #42A456 with wavy badge + checkmark inside
-const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><g clip-path="url(#clip0_17180_10784)"><path d="M24.4769 0H4.99849C2.2379 0 0 2.18585 0 4.88224V24.6582C0 27.3546 2.2379 29.5404 4.99849 29.5404H24.4769C27.2375 29.5404 29.4754 27.3546 29.4754 24.6582V4.88224C29.4754 2.18585 27.2375 0 24.4769 0Z" fill="#42A456"/><mask id="mask0_17180_10784" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="4" y="4" width="21" height="21"><path d="M24.8069 4.93262H4.66602V24.6052H24.8069V4.93262Z" fill="white"/></mask><g mask="url(#mask0_17180_10784)"><path d="M8.94918 20.4205C8.22539 19.7135 8.70532 18.2281 8.33711 17.3582C7.95475 16.4599 6.55273 15.7299 6.55273 14.7693C6.55273 13.8088 7.95475 13.0787 8.33711 12.1804C8.70532 11.3112 8.22539 9.82504 8.94918 9.11808C9.67296 8.41106 11.1946 8.87983 12.0844 8.52018C13.008 8.14671 13.7515 6.77734 14.735 6.77734C15.7184 6.77734 16.4658 8.14671 17.3855 8.52018C18.2762 8.87983 19.797 8.41106 20.5208 9.11808C21.2446 9.82504 20.7647 11.3105 21.1329 12.1804C21.5152 13.0825 22.9172 13.8088 22.9172 14.7693C22.9172 15.7299 21.5152 16.4599 21.1329 17.3582C20.7647 18.2281 21.2446 19.7135 20.5208 20.4205C19.797 21.1275 18.2762 20.6587 17.3855 21.0184C16.4658 21.3919 15.7184 22.7612 14.735 22.7612C13.7515 22.7612 13.0041 21.3919 12.0844 21.0184C11.1946 20.6587 9.67296 21.1275 8.94918 20.4205Z" stroke="white" stroke-width="1.32175" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5918 15.3819L13.48 17.2262L17.8858 12.9229" stroke="white" stroke-width="1.32175" stroke-linecap="round" stroke-linejoin="round"/></g></g><defs><clipPath id="clip0_17180_10784"><rect width="30" height="30" fill="white"/></clipPath></defs></svg>`;
+// Icon from JSON: uploaded SVG at 103930.svg — rendered as inline SVG in DOM
+// Extracted from computed DOM (fill #42A456, wavy badge with checkmark)
+const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><g clip-path="url(#clip0_17180_10784)"><path d="M24.4769 0H4.99849C2.2379 0 0 2.18585 0 4.88224V24.6582C0 27.3546 2.2379 29.5404 4.99849 29.5404H24.4769C27.2375 29.5404 29.4754 27.3546 29.4754 24.6582V4.88224C29.4754 2.18585 27.2375 0 24.4769 0Z" fill="#42A456"/><mask id="mask0_17180_10784" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="4" y="4" width="21" height="21"><path d="M24.8069 4.93262H4.66602V24.6052H24.8069V4.93262Z" fill="white"/></mask><g mask="url(#mask0_17180_10784)"><path d="M8.94918 20.4205C8.22539 19.7135 8.70532 18.2281 8.33711 17.3582C7.95475 16.4599 6.55273 15.7299 6.55273 14.7693C6.55273 13.8088 7.95475 13.0787 8.33711 12.1804C8.70532 11.3112 8.22539 9.82504 8.94918 9.11808C9.67296 8.41106 11.1946 8.87983 12.0844 8.52018C13.008 8.14671 13.7515 6.77734 14.735 6.77734C15.7184 6.77734 16.4658 8.14671 17.3855 8.52018C18.2762 8.87983 19.797 8.41106 20.5208 9.11808C21.2446 9.82504 20.7647 11.3105 21.1329 12.1804C21.5152 13.0825 22.9172 13.8088 22.9172 14.7693C22.9172 15.7299 21.5152 16.4599 21.1329 17.3582C20.7647 18.2281 21.2446 19.7135 20.5208 20.4205C19.797 21.1275 18.2762 20.6587 17.3855 21.0184C16.4658 21.3919 15.7184 22.7612 14.735 22.7612C13.7515 22.7612 13.0041 21.3919 12.0844 21.0184C11.1946 20.6587 9.67296 21.1275 8.94918 20.4205Z" stroke="white" stroke-width="1.32175" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5918 15.3819L13.48 17.2262L17.8858 12.9229" stroke="white" stroke-width="1.32175" stroke-linecap="round" stroke-linejoin="round"/></g></g><defs><clipPath id="clip0_17180_10784"><rect width="30" height="30" fill="white"/></clipPath></defs></svg>`;
 ---
 
-<section class="pricing-section w-full flex flex-col items-center px-[19.5px] lg:px-[40px]">
-  <div class="w-full max-w-[767px] lg:max-w-[1080px] flex flex-col lg:flex-row items-center justify-center" style="gap: 20px; padding-top: 52.64px; padding-bottom: 126.36px;">
+<section class="pricing-section w-full flex flex-col items-center">
+  <div class="pricing-inner w-full flex flex-col lg:flex-row items-center justify-center" style="gap: 20px;">
 
-    <!-- Left: Heading + Bonus items (75514e9) -->
-    <div class="flex flex-col items-center lg:items-start lg:w-[291px] w-full" style="gap: 20px;">
+    <!-- Left (75514e9): 30% desktop, 100% mobile -->
+    <div class="pricing-left flex flex-col items-center lg:items-start w-full" style="gap: 20px;">
       <h2
-        class="text-[6.7vw] lg:text-[29px] leading-[1.2em] text-white font-normal text-center lg:text-left"
-        style="font-family: Factul, sans-serif;"
+        class="text-[6.7vw] lg:text-[29px] font-normal text-center lg:text-left"
+        style="font-family: Factul, sans-serif; color: #FFFFFF; line-height: 1.2em;"
       >
         Fazendo a sua inscrição hoje, você vai receber:
       </h2>
-      <ul class="flex flex-col w-full">
-        {leftItems.map((item) => (
-          <li class="flex items-start gap-[10px]" style="padding-bottom: 15px;">
-            <span class="flex-shrink-0 w-[46px] h-[46px]" set:html={checkIcon} />
+      <ul class="pricing-list flex flex-col w-full">
+        {leftItems.map((item, i) => (
+          <li class="flex items-start" style={`padding-bottom: ${i < leftItems.length - 1 ? '15px' : '0'}; ${i < leftItems.length - 1 ? 'border-bottom: 1px solid rgba(221,221,221,0.17);' : ''}`}>
+            <span class="flex-shrink-0" style="width: 46px; min-width: 46px; height: 32px; padding-right: 6px; margin-top: 3px;" set:html={iconSvg} />
             <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
               {item.text} <s>{item.price}</s>
             </span>
@@ -66,50 +72,45 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30
       </ul>
     </div>
 
-    <!-- Center: Image + Price + CTA (a89e89a) -->
-    <div
-      class="pricing-center-card flex flex-col rounded-[10px] w-full lg:w-[458px] overflow-visible mt-[137px] lg:-mt-[60px]"
-      style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%); padding: 35px; gap: 20px; box-shadow: rgba(0, 0, 0, 0.09) 0px 10px 30px 0px;"
-    >
-      <!-- Product image: widget height + wrapper margin-top from computed -->
-      <div class="pricing-img-widget w-full overflow-visible">
-        <div class="pricing-img-wrapper overflow-visible">
-          <img
-            src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113007.webp"
-            alt="Comer Bem Sem Estresse - Kit completo"
-            class="pricing-img w-[463px] max-w-none lg:w-[513px] h-auto block"
-            loading="lazy"
-          />
-        </div>
+    <!-- Center (a89e89a): 500px desktop, 100% mobile -->
+    <div class="pricing-center-card flex flex-col rounded-[10px] w-full overflow-visible">
+      <!-- Image (0c38d96): width 100%, margins in % -->
+      <div class="pricing-img-wrapper overflow-visible">
+        <img
+          src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113007.webp"
+          alt="Comer Bem Sem Estresse - Kit completo"
+          class="w-full h-auto block"
+          loading="lazy"
+        />
       </div>
 
       <!-- "Receba tudo isso" (e433eaf) -->
       <h3
-        class="text-[30px] lg:text-[36px] font-normal text-center"
-        style="font-family: Factul, sans-serif; color: rgb(90, 90, 90); line-height: 1.1em;"
+        class="text-[7.7vw] lg:text-[36px] font-normal text-center self-center"
+        style="font-family: Factul, sans-serif; color: #5A5A5A; line-height: 1.1em;"
       >
         <span class="underline-inner">Receba tudo isso</span>
       </h3>
 
       <!-- "por apenas" (4394b31) -->
       <p
-        class="text-[22px] font-normal text-center"
-        style="font-family: Inter, sans-serif; color: rgb(83, 83, 83); line-height: 33px;"
+        class="text-[22px] font-normal text-center self-center"
+        style="font-family: Inter, sans-serif; color: #535353;"
       >
         por apenas
       </p>
 
-      <!-- Price block (81528ab): flex-row, align-items flex-end, gap 5px -->
-      <div class="pricing-price-row flex items-center justify-center w-full" style="gap: 5px; border-top: 1px solid rgba(0, 0, 0, 0.11); border-bottom: 1px solid rgba(0, 0, 0, 0.11); padding: 20px 0;">
-        <span class="text-[26px] font-normal" style="font-family: Inter, sans-serif; color: rgb(71, 71, 71); line-height: 39px;">12x</span>
-        <span class="text-[62.4px] lg:text-[94px] font-semibold pricing-price-main" style="font-family: Inter, sans-serif; color: rgba(36, 34, 35, 0.28);">R$&nbsp;<span style="color: #f89a2b;">30</span></span>
-        <span class="text-[23px] lg:text-[26px] font-normal" style="font-family: Inter, sans-serif; color: rgb(32, 32, 32); line-height: 1em;">,72</span>
+      <!-- Price (81528ab): flex-row, flex-end, gap 5px, border top/bottom -->
+      <div class="pricing-price-row flex items-end justify-center self-center w-full" style="gap: 5px; border-top: 1px solid rgba(0,0,0,0.11); border-bottom: 1px solid rgba(0,0,0,0.11);">
+        <span class="pricing-12x text-[26px] font-normal self-center" style="font-family: Inter, sans-serif; color: #474747;">12x</span>
+        <span class="pricing-main text-[16vw] lg:text-[94px] font-semibold self-center" style="font-family: Inter, sans-serif; color: rgba(36,34,35,0.28);">R$&nbsp;<span style="color: #f89a2b;">30</span></span>
+        <span class="pricing-cents text-[23px] lg:text-[26px] font-normal self-center" style="font-family: Inter, sans-serif; color: #202020;">,72</span>
       </div>
 
       <!-- "ou R$ 297,00 à vista" (39a6bd3) -->
       <p
-        class="text-[20px] lg:text-[22px] font-normal text-center leading-[33px]"
-        style="font-family: Inter, sans-serif; color: rgb(83, 83, 83); line-height: 30px;"
+        class="text-[20px] lg:text-[22px] font-normal text-center self-center"
+        style="font-family: Inter, sans-serif; color: #535353;"
       >
         ou R$ 297,00 à vista
       </p>
@@ -117,19 +118,19 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30
       <!-- CTA Button (9abaca9) -->
       <a
         href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-        class="pricing-btn text-center text-[14px] lg:text-[16px] font-semibold uppercase text-white self-center inline-block leading-[1.2em]"
-        style="font-family: Inter, sans-serif; padding: 20px 30px; letter-spacing: 0.9px; border-radius: 100px; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
+        class="pricing-btn text-center text-[14px] lg:text-[16px] font-semibold uppercase text-white leading-[1.2em]"
+        style="font-family: Inter, sans-serif; letter-spacing: 0.9px; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
       >
         COMEÇAR COM O MÉTODO
       </a>
     </div>
 
-    <!-- Right: Benefits list (d287692) -->
-    <div class="flex flex-col lg:w-[291px] w-full" style="gap: 20px;">
-      <ul class="flex flex-col w-full">
-        {rightItems.map((item) => (
-          <li class="flex items-start gap-[10px]" style="padding-bottom: 15px;">
-            <span class="flex-shrink-0 w-[46px] h-[46px]" set:html={checkIcon} />
+    <!-- Right (d287692): 30% desktop, 100% mobile -->
+    <div class="pricing-right flex flex-col items-center w-full" style="gap: 20px;">
+      <ul class="pricing-list pricing-right-list flex flex-col">
+        {rightItems.map((item, i) => (
+          <li class="flex items-start" style={`padding-bottom: ${i < rightItems.length - 1 ? '15px' : '0'}; ${i < rightItems.length - 1 ? 'border-bottom: 1px solid rgba(221,221,221,0.17);' : ''}`}>
+            <span class="flex-shrink-0" style="width: 46px; min-width: 46px; height: 32px; padding-right: 6px; margin-top: 3px;" set:html={iconSvg} />
             <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
               {item}
             </span>
@@ -142,24 +143,114 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30
 </section>
 
 <style>
+  /* SECTION: gradient backgrounds */
   .pricing-section {
-    background-image: linear-gradient(279deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
+    background-image: linear-gradient(279deg, #244030 0%, #39664C 100%);
+    padding: 0 19.5px; /* section pad mobile */
   }
-  .pricing-img-widget { height: 52px; }
-  .pricing-img-wrapper { margin-top: -171px; margin-left: -101px; margin-right: -81px; }
-  .pricing-btn:hover { background-position: right center; }
-  .pricing-price-main { line-height: 93.6px; }
-  @media (min-width: 1025px) { .pricing-price-main { line-height: 141px; } }
 
+  /* Inner: max-width from JSON boxed_width */
+  .pricing-inner {
+    max-width: min(100%, 767px);
+    padding: 15% 0 36% 0; /* JSON inner mobile %padding */
+  }
+
+  /* LEFT: full width mobile */
+  .pricing-left { width: 100%; }
+
+  /* CENTER CARD */
+  .pricing-center-card {
+    background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
+    padding: 10%; /* JSON mobile */
+    margin: 39% 0 0 0; /* JSON mobile */
+    z-index: 22;
+    gap: 20px;
+    /* Border gradient from custom_css */
+    border-width: 5px;
+    border-style: solid;
+    border-image-source: linear-gradient(90deg, #FEB45D 0%, #C47519 100%);
+    border-image-slice: 1;
+    border-left: none;
+    border-right: none;
+  }
+
+  /* Image wrapper margins from JSON _margin_mobile: -61% -29% -14% -36% */
+  .pricing-img-wrapper {
+    margin: -61% -29% -14% -36%;
+    overflow: visible;
+  }
+
+  /* Price row: padding mobile */
+  .pricing-price-row {
+    padding: 20px 0;
+  }
+
+  /* "R$ 30" margin mobile: -26px 0 -24px 0 */
+  .pricing-main {
+    margin: -26px 0 -24px 0;
+  }
+
+  /* Button: full-width mobile (align_mobile: justify), pad mobile */
+  .pricing-btn {
+    padding: 20px 30px;
+    border-radius: 100px;
+    display: block;
+    align-self: center;
+    /* justify on mobile - button fills available width */
+  }
+  .pricing-btn:hover { background-position: right center; }
+
+  /* RIGHT: full width mobile, list 259px centered */
+  .pricing-right { width: 100%; }
+  .pricing-right-list { width: 259px; }
+
+  /* ============ DESKTOP ============ */
   @media (min-width: 1025px) {
     .pricing-section {
-      background-image: linear-gradient(11deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
+      background-image: linear-gradient(11deg, #244030 0%, #39664C 100%);
+      padding: 0 40px;
     }
-    .pricing-center-card { padding: 80px 40px !important; }
-    .pricing-img-widget { height: 4px; }
-    .pricing-img-wrapper { margin-top: -242px; margin-left: -87px; margin-right: -49px; }
-    .pricing-btn { padding: 20px 40px !important; }
-    .pricing-price-row { padding: 0 !important; }
-    .pricing-section > div { padding-top: 0 !important; padding-bottom: 0 !important; }
+    .pricing-inner {
+      max-width: 1080px;
+      padding: 0;
+    }
+    .pricing-left {
+      width: 30%;
+    }
+    .pricing-center-card {
+      width: 500px;
+      padding: 80px 40px;
+      margin: -60px 0;
+      border-width: 6px;
+    }
+    /* Image wrapper margins desktop: -64% -13% -12% -23% */
+    .pricing-img-wrapper {
+      margin: -64% -13% -12% -23%;
+    }
+    /* Price row: no padding desktop */
+    .pricing-price-row {
+      padding: 0;
+    }
+    /* "12x" and ",72" margin desktop: -10px 0 */
+    .pricing-12x, .pricing-cents {
+      margin: -10px 0;
+    }
+    /* "R$ 30" margin reset desktop */
+    .pricing-main {
+      margin: 0;
+    }
+    /* Button desktop */
+    .pricing-btn {
+      padding: 20px 40px;
+      border-radius: 1000px;
+      width: auto;
+      align-self: center;
+    }
+    .pricing-right {
+      width: 30%;
+      align-self: auto;
+    }
+    .pricing-right-list { width: 100%; }
   }
 </style>
