@@ -83,7 +83,22 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
     <!-- Lottie hint (73da13f): "Arraste para ver" - mobile only -->
     <div class="lg:hidden relative flex flex-col gap-[20px] w-[90%] p-[10px]">
       <!-- Lottie animated arrow: absolute, top-right -->
-      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
+      <script is:inline>
+      (function(){
+        var loaded=false;
+        var observer=new IntersectionObserver(function(entries){
+          if(entries[0].isIntersecting && !loaded){
+            loaded=true;
+            var s=document.createElement("script");
+            s.src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+            document.head.appendChild(s);
+            observer.disconnect();
+          }
+        },{rootMargin:"200px"});
+        var el=document.querySelector("lottie-player");
+        if(el)observer.observe(el);
+      })();
+      </script>
       <lottie-player
         src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/Animation-1699547373843.json"
         background="transparent"
