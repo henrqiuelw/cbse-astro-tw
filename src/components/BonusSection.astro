@@ -49,17 +49,16 @@ const bonuses = [
 
     <!-- Bonus Cards -->
     {bonuses.map((bonus) => (
-      <!-- Card outer: per-card borderRadius and bg -->
       <div
         class="w-full max-w-[351px] lg:max-w-[1140px]"
         style={`border: 1px solid rgb(253, 253, 253); border-radius: ${bonus.outerBR}; background-color: ${bonus.outerBg};`}
       >
-        <!-- Card inner: gradient bg, column-reverse, borderRadius 16px -->
+        <!-- column-reverse: DOM order [imgCon, textCon] → visual [textCon on top, imgCon on bottom] -->
         <div
-          class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-hidden"
+          class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-visible"
           style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
         >
-          <!-- Image Container: per-card height, overflow visible -->
+          <!-- Image Container: DOM first, visually at bottom (column-reverse), overflows downward -->
           <div class="overflow-visible flex-shrink-0 lg:w-[40%]" style={`height: ${bonus.imgConH};`}>
             <img
               src={bonus.img}
@@ -69,12 +68,11 @@ const bonuses = [
             />
           </div>
 
-          <!-- Text Container: padding 40px, gap 15px, text centered -->
+          <!-- Text Container: DOM second, visually at top (column-reverse) -->
           <div
-            class="flex flex-col items-start justify-center p-[40px] flex-1 text-center"
+            class="flex flex-col items-center justify-center p-[40px] flex-1 text-center"
             style="gap: 15px;"
           >
-            <!-- Badge Button with shinery effect -->
             <span
               class="bonus-badge text-[16px] font-normal text-white rounded-full leading-[16px] tracking-[1.9px] relative overflow-hidden"
               style="font-family: Inter, sans-serif; background-color: rgb(219, 185, 83); padding: 12px 24px;"
@@ -82,7 +80,6 @@ const bonuses = [
               {bonus.badge}
             </span>
 
-            <!-- Title: Inter 29.25px semibold centered -->
             <p
               class="text-[29.25px] font-semibold leading-[35.1px] text-white w-full"
               style="font-family: Inter, sans-serif;"
@@ -90,10 +87,8 @@ const bonuses = [
               {bonus.title}
             </p>
 
-            <!-- Divider -->
             <div class="w-[267px]" style="border-top: 1px solid rgba(255, 255, 255, 0.13);"></div>
 
-            <!-- Description -->
             <p
               class="text-[18px] font-normal leading-[23.4px] w-full"
               style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.93);"
