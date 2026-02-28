@@ -62,12 +62,17 @@ const accordionItems = [
 ];
 ---
 
+<style>
+  @media (min-width: 1025px) {
+    .howitworks-section { background: linear-gradient(145deg, #244030 0%, #4E8867 100%) !important; }
+  }
+</style>
 <!-- Container 10: How It Works Section (2b2de84) -->
 <section
-  class="px-[5%] lg:px-0"
-  style="background: linear-gradient(145deg, #244030 0%, #4E8867 100%);"
+  class="howitworks-section px-[5%] lg:px-0"
+  style="background: linear-gradient(157deg, #244030 56%, #4E8867 100%);"
 >
-  <div class="w-full max-w-[1280px] mx-auto flex flex-col gap-[20px] pt-[105px] lg:pt-[80px]">
+  <div class="w-full max-w-[767px] lg:max-w-[1280px] mx-auto flex flex-col gap-[20px] pt-[105px] lg:pt-[80px]">
 
     <!-- Heading: Factul 40px/48px white desktop, 28px/33.7px mobile -->
     <h2 class="text-[7.2vw] lg:text-[40px] leading-[1.2em] lg:leading-[48px] text-white max-w-[311px] lg:max-w-[640px]"
@@ -82,7 +87,7 @@ const accordionItems = [
     </p>
 
     <!-- Accordion container (f9e9553) -->
-    <div class="bg-[#FCF9F2] rounded-t-[10px] px-[20px] lg:px-[40px] pt-[20px] pb-[40px] lg:pb-[60px] flex flex-col gap-[15px] justify-center w-full lg:w-[52%] ">
+    <div class="bg-[#FCF9F2] rounded-t-[10px] px-[20px] lg:px-[40px] pt-[20px] pb-[40px] lg:pb-[60px] flex flex-col gap-[15px] justify-center w-full lg:w-[52%] min-h-[1106px] lg:min-h-[884px]">
 
       <!-- Week label -->
       <p class="text-[16px] leading-[24px]"
@@ -93,9 +98,9 @@ const accordionItems = [
       <!-- Accordion -->
       <div class="flex flex-col gap-[12px] lg:gap-[19px]">
         {accordionItems.map((item, idx) => (
-          <details class="group rounded-[10px] border border-[#D5D8DC] overflow-hidden"
-            style="background: linear-gradient(45deg, #C47519 0%, #E7B478 100%);">
-            <summary class="flex items-center justify-between p-[20px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+          <details class="group overflow-hidden"
+            >
+            <summary class="flex items-center justify-between p-[20px] cursor-pointer list-none [&::-webkit-details-marker]:hidden rounded-[10px] border border-[#D5D8DC]" style="background: linear-gradient(45deg, #C47519 0%, #E7B478 100%);">
               <div style="font-family: Inter, sans-serif;">
                 <span class="inline-flex items-center bg-white text-[#C47519] text-[16px] font-semibold leading-none h-[30px] px-[13px] rounded-full">
                   {item.week}
