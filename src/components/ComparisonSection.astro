@@ -2,13 +2,12 @@
 // ComparisonSection.astro — Container 6 (id: 97edb0a)
 // JSON source: page-2.json
 //
-// COMPUTED MOBILE (iPhone 14, 390px):
-//   Section (97edb0a): position:relative, z:auto, overflow:visible, bg:transparent, bgImage:none, padding:0 19.5px
-//   Inner (68fa01a): position:relative, z:1, margin:0 0 -70.19px, flexDirection:column
-//   Card (b19187b): position:relative, z:1, bg:transparent, borderRadius:0 0 20px 20px, border:0px solid rgba(0,0,0,0.12), padding:35.09px
-//   Card overflows section by 70px (mb:-20% on inner)
-//
-// DESKTOP: gradient bg linear-gradient(304deg, #F8B361, #BB7D34), card bg #F5F1E9, border 1px solid #0000001F, rounded 10px
+// Card (b19187b): bg #F5F1E9
+//   Desktop: rounded 10px, border 1px solid #0000001F, padding 40px 80px
+//   Mobile: rounded 0 0 20px 20px, border 0, padding 10%
+// Button (bd1b9f8): display block, 16px, padding 20px 40px
+// Text (954b989): Inter 18px/600/italic, 3.8vw mobile
+//   .texto: color #D28123
 
 const problemItems = [
   'Repertório alimentar limitado e sem evolução previsível',
@@ -28,22 +27,20 @@ const iconX = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/but
 const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/check-box.svg';
 ---
 
-<!-- Section: relative, overflow:visible, padding 0 5%, bg transparent mobile / gradient desktop -->
 <section
   class="comparison-section relative flex flex-col items-center
-    px-[5%] py-0 overflow-visible"
+    px-[5%] py-0 lg:px-[5%] lg:py-0 overflow-visible"
+  style="background: linear-gradient(304deg, #F8B361, #BB7D34);"
 >
-  <!-- Inner: relative, z-1, mb:-20% mobile, flex-col -->
-  <div class="comparison-inner relative z-[1] w-full max-w-[1280px] mx-auto
-    flex flex-col items-center gap-[40px]">
+  <div class="comparison-inner relative z-[1] w-full max-w-[1280px] mx-auto flex flex-row flex-wrap justify-center gap-[40px]">
 
-    <!-- Card: relative, z-1, bg transparent mobile / #F5F1E9 desktop -->
+    <!-- Card (b19187b) -->
     <div
       class="comparison-card relative z-[1] w-full lg:w-[54%]
         rounded-none rounded-b-[20px] md:rounded-[10px]
         p-[10%] md:p-[40px_80px]
         flex flex-col items-center gap-[20px]"
-      style="border: 0px solid rgba(0, 0, 0, 0.12);"
+      style="background-color: #F5F1E9;"
     >
       <!-- Heading 1 -->
       <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124] text-center">
@@ -100,20 +97,14 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 </section>
 
 <style>
-  /* Mobile: bg transparent, inner mb -20% */
+  /* Mobile: inner mb -20% for card overflow, card margin -10% desktop */
   .comparison-inner {
     margin-bottom: -20%;
   }
-
-  /* Desktop: JSON values - gradient bg, card bg #F5F1E9, card margin -10%, border */
   @media (min-width: 768px) {
-    .comparison-section {
-      background: linear-gradient(304deg, #F8B361, #BB7D34);
-    }
     .comparison-card {
-      background-color: #F5F1E9;
+      border: 1px solid #0000001F;
       margin: -10% 0;
-      border: 1px solid #0000001F !important;
     }
     .comparison-inner {
       margin-bottom: 0;
