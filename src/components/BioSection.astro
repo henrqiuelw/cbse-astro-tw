@@ -1,0 +1,86 @@
+---
+// BioSection.astro — Container 8 (spacer 62f4aa8) + Container 9 (bio 14f46ab)
+// Computed styles extracted via Playwright (scrolled, lazy-loaded)
+//
+// DESKTOP (1440px):
+//   Section: bg #FCF9F2, padding 0 40px
+//   Inner: flex row-reverse, gap 20px, align center, padding 60px 0
+//   Image container (d58d140): w=378, h=454, overflow visible, img 474x604
+//   Text container (9b91bf4): w=495
+//     "Quem criou..." Factul 20px/24px #363435
+//     "Flávia Andrade" Factul 56px/67.2px #363435
+//     mouse.svg 30x30
+//     Bio text: Inter 16px/24px rgba(0,0,0,0.83)
+//
+// MOBILE (390px):
+//   Inner: flex column-reverse, gap 30px, padding 35px 0 0
+
+const bioTexts = [
+  'Sou Flávia Andrade, <span class="texto">nutricionista há mais de 20 anos,</span> especialista em seletividade alimentar e desenvolvimento infantil.',
+  'A minha filha, que desenvolveu a seletividade alimentar aos 2 anos, foi o ponto de partida, mas não foi a dor que criou o método, e sim a análise técnica do que realmente estava acontecendo.',
+  'Quando percebi que a seletividade alimentar não se resolvia com mais insistência, receitas ou negociações, aprofundei meus estudos para entender a causa da restrição do repertório alimentar.',
+  'A partir disso, desenvolvi um método estruturado, inicialmente aplicado na minha própria filha e, depois, validado em milhares de famílias que buscavam previsibilidade, autonomia e menos desgaste na alimentação dos seus filhos.',
+  'Hoje, a Metodologia Comer bem sem estresse não é uma experiência pessoal – é um sistema aplicado, que já apoiou mais de 5 mil famílias a sair do improviso e construir uma relação mais funcional com a alimentação infantil.',
+  'Meu trabalho já alcançou tantas famílias, sempre com o mesmo objetivo: transformar a alimentação infantil em algo conduzido com método estruturado, não com culpa ou pressão',
+];
+
+const imgSrc = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/142306.webp';
+const mouseIcon = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/mouse.svg';
+---
+
+<!-- Container 8: Spacer (62f4aa8) -->
+<div class="h-[6px] lg:h-[20px]"></div>
+
+<!-- Container 9: Bio Section (14f46ab) -->
+<section
+  class="px-[5%] lg:px-[40px]"
+  style="background-color: #FCF9F2;"
+>
+  <div class="w-full max-w-[1140px] mx-auto
+    flex flex-col-reverse lg:flex-row-reverse
+    gap-[30px] lg:gap-[20px] items-center
+    pt-[35px] lg:pt-[60px] pb-0 lg:pb-[60px]">
+
+    <!-- Image container (d58d140) -->
+    <div class="relative w-full lg:w-[378px] lg:h-[454px] overflow-visible flex-shrink-0 flex-grow-0">
+      <img
+        src={imgSrc}
+        alt="Flávia Andrade"
+        class="w-full lg:absolute lg:top-0 lg:left-0 lg:w-[474px] lg:max-w-none h-auto"
+        loading="lazy"
+        width="693"
+        height="883"
+      />
+    </div>
+
+    <!-- Text container (9b91bf4) -->
+    <div class="w-full lg:w-[495px] flex flex-col gap-[20px]">
+
+      <!-- Subtitle: Factul 20px/24px -->
+      <p class="text-[4.4vw] lg:text-[20px] leading-[1.2em] lg:leading-[24px] text-[#363435]"
+        style="font-family: Factul, sans-serif;">
+        Quem criou o Comer bem sem estresse?
+      </p>
+
+      <!-- Name: Factul 56px/67.2px desktop -->
+      <p class="text-[10vw] lg:text-[56px] leading-[1.1em] lg:leading-[67.2px] text-[#363435]"
+        style="font-family: Factul, sans-serif;">
+        Flávia Andrade
+      </p>
+
+      <!-- Mouse icon: desktop only -->
+      <img src={mouseIcon} alt="" class="hidden lg:block w-[30px] h-[30px]" width="30" height="30" />
+
+      <!-- Bio paragraphs: Inter 16px/24px rgba(0,0,0,0.83) -->
+      <div class="flex flex-col gap-[20px] lg:h-[270px] lg:overflow-y-auto lg:overflow-x-hidden">
+        {bioTexts.map((text) => (
+          <p class="text-[17px] lg:text-[16px] leading-[25.5px] lg:leading-[24px]"
+            style="font-family: Inter, sans-serif; color: rgba(0, 0, 0, 0.83);"
+            set:html={text}
+          />
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
