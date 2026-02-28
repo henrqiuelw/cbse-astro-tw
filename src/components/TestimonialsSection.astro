@@ -1,0 +1,131 @@
+---
+// TestimonialsSection.astro — Container 12 (421c60c)
+// Image carousel with testimonial screenshots
+//
+// COMPUTED DESKTOP (1440px):
+//   Section: bg #FFFFFF, padding 80px 0 240px, full width, gap 20px
+//   Heading: Factul 37px/48.1px, weight 400, color #3A3A3A, center
+//   Carousel: Swiper, 5 slides, loop, autoplay 5s, speed 500ms, spaceBetween 20
+//   Slide: 272x159, img 272x152, borderRadius 20px, objectFit fill
+//   Dots: 8x8, bg black, margin 0 4px, bottom 5px
+//   Custom CSS: transition-timing-function linear (continuous scroll feel)
+//
+// COMPUTED MOBILE (390px):
+//   Section: padding 58.5px 19.5px (15% 5%)
+//   Heading: 19.89px (5.1vw) / 23.87px
+//   Carousel: 2 slides visible
+//   Slide: 189x159, img 189x152, borderRadius 10px
+
+const testimonials = [
+  'Depoimento-CBSE-I.png',
+  'Depoimento-CBSE-XIII.png',
+  'Depoimento-CBSE-XII.png',
+  'Depoimento-CBSE-XI.png',
+  'Depoimento-CBSE-X.png',
+  'Depoimento-CBSE-VIII.png',
+  'Depoimento-CBSE-VII.png',
+  'Depoimento-CBSE-VI.png',
+  'Depoimento-CBSE-V.png',
+  'Depoimento-CBSE-IX.png',
+  'Depoimento-CBSE-IV.png',
+  'Depoimento-CBSE-III.png',
+  'Depoimento-CBSE-II.png',
+];
+
+const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/';
+---
+
+<!-- Container 12: Depoimentos (421c60c) -->
+<section
+  class="w-full bg-white flex flex-col items-center"
+  style="padding: 15% 5%; gap: 20px;"
+>
+  <!-- Desktop padding override -->
+  <style>
+    @media (min-width: 1025px) {
+      .testimonials-section {
+        padding: 80px 0 240px !important;
+      }
+    }
+    /* Swiper linear transition for continuous scroll feel */
+    .testimonials-swiper .swiper-wrapper {
+      transition-timing-function: linear !important;
+    }
+    /* Dots styling */
+    .testimonials-swiper .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: rgb(0, 0, 0);
+      opacity: 0.2;
+      margin: 0 4px !important;
+    }
+    .testimonials-swiper .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: rgb(0, 122, 255);
+    }
+    .testimonials-swiper .swiper-pagination {
+      bottom: 5px !important;
+    }
+  </style>
+
+  <div class="testimonials-section w-full flex flex-col items-center" style="gap: 20px;">
+    <!-- Heading (5209077) -->
+    <h1
+      class="text-[5.1vw] lg:text-[37px] leading-[1.3em] lg:leading-[48.1px] text-center font-normal w-full"
+      style="font-family: Factul, sans-serif; color: rgb(58, 58, 58);"
+    >
+      <span class="underline-inner">Veja os resultados de mães e alunas</span> que saíram do improviso com a alimentação dos seus filhos para seguir <span class="underline-inner">um método estruturado:</span>
+    </h1>
+
+    <!-- Carousel (48505f6) -->
+    <div class="testimonials-swiper swiper w-full">
+      <div class="swiper-wrapper">
+        {testimonials.map((filename, i) => (
+          <div class="swiper-slide">
+            <img
+              src={`${baseUrl}${filename}`}
+              alt={`Depoimento ${i + 1}`}
+              class="w-full h-auto rounded-[10px] lg:rounded-[20px]"
+              style="object-fit: fill;"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Swiper('.testimonials-swiper', {
+      modules: [Autoplay, Pagination],
+      slidesPerView: 2,
+      spaceBetween: 20,
+      loop: true,
+      speed: 500,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
+      },
+      pagination: {
+        el: '.testimonials-swiper .swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+        },
+        1025: {
+          slidesPerView: 5,
+        },
+      },
+    });
+  });
+</script>
