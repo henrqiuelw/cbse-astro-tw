@@ -6,7 +6,7 @@ const bonuses = [
     desc: 'Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e vontade de experimentar.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083507-copy.webp',
     outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '269px',
-    imgW: 419, imgH: 450, imgOffTop: '-47px',
+    imgOffTop: '-47px', imgWidth: '419px',
   },
   {
     badge: 'BÔNUS 02',
@@ -14,7 +14,7 @@ const bonuses = [
     desc: 'Um guia prático com atividades diárias para transformar a mesa em momento de afeto.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/0917071.webp',
     outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0.08)', imgConH: '295px',
-    imgW: 441, imgH: 430, imgOffTop: '-15px',
+    imgOffTop: '-15px', imgWidth: '441px',
   },
   {
     badge: 'BÔNUS 03',
@@ -22,7 +22,7 @@ const bonuses = [
     desc: 'Imprima, brinque e transforme o momento da refeição em uma experiência divertida. Jogos e atividades para que seu filho descubra o prazer de comer brincando.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093507-copy.webp',
     outerBR: '0px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '160px',
-    imgW: 406, imgH: 350, imgOffTop: '-21px',
+    imgOffTop: '-21px', imgWidth: '406px',
   },
 ];
 ---
@@ -68,7 +68,7 @@ const bonuses = [
               src={bonus.img}
               alt={bonus.title}
               class="max-w-none h-auto"
-              style={`margin-top: ${bonus.imgOffTop}; object-fit: fill;`}
+              style={`margin-top: ${bonus.imgOffTop}; object-fit: fill; width: ${bonus.imgWidth};`}
               loading="lazy"
             />
           </div>
