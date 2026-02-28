@@ -39,7 +39,7 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 >
   <!-- Inner: relative, z:1, margin: 0 desktop / 0 0 -20% mobile -->
   <div class="comparison-inner relative z-[1] w-full max-w-[1280px] mx-auto
-    flex flex-col items-center gap-[40px]">
+    flex flex-col md:items-center gap-[40px]">
 
     <!-- Card: relative z:1, bg transparent, margin: -10% 0 desktop / 0 mobile -->
     <div
@@ -49,7 +49,7 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
         flex flex-col gap-[20px]"
     >
       <!-- Heading 1: Factul 32px, #1C3124, center -->
-      <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center"
+      <h2 class="font-factul font-normal text-[6vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center"
         style="font-family: Factul, sans-serif;">
         Hoje, <span class="underline-red">sem</span> um sistema alimentar estruturado:
       </h2>
@@ -59,7 +59,7 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
         {problemItems.map((item) => (
           <li class="flex items-start gap-[10px]">
             <img src={iconX} alt="" class="w-[22px] h-[22px] mt-[3px] flex-shrink-0" width="22" height="22" />
-            <span class="text-[18px] leading-[27px] text-[#1C1E20] pl-[5px]"
+            <span class="text-[16px] md:text-[18px] leading-[24px] md:leading-[27px] text-[#1C1E20] pl-[5px]"
               style="font-family: Inter, sans-serif; font-style: italic;">
               {item}
             </span>
@@ -70,18 +70,18 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
       <!-- Divider -->
       <div class="w-full border-t border-[#0000002B]"></div>
 
-      <!-- Heading 2: same as h1 -->
-      <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center"
+      <!-- Heading 2: 5.4vw mobile, 32px desktop -->
+      <h2 class="font-factul font-normal text-[5.4vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center"
         style="font-family: Factul, sans-serif;">
         <span class="underline-verde">Com</span> um método aplicado com constância:
       </h2>
 
-      <!-- Solutions list: same styles as problems -->
+      <!-- Solutions list -->
       <ul class="w-full flex flex-col gap-[5px]">
         {solutionItems.map((item) => (
           <li class="flex items-start gap-[10px]">
             <img src={iconCheck} alt="" class="w-[22px] h-[22px] mt-[3px] flex-shrink-0" width="22" height="22" />
-            <span class="text-[18px] leading-[27px] text-[#1C1E20] pl-[5px]"
+            <span class="text-[16px] md:text-[18px] leading-[24px] md:leading-[27px] text-[#1C1E20] pl-[5px]"
               style="font-family: Inter, sans-serif; font-style: italic;">
               {item}
             </span>
@@ -91,12 +91,12 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 
       <!-- CTA Button: inline-block, 16px/600/uppercase, bg transparent, transition 0.3s, lh 16px -->
       <div class="text-center">
-        <div class="btn-sweep inline-block rounded-[100px]"
+        <div class="btn-sweep block md:inline-block rounded-[100px]"
           style="background: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200%; background-position: 0% 0%; transition: 0.5s;">
           <a
             href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-            class="inline-block text-[16px] font-semibold text-white uppercase tracking-[0.9px]
-              px-[40px] py-[20px] leading-[16px] rounded-[1000px]
+            class="block md:inline-block text-[16px] font-semibold text-white uppercase tracking-[0.9px]
+              px-[40px] py-[20px] leading-[19.2px] md:leading-[16px] rounded-[100px]
               text-center transition-all duration-300"
             style="font-family: Inter, sans-serif; background-color: rgba(97, 206, 112, 0);"
           >
@@ -106,7 +106,7 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
       </div>
 
       <!-- Texto: Inter 18px/600/italic, lh 23.4px, #584C4D, .texto=#D28123 -->
-      <p class="text-[3.8vw] md:text-[18px] leading-[23.4px] text-[#584C4D] text-center"
+      <p class="text-[3.8vw] md:text-[18px] leading-[1.3em] md:leading-[23.4px] text-[#584C4D] text-center mx-[-2.9vw] md:mx-0"
         style="font-family: Inter, sans-serif; font-weight: 600; font-style: italic;">
         O Comer bem sem estresse vai lhe dar <span style="color: #D28123;">clareza e direção nessa transformação</span>
       </p>
@@ -116,12 +116,16 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 </section>
 
 <style>
-  /* Mobile: inner mb -20% for card overflow */
+  /* Mobile: inner mb -20%, card bg radial with position */
   .comparison-inner {
     margin-bottom: -20%;
   }
+  .comparison-card {
+    background: radial-gradient(at 100% 0%, #F5F1E9 0%, #FFFFFF 100%);
+    border: 0px solid rgba(0, 0, 0, 0.12);
+  }
 
-  /* Desktop: card margin -10%, card bg #F5F1E9, border, inner mb 0 */
+  /* Desktop: card margin -10%, radial without position, border solid */
   @media (min-width: 1025px) {
     .comparison-card {
       background: radial-gradient(#F5F1E9 0%, #FFFFFF 100%);
