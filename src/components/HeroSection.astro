@@ -64,14 +64,19 @@
 
     <!-- Video: 801px, border_radius:10px -->
     <!-- Elementor default widget spacing: 20px (--widgets-spacing) -->
-    <div class="w-full max-w-[801px] mx-[-4%] md:mx-0 mt-[20px] mb-[20px]">
+    <div class="w-full max-w-[801px] mx-[-4%] md:mx-0 mt-[20px] mb-[20px] relative rounded-[10px] overflow-hidden">
       <video
+        id="hero-video"
         src="https://comerbemsemestresse.com.br/wp-content/uploads/2025/12/VSL-4-1.mp4"
         controls
+        controlslist="nodownload"
         class="w-full h-auto"
         style="object-fit: cover;"
         preload="metadata"
       ></video>
+      <div id="video-overlay" class="absolute inset-0 cursor-pointer bg-cover bg-center"
+        style="background-image: url(https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/100104.webp);">
+      </div>
     </div>
 
     <!-- Botão CTA: z-99, self:center, full-width mobile -->
@@ -89,6 +94,16 @@
     </a>
   </div>
 </section>
+<script>
+  const overlay = document.getElementById('video-overlay');
+  const video = document.getElementById('hero-video');
+  if (overlay && video) {
+    overlay.addEventListener('click', () => {
+      overlay.style.display = 'none';
+      video.play();
+    });
+  }
+</script>
 
 <style>
   .btn-grad {
