@@ -57,7 +57,7 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
   class="flex flex-col overflow-visible"
   style="background-color: #FEF4DF;"
 >
-  <div class="w-full max-w-[1140px] mx-auto flex flex-row flex-wrap justify-center items-center gap-[20px]
+  <div class="w-full max-w-[1140px] mx-auto flex flex-row flex-wrap justify-center items-center gap-[30px] lg:gap-[20px]
     pt-[27%] pb-[10%] px-0
     md:pt-[200px] md:pb-[60px] md:px-0">
 
@@ -81,14 +81,15 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
     </div>
 
     <!-- Lottie hint (73da13f): "Arraste para ver" - mobile only -->
-    <div class="lg:hidden flex flex-col gap-[20px] w-full px-[5%]">
-      <!-- Lottie animated arrow -->
+    <div class="lg:hidden relative flex flex-col gap-[20px] w-[90%] p-[10px]">
+      <!-- Lottie animated arrow: absolute, top-right -->
       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
       <lottie-player
         src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/Animation-1699547373843.json"
         background="transparent"
         speed="1"
-        style="width: 70px; height: 77px;"
+        class="absolute"
+        style="width: 70px; height: 77px; top: -19px; right: -14px;"
         loop
         autoplay
       ></lottie-player>
@@ -98,7 +99,7 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
     </div>
 
     <!-- Phases container (9357eda): flex-row, overflow auto, 70% desktop -->
-    <div class="w-full lg:w-[70%] flex flex-row lg:grid lg:grid-cols-2 gap-[20px] lg:gap-[30px] overflow-x-auto lg:overflow-visible pt-[40px] pb-[20px] lg:pb-0 lg:items-stretch lg:auto-rows-fr
+    <div class="w-full lg:w-[70%] flex flex-row lg:grid lg:grid-cols-2 gap-[20px] lg:gap-[30px] overflow-x-auto lg:overflow-visible pt-0 lg:pt-[40px] pb-0 lg:pb-0 px-[20px] lg:px-0 lg:items-stretch lg:auto-rows-fr
       snap-x snap-mandatory scroll-smooth"
       style="-webkit-overflow-scrolling: touch;">
 
@@ -132,12 +133,12 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
     </div>
 
     <!-- Button CTA (ea51b4b) -->
-    <div class="btn-sweep inline-block rounded-[100px]"
+    <div class="btn-sweep block lg:inline-block rounded-[100px] mx-[5%] lg:mx-0"
       style="background: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200%; background-position: 0% 0%; transition: 0.5s;">
       <a
         href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-        class="inline-block text-[16px] font-semibold uppercase tracking-[0.9px] text-white
-          px-[40px] py-[20px] leading-[16px] rounded-[100px] text-center"
+        class="block lg:inline-block text-[14px] lg:text-[16px] font-semibold uppercase tracking-[0.9px] text-white
+          px-[30px] lg:px-[40px] py-[20px] leading-[16px] rounded-[100px] text-center"
         style="font-family: Inter, sans-serif; background-color: rgba(97, 206, 112, 0);"
       >
         Quero um sistema que funcione
