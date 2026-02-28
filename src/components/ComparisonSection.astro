@@ -105,17 +105,17 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
     margin-bottom: -20%;
   }
 
-  /* Desktop: gradient bg, card bg, border, inner margin reset */
+  /* Desktop: card margin -10% (overflows top+bottom), no gradient (computed=none), padding 0 */
   @media (min-width: 768px) {
-    .comparison-section {
-      background: linear-gradient(304deg, #F8B361, #BB7D34);
-    }
     .comparison-card {
-      background-color: #F5F1E9;
+      margin: -10% 0;
       border: 1px solid #0000001F !important;
     }
     .comparison-inner {
       margin-bottom: 0;
+    }
+    .comparison-section {
+      padding: 0;
     }
   }
 </style>
