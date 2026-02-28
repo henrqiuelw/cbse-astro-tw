@@ -23,7 +23,7 @@ const bonuses = [
 
 <!-- Container 11: Bônus Exclusivos (f1ca97c) -->
 <section
-  class="w-full flex flex-col items-center px-[19.5px] lg:px-[19.5px]"
+  class="w-full flex flex-col items-center px-[19.5px]"
   style="background-color: rgba(240, 232, 221, 0.24); border-top: 1px solid rgba(0, 0, 0, 0.05);"
 >
   <div class="w-full max-w-[1280px] flex flex-col items-center" style="gap: 60px; padding: 60px 0;">
@@ -46,52 +46,57 @@ const bonuses = [
 
     <!-- Bonus Cards -->
     {bonuses.map((bonus) => (
+      <!-- Card outer (e.g. 80eda6a): transparent, border -->
       <div
-        class="w-full max-w-[351px] lg:max-w-[1140px] rounded-[10px] overflow-hidden"
+        class="w-full max-w-[351px] lg:max-w-[1140px]"
         style="border: 1px solid rgb(253, 253, 253);"
       >
-        <div class="flex flex-col-reverse lg:flex-row">
-          <!-- Text Container -->
+        <!-- Card inner (e.g. e0edb6a): gradient bg, column-reverse, borderRadius 16px -->
+        <div
+          class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-hidden"
+          style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
+        >
+          <!-- Image Container (e.g. 044f034): overflow visible, img overflows -->
+          <div class="overflow-visible flex-shrink-0 lg:w-[40%]">
+            <img
+              src={bonus.img}
+              alt={bonus.title}
+              class="w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Text Container (e.g. 63489b4): padding 40px, gap 15px -->
           <div
-            class="flex flex-col items-start gap-[20px] p-[30px] lg:p-[40px] flex-1"
-            style="background: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
+            class="flex flex-col items-start p-[40px] flex-1"
+            style="gap: 15px;"
           >
-            <!-- Badge Button -->
+            <!-- Badge Button (e.g. bedf5ad) -->
             <span
-              class="text-[16px] font-normal text-white rounded-full"
+              class="text-[16px] font-normal text-white rounded-full leading-[16px] tracking-[1.9px]"
               style="font-family: Inter, sans-serif; background-color: rgb(219, 185, 83); padding: 12px 24px;"
             >
               {bonus.badge}
             </span>
 
-            <!-- Title -->
+            <!-- Title (e.g. f40854c): Inter 29.25px semibold -->
             <p
               class="text-[29.25px] font-semibold leading-[35.1px] text-white"
-              style="font-family: Factul, sans-serif;"
+              style="font-family: Inter, sans-serif;"
             >
               {bonus.title}
             </p>
 
-            <!-- Divider -->
+            <!-- Divider (e.g. b879a6d) -->
             <div class="w-[267px]" style="border-top: 1px solid rgba(255, 255, 255, 0.13);"></div>
 
-            <!-- Description -->
+            <!-- Description (e.g. 8bd99e1) -->
             <p
               class="text-[18px] font-normal leading-[23.4px]"
               style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.93);"
             >
               {bonus.desc}
             </p>
-          </div>
-
-          <!-- Image Container -->
-          <div class="overflow-hidden flex-shrink-0 lg:w-[40%]">
-            <img
-              src={bonus.img}
-              alt={bonus.title}
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
           </div>
         </div>
       </div>
