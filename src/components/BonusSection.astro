@@ -5,18 +5,21 @@ const bonuses = [
     title: 'Receitas para crianças seletivas',
     desc: 'Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e vontade de experimentar.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083507-copy.webp',
+    outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '269px',
   },
   {
     badge: 'BÔNUS 02',
     title: 'Diário da conexão com a comida',
     desc: 'Um guia prático com atividades diárias para transformar a mesa em momento de afeto.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/0917071.webp',
+    outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0.08)', imgConH: '295px',
   },
   {
     badge: 'BÔNUS 03',
     title: 'Kit brincando de comer',
     desc: 'Imprima, brinque e transforme o momento da refeição em uma experiência divertida. Jogos e atividades para que seu filho descubra o prazer de comer brincando.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093507-copy.webp',
+    outerBR: '0px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '160px',
   },
 ];
 ---
@@ -46,18 +49,18 @@ const bonuses = [
 
     <!-- Bonus Cards -->
     {bonuses.map((bonus) => (
-      <!-- Card outer (e.g. 80eda6a): transparent, border -->
+      <!-- Card outer: per-card borderRadius and bg -->
       <div
         class="w-full max-w-[351px] lg:max-w-[1140px]"
-        style="border: 1px solid rgb(253, 253, 253);"
+        style={`border: 1px solid rgb(253, 253, 253); border-radius: ${bonus.outerBR}; background-color: ${bonus.outerBg};`}
       >
-        <!-- Card inner (e.g. e0edb6a): gradient bg, column-reverse, borderRadius 16px -->
+        <!-- Card inner: gradient bg, column-reverse, borderRadius 16px -->
         <div
           class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-hidden"
           style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
         >
-          <!-- Image Container (e.g. 044f034): overflow visible, 269px tall on mobile -->
-          <div class="h-[269px] lg:h-auto overflow-visible flex-shrink-0 lg:w-[40%]">
+          <!-- Image Container: per-card height, overflow visible -->
+          <div class="overflow-visible flex-shrink-0 lg:w-[40%]" style={`height: ${bonus.imgConH};`}>
             <img
               src={bonus.img}
               alt={bonus.title}
@@ -66,12 +69,12 @@ const bonuses = [
             />
           </div>
 
-          <!-- Text Container (e.g. 63489b4): padding 40px, gap 15px, text centered -->
+          <!-- Text Container: padding 40px, gap 15px, text centered -->
           <div
             class="flex flex-col items-start justify-center p-[40px] flex-1 text-center"
             style="gap: 15px;"
           >
-            <!-- Badge Button (e.g. bedf5ad) with shinery effect -->
+            <!-- Badge Button with shinery effect -->
             <span
               class="bonus-badge text-[16px] font-normal text-white rounded-full leading-[16px] tracking-[1.9px] relative overflow-hidden"
               style="font-family: Inter, sans-serif; background-color: rgb(219, 185, 83); padding: 12px 24px;"
@@ -79,7 +82,7 @@ const bonuses = [
               {bonus.badge}
             </span>
 
-            <!-- Title (e.g. f40854c): Inter 29.25px semibold centered -->
+            <!-- Title: Inter 29.25px semibold centered -->
             <p
               class="text-[29.25px] font-semibold leading-[35.1px] text-white w-full"
               style="font-family: Inter, sans-serif;"
@@ -87,10 +90,10 @@ const bonuses = [
               {bonus.title}
             </p>
 
-            <!-- Divider (e.g. b879a6d) -->
+            <!-- Divider -->
             <div class="w-[267px]" style="border-top: 1px solid rgba(255, 255, 255, 0.13);"></div>
 
-            <!-- Description (e.g. 8bd99e1) -->
+            <!-- Description -->
             <p
               class="text-[18px] font-normal leading-[23.4px] w-full"
               style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.93);"
@@ -106,7 +109,6 @@ const bonuses = [
 </section>
 
 <style>
-  /* Shinery animation on badge buttons */
   .bonus-badge::before {
     content: "";
     position: absolute;
