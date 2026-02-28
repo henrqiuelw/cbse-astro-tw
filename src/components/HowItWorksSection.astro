@@ -1,0 +1,137 @@
+---
+// HowItWorksSection.astro — Container 10 (id: 2b2de84)
+// "Confira como funciona o Comer bem sem estresse"
+// Computed styles extracted via Playwright (scrolled, lazy-loaded)
+//
+// DESKTOP (1440px):
+//   Section: bg gradient(145deg, #244030 0%, #4E8867 100%), margin-bottom -4px
+//   Inner: max-w 1280px, padding 80px 0 0, flex col, gap 20px
+//   Heading: Factul 40px/48px white
+//   Subtitle: Inter 22px/33px white
+//   Accordion container (f9e9553): bg #FCF9F2, padding 20px 40px 60px, rounded-t 10px
+//     Week label: Inter 16px rgba(116,116,116,0.72)
+//     Accordion items: bg gradient(#C47519, #E7B478), padding 20px, rounded 10px, border 1px #D5D8DC
+//       Title: Inter 16px/27.2px 600 white
+//       "Semana X" pill: bg white, color #C47519, padding 5px 13px, rounded-full
+//       Icon: caret, white, 9x15 desktop / 14x23 mobile
+//
+// MOBILE (390px):
+//   Section: gradient(157deg, #244030 56%, #4E8867 100%)
+//   Inner: padding 105px 0 0
+//   Accordion: bg gradient(45deg, #C47519, #E7B478), padding 20px, rounded 10px
+
+const accordionItems = [
+  {
+    week: 'Semana 1',
+    phase: 'FASE DIAGNÓSTICA',
+    subtitle: 'Identifique a causa da seletividade alimentar',
+    desc: 'Entenda o que está por trás da seletividade e comece a mudar a percepção do seu filho com a comida.',
+    modules: [
+      '<span class="texto">Módulo 1:</span> O cérebro seletivo – Aprenda como transformar o cérebro seletivo do seu filho em um cérebro aberto a novas experimentações – A hora é de reprogramar.',
+      '<span class="texto">Módulo 2:</span> Compreendendo a seletividade – Quais são as causas individualizadas, estágios e estratégias personalizadas.',
+    ],
+  },
+  {
+    week: 'Semana 2',
+    phase: 'FASE REESTRUTURAÇÃO',
+    subtitle: 'Reestruture os fatores fortalecedores da Seletividade alimentar',
+    desc: 'Torne o ambiente favorável a novas experimentações, aumentando a segurança e autonomia do pequeno',
+    modules: [
+      '<span class="texto">Módulo 3:</span> O método comer bem sem estresse – Entenda o método e comece a implementar mudanças essenciais que trarão resultados reais.',
+    ],
+  },
+  {
+    week: 'Semana 3',
+    phase: 'FASE ALIMENTAR',
+    subtitle: 'Seu pequeno foi preparado nas semanas anteriores para chegar até aqui',
+    desc: 'Estratégias eficazes de aproximação, exposição e oferta lúdica para autonomia alimentar do seu pequeno',
+    modules: [
+      '<span class="texto">Módulo 4:</span> Transformação sem resistência – Torne a alimentação uma atividade natural da rotina.',
+    ],
+  },
+  {
+    week: 'Semana 4',
+    phase: 'FASE CONSOLIDAÇÃO',
+    subtitle: 'Ferramentas lúdicas para auxiliar na consolidação da metodologia do aprendizado do comer',
+    desc: 'Como incentivar o pequeno, de forma lúdica, a comer com naturalidade e autonomia',
+    modules: [
+      '<span class="texto">Módulo 5:</span> Aprendizado consolidado – Fixe o conhecimento com materiais complementares e práticos. Utilize aqui o seu Diário da conexão com a comida e o livro de Receitas para crianças seletivas, que você ganhou como bônus.',
+      '<span class="texto">Módulo de Atividades:</span> Você terá acesso ao Kit brincando de comer, que você também recebeu de bônus. Imprima, brinque e transforme o momento da refeição em uma experiência divertida e sem estresse. Você terá acesso a vários joguinhos muito divertidos para utilizar com o seu pequeno que serão essenciais nessa transformação e terá muita conexão e alegria à mesa todos os dias.',
+    ],
+  },
+];
+---
+
+<!-- Container 10: How It Works Section (2b2de84) -->
+<section
+  class="px-[5%] lg:px-0 -mb-[4px]"
+  style="background: linear-gradient(145deg, #244030 0%, #4E8867 100%);"
+>
+  <div class="w-full max-w-[1280px] mx-auto flex flex-col gap-[20px] pt-[105px] lg:pt-[80px]">
+
+    <!-- Heading: Factul 40px/48px white desktop, 28px/33.7px mobile -->
+    <h2 class="text-[7.2vw] lg:text-[40px] leading-[1.2em] lg:leading-[48px] text-white max-w-[311px] lg:max-w-[640px]"
+      style="font-family: Factul, sans-serif;">
+      Confira como funciona o Comer bem sem estresse:
+    </h2>
+
+    <!-- Subtitle: Inter 22px/33px white desktop, 13.26px mobile -->
+    <p class="text-[3.4vw] lg:text-[22px] leading-[1.5em] lg:leading-[33px] text-white"
+      style="font-family: Inter, sans-serif;">
+      Um método em 4 semanas
+    </p>
+
+    <!-- Accordion container (f9e9553) -->
+    <div class="bg-[#FCF9F2] rounded-t-[10px] px-[20px] lg:px-[40px] pt-[20px] pb-[40px] lg:pb-[60px] flex flex-col gap-[15px] justify-center w-full lg:w-[52%] min-h-[1106px] lg:min-h-[884px]">
+
+      <!-- Week label -->
+      <p class="text-[16px] leading-[24px]"
+        style="font-family: Inter, sans-serif; color: rgba(116, 116, 116, 0.72);">
+        Clique nos módulos para saber mais
+      </p>
+
+      <!-- Accordion -->
+      <div class="flex flex-col gap-[12px] lg:gap-[19px]">
+        {accordionItems.map((item, idx) => (
+          <details class="group rounded-[10px] border border-[#D5D8DC] overflow-hidden"
+            style="background: linear-gradient(45deg, #C47519 0%, #E7B478 100%);">
+            <summary class="flex items-center justify-between p-[20px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <div style="font-family: Inter, sans-serif;">
+                <span class="inline-flex items-center bg-white text-[#C47519] text-[16px] font-semibold leading-none h-[30px] px-[13px] rounded-full">
+                  {item.week}
+                </span><br />
+                <span class="text-white text-[16px] font-semibold leading-[27.2px]">
+                  {item.phase}
+                </span>
+              </div>
+              <!-- Caret icon -->
+              <svg class="w-[9px] lg:w-[9px] h-[15px] lg:h-[15px] text-white flex-shrink-0 transition-transform group-open:rotate-90" viewBox="0 0 320 512" fill="currentColor">
+                <path d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" transform="rotate(-90 160 256)"/>
+              </svg>
+            </summary>
+            <!-- Content: border-left 2px #c69778 with margin-left 25px -->
+            <div class="mx-[20px] lg:mx-[25px] mb-[20px] pl-[15px] lg:pl-[20px] border-l-2 border-[#c69778]/50 flex flex-col gap-[10px]">
+              <p class="text-white text-[14px] lg:text-[16px] font-semibold leading-[1.5em]"
+                style="font-family: Inter, sans-serif;">
+                {item.subtitle}
+              </p>
+              <p class="text-white/80 text-[13px] lg:text-[14px] leading-[1.5em]"
+                style="font-family: Inter, sans-serif;">
+                {item.desc}
+              </p>
+              <ul class="flex flex-col gap-[8px] mt-[5px]">
+                {item.modules.map(mod => (
+                  <li class="text-white text-[13px] lg:text-[14px] leading-[1.5em] flex gap-[8px]"
+                    style="font-family: Inter, sans-serif;">
+                    <span class="text-[#FEB45D] mt-[2px]">✦</span>
+                    <span set:html={mod} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
