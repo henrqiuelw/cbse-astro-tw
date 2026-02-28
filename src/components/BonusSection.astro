@@ -56,32 +56,32 @@ const bonuses = [
           class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-hidden"
           style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
         >
-          <!-- Image Container (e.g. 044f034): overflow visible, img overflows -->
-          <div class="overflow-visible flex-shrink-0 lg:w-[40%]">
+          <!-- Image Container (e.g. 044f034): overflow visible, 269px tall on mobile -->
+          <div class="h-[269px] lg:h-auto overflow-visible flex-shrink-0 lg:w-[40%]">
             <img
               src={bonus.img}
               alt={bonus.title}
-              class="w-full h-auto"
+              class="w-[120%] h-auto max-w-none"
               loading="lazy"
             />
           </div>
 
-          <!-- Text Container (e.g. 63489b4): padding 40px, gap 15px -->
+          <!-- Text Container (e.g. 63489b4): padding 40px, gap 15px, text centered -->
           <div
-            class="flex flex-col items-start p-[40px] flex-1"
+            class="flex flex-col items-start justify-center p-[40px] flex-1 text-center"
             style="gap: 15px;"
           >
-            <!-- Badge Button (e.g. bedf5ad) -->
+            <!-- Badge Button (e.g. bedf5ad) with shinery effect -->
             <span
-              class="text-[16px] font-normal text-white rounded-full leading-[16px] tracking-[1.9px]"
+              class="bonus-badge text-[16px] font-normal text-white rounded-full leading-[16px] tracking-[1.9px] relative overflow-hidden"
               style="font-family: Inter, sans-serif; background-color: rgb(219, 185, 83); padding: 12px 24px;"
             >
               {bonus.badge}
             </span>
 
-            <!-- Title (e.g. f40854c): Inter 29.25px semibold -->
+            <!-- Title (e.g. f40854c): Inter 29.25px semibold centered -->
             <p
-              class="text-[29.25px] font-semibold leading-[35.1px] text-white"
+              class="text-[29.25px] font-semibold leading-[35.1px] text-white w-full"
               style="font-family: Inter, sans-serif;"
             >
               {bonus.title}
@@ -92,7 +92,7 @@ const bonuses = [
 
             <!-- Description (e.g. 8bd99e1) -->
             <p
-              class="text-[18px] font-normal leading-[23.4px]"
+              class="text-[18px] font-normal leading-[23.4px] w-full"
               style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.93);"
             >
               {bonus.desc}
@@ -104,3 +104,24 @@ const bonuses = [
 
   </div>
 </section>
+
+<style>
+  /* Shinery animation on badge buttons */
+  .bonus-badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 90px;
+    height: 64px;
+    background: linear-gradient(10deg, rgb(255, 255, 255) 12.81%, rgba(209, 210, 234, 0) 66.66%);
+    opacity: 0;
+    animation: shinery 3s ease-in-out infinite;
+  }
+  @keyframes shinery {
+    0%, 100% { left: -10%; opacity: 0; }
+    20% { opacity: 1; }
+    48% { left: 120%; opacity: 1; }
+    51% { opacity: 0; }
+  }
+</style>
