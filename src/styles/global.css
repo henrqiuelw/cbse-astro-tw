@@ -63,3 +63,8 @@ body {
     border-top: 1px solid #DDDDDD;
   }
 }
+
+/* CTA button hover sweep effect (all buttons) */
+.btn-sweep:hover {
+  background-position: 100% 50% !important;
+}
