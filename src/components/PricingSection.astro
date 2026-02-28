@@ -1,0 +1,123 @@
+---
+// PricingSection.astro — Container 13 (ec10d26)
+// Computed: Section gradient full-width, inner max-w 1080px, 3-col row desktop
+// Center card: gradient(360deg, #EBE4DF→#FFF), borderRadius 10px, image overflows top
+// Price: flex-row, align-items flex-end, gap 5px — "12x R$ 30 ,72" on one line
+
+const leftItems = [
+  { text: 'Receitas para crianças seletivas', price: 'R$69,00' },
+  { text: 'Diário da Conexão com a comida', price: 'R$69,00' },
+  { text: 'Kit Brincando de Comer', price: 'R$99,00' },
+];
+
+const rightItems = [
+  'Acesso imediato após a confirmação do pagamento',
+  'Sem taxas escondidas.',
+  'Garantia de 7 dias',
+];
+
+const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 30 30" fill="none"><g clip-path="url(#clip0)"><path d="M24.4769 0H4.99849C2.2379 0 0 2.18585 0 4.88224V24.6582C0 27.3546 2.2379 29.5404 4.99849 29.5404H24.4769C27.2375 29.5404 29.4754 27.3546 29.4754 24.6582V4.88224C29.4754 2.18585 27.2375 0 24.4769 0Z" fill="#3DC935"/><path d="M22.168 8.06348L11.5691 19.7693L7.30737 15.0625" stroke="white" stroke-width="3.41113" stroke-linecap="round" stroke-linejoin="round"/></g></svg>`;
+---
+
+<!-- Container 13: Pricing/CTA (ec10d26) -->
+<section class="pricing-section w-full flex flex-col items-center">
+  <div class="w-full max-w-[1080px] flex flex-col lg:flex-row items-center lg:items-stretch gap-[20px] px-[19.5px] lg:px-[40px] py-[40px] lg:py-[60px]">
+
+    <!-- Left: Bonus items (75514e9) -->
+    <div class="flex flex-col justify-center gap-[20px] lg:w-[291px] w-full">
+      <h2
+        class="text-[6.7vw] lg:text-[29px] leading-[1.3em] text-white font-normal text-center lg:text-left"
+        style="font-family: Factul, sans-serif;"
+      >
+        Fazendo a sua inscrição hoje, você vai receber:
+      </h2>
+      <ul class="flex flex-col">
+        {leftItems.map((item, i) => (
+          <li class="flex items-start gap-[10px] py-[12px]" style={i < leftItems.length - 1 ? 'border-bottom: 1px solid rgba(255,255,255,0.15);' : ''}>
+            <span class="flex-shrink-0 w-[24px] h-[24px]" set:html={checkIcon} />
+            <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
+              {item.text} <s>{item.price}</s>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Center: Image + Price + CTA (a89e89a) -->
+    <div
+      class="flex flex-col items-center rounded-[10px] lg:flex-1 w-full relative overflow-visible"
+      style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%); padding: 80px 40px 40px; gap: 15px;"
+    >
+      <!-- Product image — overflows top -->
+      <img
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113007.webp"
+        alt="Comer Bem Sem Estresse - Kit completo"
+        class="w-full max-w-[513px] h-auto lg:-mt-[140px]"
+        loading="lazy"
+      />
+
+      <!-- "Receba tudo isso" -->
+      <h3
+        class="text-[36px] leading-[1.2em] font-normal text-center"
+        style="font-family: Factul, sans-serif; color: #5A5A5A;"
+      >
+        <span class="underline-inner">Receba tudo isso</span>
+      </h3>
+
+      <!-- "por apenas" -->
+      <p class="text-[22px] leading-[1.3em] font-normal text-center" style="font-family: Inter, sans-serif; color: #5A5A5A;">
+        por apenas
+      </p>
+
+      <!-- Divider above price -->
+      <div class="w-full" style="border-top: 1px solid rgba(0,0,0,0.1);"></div>
+
+      <!-- Price block: flex row, align-items flex-end, gap 5px — SINGLE LINE -->
+      <div class="flex items-end" style="gap: 5px;">
+        <span class="text-[26px] font-normal leading-[1em]" style="font-family: Inter, sans-serif; color: rgb(71, 71, 71);">12x</span>
+        <span class="text-[62.4px] lg:text-[94px] font-semibold leading-[0.85em]" style="font-family: Inter, sans-serif; color: rgba(36, 34, 35, 0.28);">R$&nbsp;<span style="color: #f89a2b;">30</span></span>
+        <span class="text-[23px] lg:text-[26px] font-normal leading-[1em]" style="font-family: Inter, sans-serif; color: rgb(32, 32, 32);">,72</span>
+      </div>
+
+      <!-- "ou R$ 297,00 à vista" -->
+      <p class="text-[20px] lg:text-[22px] font-normal text-center" style="font-family: Inter, sans-serif; color: rgb(83, 83, 83);">
+        ou R$ 297,00 à vista
+      </p>
+
+      <!-- CTA Button -->
+      <a
+        href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+        class="btn-sweep text-center text-[14px] lg:text-[16px] font-semibold uppercase tracking-[0.9px] text-white rounded-full self-center"
+        style="font-family: Inter, sans-serif; padding: 20px 30px; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
+      >
+        COMEÇAR COM O MÉTODO
+      </a>
+    </div>
+
+    <!-- Right: Benefits list (d287692) -->
+    <div class="flex flex-col justify-center lg:w-[291px] w-full">
+      <ul class="flex flex-col">
+        {rightItems.map((item, i) => (
+          <li class="flex items-start gap-[10px] py-[12px]" style={i < rightItems.length - 1 ? 'border-bottom: 1px solid rgba(255,255,255,0.15);' : ''}>
+            <span class="flex-shrink-0 w-[24px] h-[24px]" set:html={checkIcon} />
+            <span class="text-[16px] leading-[24px] text-white font-normal" style="font-family: Inter, sans-serif;">
+              {item}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pricing-section {
+    background-image: linear-gradient(279deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
+  }
+  @media (min-width: 1025px) {
+    .pricing-section {
+      background-image: linear-gradient(11deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
+    }
+  }
+</style>
