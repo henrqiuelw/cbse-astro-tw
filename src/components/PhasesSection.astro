@@ -1,0 +1,134 @@
+---
+// PhasesSection.astro — Container 7 (id: f16fc3e)
+// JSON source: page-2.json
+//
+// Section: bg #FEF4DF, boxed 1140px, flex-row wrap
+//   padding: 200px 0 60px 0 (desktop), 27% 0 10% 0 (mobile)
+//
+// Top image (b05e045): hidden desktop, visible mobile
+//   _margin_mobile: -39% 0 -34% 0
+//
+// Heading (b30ec4e): Factul 32px/400 desktop, 5.4vw mobile
+//   width: 54.82% desktop, color #1C3124
+//
+// Lottie hint (73da13f): "Arraste para ver todas as fases"
+//
+// Phases container (9357eda): flex-row, overflow auto, width 70%
+//   padding: 40px 0 0 0
+//   Mobile: horizontal scroll
+//
+// Each phase card: bg #5A866D, padding 40px, rounded 10px
+//   Phase label: Factul 18px/400, #FFFFFF
+//   Phase title: Factul 22px/400, #FFDDB5
+//   Phase desc: Inter 18px/400, #FFFFFF
+//   Phase icon: SVG
+
+const phases = [
+  {
+    label: 'FASE 1',
+    title: 'Diagnóstica',
+    desc: 'Identifique as causas das recusas e comece a mudar a percepção do seu filho com a comida.',
+    icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/031055.svg',
+  },
+  {
+    label: 'FASE 2',
+    title: 'Estruturação',
+    desc: 'Reestruture e neutralize os fatores fortalecedores da seletividade alimentar, tornando o ambiente favorável a novas experimentações, aumentando a segurança e a autonomia do seu filho',
+    icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/021055.svg',
+  },
+  {
+    label: 'FASE 3',
+    title: 'Alimentar',
+    desc: 'Estratégias de aproximação e exposição dos alimentos e a oferta lúdica. Nessa fase, o pequeno já foi preparado e está aberto a novas experimentações.',
+    icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/011055.svg',
+  },
+  {
+    label: 'FASE 4',
+    title: 'Consolidação',
+    desc: 'Ferramentas lúdicas para consolidar a aplicação da metodologia e incentivar o seu filho a comer com naturalidade e autonomia',
+    icon: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/110074060.svg',
+  },
+];
+
+const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/133907-copy.webp';
+---
+
+<section
+  class="flex flex-row flex-wrap justify-center items-center
+    pt-[27%] pb-[10%] px-0
+    md:pt-[200px] md:pb-[60px] md:px-0
+    overflow-visible"
+  style="background-color: #FEF4DF; border-top: 1px solid #FFFFFF0F; max-width: 100%;"
+>
+  <div class="w-full max-w-[1140px] mx-auto flex flex-row flex-wrap justify-center items-center gap-[20px]">
+
+    <!-- Top image (b05e045): hidden desktop, visible mobile -->
+    <div class="lg:hidden w-full overflow-visible">
+      <div style="margin: -39% 0 -34% 0;">
+        <img src={decorativeUrl} alt="" class="w-full h-auto" loading="lazy" />
+      </div>
+    </div>
+
+    <!-- Heading (b30ec4e): 54.82% desktop -->
+    <div class="w-full lg:w-[54.82%] text-center px-[5%] lg:px-0">
+      <h2 class="font-factul font-normal text-[5.4vw] md:text-[32px]
+        leading-[1.2em] text-[#1C3124]"
+        style="text-wrap: balance !important;">
+        Na metodologia Comer bem sem estresse você seguirá
+        <span class="underline-inner">uma trilha de conhecimento</span>
+        que vai preparar o seu filho
+        <span class="underline-inner"> para avançar com autonomia: </span>
+      </h2>
+    </div>
+
+    <!-- Lottie hint (73da13f): "Arraste para ver" - mobile only -->
+    <div class="lg:hidden flex items-center gap-2 text-[14px] text-[#584C4D]" style="font-family: Inter, sans-serif;">
+      <!-- Simple arrow instead of Lottie -->
+      <span>←→</span>
+      <span>Arraste para ver todas as fases</span>
+    </div>
+
+    <!-- Phases container (9357eda): flex-row, overflow auto, 70% desktop -->
+    <div class="w-full lg:w-[70%] flex flex-row lg:grid lg:grid-cols-2 gap-[20px] lg:gap-[30px] overflow-x-auto lg:overflow-visible pt-[40px] pb-[20px]
+      snap-x snap-mandatory scroll-smooth"
+      style="-webkit-overflow-scrolling: touch;">
+
+      {phases.map((phase) => (
+        <div
+          class="relative flex-shrink-0 w-[78%] md:w-auto md:flex-1
+            flex flex-col gap-[20px] p-[40px] rounded-[10px] overflow-hidden
+            snap-start"
+          style="background-color: #5A866D;"
+        >
+          <!-- Phase label: Factul 18px/400, white -->
+          <p class="font-factul font-normal text-[18px] text-white">
+            {phase.label}
+          </p>
+
+          <!-- Phase title: Factul 22px/400, #FFDDB5 -->
+          <p class="font-factul font-normal text-[22px] text-[#FFDDB5]">
+            {phase.title}
+          </p>
+
+          <!-- Phase desc: Inter 18px/400, white -->
+          <p class="text-[18px] leading-[1.4em] text-white" style="font-family: Inter, sans-serif;">
+            {phase.desc}
+          </p>
+
+          <!-- Phase icon: absolute watermark, bottom-right -->
+          <img src={phase.icon} alt="" class="absolute bottom-[17px] right-0 w-[80%] h-auto pointer-events-none" loading="lazy" />
+        </div>
+      ))}
+    </div>
+
+    <!-- Button CTA (ea51b4b) - same as others -->
+    <a
+      href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+      class="inline-block text-[14px] lg:text-[16px] font-semibold uppercase tracking-[0.9px] text-white
+        px-[30px] lg:px-[40px] py-[20px] leading-[1.2em] rounded-[1000px] text-center"
+      style="font-family: Inter, sans-serif; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
+    >
+      Quero um sistema que funcione
+    </a>
+  </div>
+</section>
