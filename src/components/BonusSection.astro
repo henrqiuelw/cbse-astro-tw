@@ -63,14 +63,16 @@ const bonuses = [
           style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
         >
           <!-- Image Container -->
-          <div class="overflow-visible flex-shrink-0 lg:w-[40%] relative flex items-end justify-center" style={`height: ${bonus.imgConH};`}>
-            <img
-              src={bonus.img}
-              alt={bonus.title}
-              class="max-w-none h-auto"
-              style={`margin-top: ${bonus.imgOffTop}; object-fit: fill; width: ${bonus.imgWidth};`}
-              loading="lazy"
-            />
+          <div class="overflow-visible flex-shrink-0 lg:w-[40%] relative" style={`height: ${bonus.imgConH};`}>
+            <div class="w-[274px] mx-auto overflow-visible">
+              <img
+                src={bonus.img}
+                alt={bonus.title}
+                class="max-w-none h-auto"
+                style={`margin-top: ${bonus.imgOffTop}; object-fit: fill; width: ${bonus.imgWidth};`}
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <!-- Text Container -->
