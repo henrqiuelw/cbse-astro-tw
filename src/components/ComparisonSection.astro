@@ -1,13 +1,17 @@
 ---
 // ComparisonSection.astro — Container 6 (id: 97edb0a)
-// JSON source: page-2.json
+// ALL VALUES FROM COMPUTED STYLES (desktop 1440px)
 //
-// Card (b19187b): bg #F5F1E9
-//   Desktop: rounded 10px, border 1px solid #0000001F, padding 40px 80px
-//   Mobile: rounded 0 0 20px 20px, border 0, padding 10%
-// Button (bd1b9f8): display block, 16px, padding 20px 40px
-// Text (954b989): Inter 18px/600/italic, 3.8vw mobile
-//   .texto: color #D28123
+// Section: position:relative, bg:none(desktop)/none(mobile), padding:0(desktop)/0 19.5px(mobile)
+// Inner: position:relative, z:1, margin:0(desktop)/0 0 -70.19px(mobile)
+// Card: position:relative, z:1, bg:transparent, margin:-128px 0(desktop)/0(mobile)
+//   borderRadius: 10px(desktop) / 0 0 20px 20px(mobile)
+//   padding: 40px 80px(desktop) / 10%(mobile) [computed: 35.09px]
+// h1,h2: Factul sans-serif 32px/1.2em #1C3124 center
+// List items: Inter 18px/400/italic, line-height:27px, color:#1C1E20, padding-left:5px
+// Button: inline-block, 16px/600/uppercase, padding:20px 40px, rounded 1000px
+//   bg: rgba(97,206,112,0) = transparent, transition: 0.3s, line-height:16px
+// Texto: Inter 18px/600/italic, line-height:23.4px, color:#584C4D
 
 const problemItems = [
   'Repertório alimentar limitado e sem evolução previsível',
@@ -27,32 +31,38 @@ const iconX = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/but
 const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/check-box.svg';
 ---
 
+<!-- Section: relative, overflow:visible, padding:0 desktop / 0 19.5px mobile -->
 <section
-  class="flex flex-col items-center
-    px-[5%] py-0 lg:px-[5%] lg:py-0"
+  class="comparison-section relative flex flex-col
+    px-[5%] lg:px-0 py-0 overflow-visible"
   style="background: linear-gradient(304deg, #F8B361, #BB7D34);"
 >
-  <div class="w-full max-w-[1280px] mx-auto flex flex-row flex-wrap justify-center gap-[40px]">
+  <!-- Inner: relative, z:1, margin: 0 desktop / 0 0 -20% mobile -->
+  <div class="comparison-inner relative z-[1] w-full max-w-[1280px] mx-auto
+    flex flex-col items-center gap-[40px]">
 
-    <!-- Card (b19187b) -->
+    <!-- Card: relative z:1, bg transparent, margin: -10% 0 desktop / 0 mobile -->
     <div
-      class="comparison-card w-full lg:w-[54%]
+      class="comparison-card relative z-[1] w-full lg:w-[54%]
         rounded-none rounded-b-[20px] md:rounded-[10px]
         p-[10%] md:p-[40px_80px]
-        flex flex-col items-center gap-[20px]"
-      style="background-color: #F5F1E9;"
+        flex flex-col gap-[20px]"
     >
-      <!-- Heading 1 -->
-      <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124] text-center">
+      <!-- Heading 1: Factul 32px, #1C3124, center -->
+      <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center"
+        style="font-family: Factul, sans-serif;">
         Hoje, <span class="underline-red">sem</span> um sistema alimentar estruturado:
       </h2>
 
-      <!-- Problems -->
+      <!-- Problems list: Inter 18px/400/italic, lh 27px, #1C1E20, pl 5px -->
       <ul class="w-full flex flex-col gap-[5px]">
         {problemItems.map((item) => (
           <li class="flex items-start gap-[10px]">
             <img src={iconX} alt="" class="w-[22px] h-[22px] mt-[3px] flex-shrink-0" width="22" height="22" />
-            <span class="text-[16px] leading-[1.5em] text-[#1C1E20]" style="font-family: Inter, sans-serif;">{item}</span>
+            <span class="text-[18px] leading-[27px] text-[#1C1E20] pl-[5px]"
+              style="font-family: Inter, sans-serif; font-style: italic;">
+              {item}
+            </span>
           </li>
         ))}
       </ul>
@@ -60,34 +70,40 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
       <!-- Divider -->
       <div class="w-full border-t border-[#0000002B]"></div>
 
-      <!-- Heading 2 -->
-      <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124] text-center">
+      <!-- Heading 2: same as h1 -->
+      <h2 class="font-factul font-normal text-[6.1vw] md:text-[32px] leading-[1.2em] text-[#1C3124] text-center"
+        style="font-family: Factul, sans-serif;">
         <span class="underline-verde">Com</span> um método aplicado com constância:
       </h2>
 
-      <!-- Solutions -->
+      <!-- Solutions list: same styles as problems -->
       <ul class="w-full flex flex-col gap-[5px]">
         {solutionItems.map((item) => (
           <li class="flex items-start gap-[10px]">
             <img src={iconCheck} alt="" class="w-[22px] h-[22px] mt-[3px] flex-shrink-0" width="22" height="22" />
-            <span class="text-[16px] leading-[1.5em] text-[#1C1E20]" style="font-family: Inter, sans-serif;">{item}</span>
+            <span class="text-[18px] leading-[27px] text-[#1C1E20] pl-[5px]"
+              style="font-family: Inter, sans-serif; font-style: italic;">
+              {item}
+            </span>
           </li>
         ))}
       </ul>
 
-      <!-- CTA Button: display block = full-width -->
-      <a
-        href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-        class="block text-[16px] font-semibold text-white uppercase tracking-[0.9px]
-          px-[40px] py-[20px] leading-[1.2em] rounded-[1000px]
-          text-center"
-        style="font-family: Inter, sans-serif; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
-      >
-        Quero iniciar o acompanhamento
-      </a>
+      <!-- CTA Button: inline-block, 16px/600/uppercase, bg transparent, transition 0.3s, lh 16px -->
+      <div class="text-center">
+        <a
+          href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
+          class="inline-block text-[16px] font-semibold text-white uppercase tracking-[0.9px]
+            px-[40px] py-[20px] leading-[16px] rounded-[1000px]
+            text-center transition-all duration-300"
+          style="font-family: Inter, sans-serif; background-color: rgba(97, 206, 112, 0);"
+        >
+          Quero iniciar o acompanhamento
+        </a>
+      </div>
 
-      <!-- Text: Inter 18px/600/italic desktop, 3.8vw mobile -->
-      <p class="text-[3.8vw] md:text-[18px] leading-[1.5em] text-[#584C4D] text-center"
+      <!-- Texto: Inter 18px/600/italic, lh 23.4px, #584C4D, .texto=#D28123 -->
+      <p class="text-[3.8vw] md:text-[18px] leading-[23.4px] text-[#584C4D] text-center"
         style="font-family: Inter, sans-serif; font-weight: 600; font-style: italic;">
         O Comer bem sem estresse vai lhe dar <span style="color: #D28123;">clareza e direção nessa transformação</span>
       </p>
@@ -97,10 +113,20 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 </section>
 
 <style>
-  /* Desktop border only - mobile has border 0 */
-  @media (min-width: 768px) {
+  /* Mobile: inner mb -20% for card overflow */
+  .comparison-inner {
+    margin-bottom: -20%;
+  }
+
+  /* Desktop: card margin -10%, card bg #F5F1E9, border, inner mb 0 */
+  @media (min-width: 1025px) {
     .comparison-card {
+      background-color: #F5F1E9;
+      margin: -10% 0;
       border: 1px solid #0000001F;
+    }
+    .comparison-inner {
+      margin-bottom: 0;
     }
   }
 </style>
