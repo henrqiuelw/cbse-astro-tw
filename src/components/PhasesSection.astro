@@ -81,10 +81,20 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
     </div>
 
     <!-- Lottie hint (73da13f): "Arraste para ver" - mobile only -->
-    <div class="lg:hidden flex items-center gap-2 text-[14px] text-[#584C4D]" style="font-family: Inter, sans-serif;">
-      <!-- Simple arrow instead of Lottie -->
-      <span>←→</span>
-      <span>Arraste para ver todas as fases</span>
+    <div class="lg:hidden flex flex-col gap-[20px] w-full px-[5%]">
+      <!-- Lottie animated arrow -->
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" is:inline></script>
+      <lottie-player
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/Animation-1699547373843.json"
+        background="transparent"
+        speed="1"
+        style="width: 70px; height: 77px;"
+        loop
+        autoplay
+      ></lottie-player>
+      <p class="text-[15.6px] text-[#584C4D]" style="font-family: Inter, sans-serif;">
+        Arraste para ver todas as fases
+      </p>
     </div>
 
     <!-- Phases container (9357eda): flex-row, overflow auto, 70% desktop -->
@@ -94,8 +104,8 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
 
       {phases.map((phase) => (
         <div
-          class="relative flex-shrink-0 w-[78%] md:w-auto md:flex-1
-            flex flex-col gap-[20px] p-[40px] rounded-[10px] overflow-hidden
+          class="phase-card relative flex-shrink-0 w-[78%] md:w-auto md:flex-1
+            flex flex-col gap-[20px] p-[35px] lg:p-[40px] rounded-[10px] overflow-hidden
             snap-start"
           style="background: radial-gradient(#5A866D 0%, #244030 100%);"
         >
@@ -135,3 +145,11 @@ const decorativeUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/202
     </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 1024px) {
+    .phase-card {
+      background: radial-gradient(at 100% 0%, #5A866D 0%, #244030 48%) !important;
+    }
+  }
+</style>
