@@ -1,0 +1,101 @@
+---
+const bonuses = [
+  {
+    badge: 'BÔNUS 01',
+    title: 'Receitas para crianças seletivas',
+    desc: 'Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e vontade de experimentar.',
+    img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083507-copy.webp',
+  },
+  {
+    badge: 'BÔNUS 02',
+    title: 'Diário da conexão com a comida',
+    desc: 'Um guia prático com atividades diárias para transformar a mesa em momento de afeto.',
+    img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/0917071.webp',
+  },
+  {
+    badge: 'BÔNUS 03',
+    title: 'Kit brincando de comer',
+    desc: 'Imprima, brinque e transforme o momento da refeição em uma experiência divertida. Jogos e atividades para que seu filho descubra o prazer de comer brincando.',
+    img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093507-copy.webp',
+  },
+];
+---
+
+<!-- Container 11: Bônus Exclusivos (f1ca97c) -->
+<section
+  class="w-full flex flex-col items-center px-[19.5px] lg:px-[19.5px]"
+  style="background-color: rgba(240, 232, 221, 0.24); border-top: 1px solid rgba(0, 0, 0, 0.05);"
+>
+  <div class="w-full max-w-[1280px] flex flex-col items-center" style="gap: 60px; padding: 60px 0;">
+
+    <!-- Heading (e53324f) -->
+    <h2
+      class="text-[33.54px] lg:text-[40px] leading-[1.2em] text-center"
+      style="font-family: Factul, sans-serif; color: rgb(35, 47, 48);"
+    >
+      <span class="underline-inner">Bônus Exclusivos</span>
+    </h2>
+
+    <!-- Subtitle (93f5768) -->
+    <p
+      class="text-[18px] leading-[27px] text-center font-normal -mt-[40px]"
+      style="font-family: Inter, sans-serif; color: rgba(0, 0, 0, 0.83);"
+    >
+      E para acelerar o seu avanço, você receberá de Bônus:
+    </p>
+
+    <!-- Bonus Cards -->
+    {bonuses.map((bonus) => (
+      <div
+        class="w-full max-w-[351px] lg:max-w-[1140px] rounded-[10px] overflow-hidden"
+        style="border: 1px solid rgb(253, 253, 253);"
+      >
+        <div class="flex flex-col-reverse lg:flex-row">
+          <!-- Text Container -->
+          <div
+            class="flex flex-col items-start gap-[20px] p-[30px] lg:p-[40px] flex-1"
+            style="background: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
+          >
+            <!-- Badge Button -->
+            <span
+              class="text-[16px] font-normal text-white rounded-full"
+              style="font-family: Inter, sans-serif; background-color: rgb(219, 185, 83); padding: 12px 24px;"
+            >
+              {bonus.badge}
+            </span>
+
+            <!-- Title -->
+            <p
+              class="text-[29.25px] font-semibold leading-[35.1px] text-white"
+              style="font-family: Factul, sans-serif;"
+            >
+              {bonus.title}
+            </p>
+
+            <!-- Divider -->
+            <div class="w-[267px]" style="border-top: 1px solid rgba(255, 255, 255, 0.13);"></div>
+
+            <!-- Description -->
+            <p
+              class="text-[18px] font-normal leading-[23.4px]"
+              style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.93);"
+            >
+              {bonus.desc}
+            </p>
+          </div>
+
+          <!-- Image Container -->
+          <div class="overflow-hidden flex-shrink-0 lg:w-[40%]">
+            <img
+              src={bonus.img}
+              alt={bonus.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>
