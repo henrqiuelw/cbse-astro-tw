@@ -48,13 +48,17 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
       class="pricing-center-card flex flex-col items-center rounded-[10px] lg:flex-1 w-full relative overflow-visible"
       style="background: linear-gradient(360deg, #EBE4DF 0%, #FFFFFF 100%); padding: 35px; gap: 15px;"
     >
-      <!-- Product image — overflows top -->
-      <img
-        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113007.webp"
-        alt="Comer Bem Sem Estresse - Kit completo"
-        class="w-[463px] max-w-none lg:max-w-[513px] lg:w-full h-auto -mt-[131px] lg:-mt-[140px]"
-        loading="lazy"
-      />
+      <!-- Product image — widget height limits layout space, wrapper margin-top pulls image up -->
+      <div class="pricing-img-widget w-full overflow-visible">
+        <div class="pricing-img-wrapper overflow-visible">
+          <img
+            src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113007.webp"
+            alt="Comer Bem Sem Estresse - Kit completo"
+            class="pricing-img w-[463px] max-w-none lg:w-[513px] h-auto mx-auto block"
+            loading="lazy"
+          />
+        </div>
+      </div>
 
       <!-- "Receba tudo isso" -->
       <h3
@@ -112,12 +116,28 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24
 </section>
 
 <style>
+  /* Mobile: widget 52px, wrapper -171px */
+  .pricing-img-widget { height: 52px; }
+  .pricing-img-wrapper { margin-top: -171px; }
+  /* Desktop: widget 4px, wrapper -242px */
+  @media (min-width: 1025px) {
+    .pricing-img-widget { height: 4px; }
+    .pricing-img-wrapper { margin-top: -242px; }
+  }
   .pricing-section {
     background-image: linear-gradient(279deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
   }
   @media (min-width: 1025px) {
     .pricing-center-card { padding: 80px 40px 40px !important; }
-    .pricing-section {
+    /* Mobile: widget 52px, wrapper -171px */
+  .pricing-img-widget { height: 52px; }
+  .pricing-img-wrapper { margin-top: -171px; }
+  /* Desktop: widget 4px, wrapper -242px */
+  @media (min-width: 1025px) {
+    .pricing-img-widget { height: 4px; }
+    .pricing-img-wrapper { margin-top: -242px; }
+  }
+  .pricing-section {
       background-image: linear-gradient(11deg, rgb(36, 64, 48) 0%, rgb(57, 102, 76) 100%);
     }
   }
