@@ -28,15 +28,15 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 ---
 
 <section
-  class="comparison-section relative flex flex-col items-center
-    px-[5%] py-0 lg:px-[5%] lg:py-0 overflow-visible"
+  class="flex flex-col items-center
+    px-[5%] py-0 lg:px-[5%] lg:py-0"
   style="background: linear-gradient(304deg, #F8B361, #BB7D34);"
 >
-  <div class="comparison-inner relative z-[1] w-full max-w-[1280px] mx-auto flex flex-row flex-wrap justify-center gap-[40px]">
+  <div class="w-full max-w-[1280px] mx-auto flex flex-row flex-wrap justify-center gap-[40px]">
 
     <!-- Card (b19187b) -->
     <div
-      class="comparison-card relative z-[1] w-full lg:w-[54%]
+      class="comparison-card w-full lg:w-[54%]
         rounded-none rounded-b-[20px] md:rounded-[10px]
         p-[10%] md:p-[40px_80px]
         flex flex-col items-center gap-[20px]"
@@ -97,17 +97,10 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 </section>
 
 <style>
-  /* Mobile: inner mb -20% for card overflow, card margin -10% desktop */
-  .comparison-inner {
-    margin-bottom: -20%;
-  }
+  /* Desktop border only - mobile has border 0 */
   @media (min-width: 768px) {
     .comparison-card {
       border: 1px solid #0000001F;
-      margin: -10% 0;
-    }
-    .comparison-inner {
-      margin-bottom: 0;
     }
   }
 </style>
