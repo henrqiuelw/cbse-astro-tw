@@ -1,6 +1,13 @@
 ---
 // ComparisonSection.astro — Container 6 (id: 97edb0a)
-// Gradient bg #BB7D34 → #F8B361 (304deg), card #F5F1E9, rounded 10px
+// JSON source: page-2.json
+//
+// Card (b19187b): bg #F5F1E9
+//   Desktop: rounded 10px, border 1px solid #0000001F, padding 40px 80px
+//   Mobile: rounded 0 0 20px 20px, border 0, padding 10%
+// Button (bd1b9f8): display block, 16px, padding 20px 40px
+// Text (954b989): Inter 18px/600/italic, 3.8vw mobile
+//   .texto: color #D28123
 
 const problemItems = [
   'Repertório alimentar limitado e sem evolução previsível',
@@ -22,23 +29,25 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
 
 <section
   class="flex flex-col items-center
-    p-0 md:px-[5%] md:py-0"
+    px-[5%] py-0 lg:px-[5%] lg:py-0"
   style="background: linear-gradient(304deg, #F8B361, #BB7D34);"
 >
   <div class="w-full max-w-[1280px] mx-auto flex flex-row flex-wrap justify-center gap-[40px]">
 
     <!-- Card (b19187b) -->
     <div
-      class="w-full lg:w-[54%] bg-[#F5F1E9] rounded-[10px]
+      class="comparison-card w-full lg:w-[54%]
+        rounded-none rounded-b-[20px] md:rounded-[10px]
         p-[10%] md:p-[40px_80px]
         flex flex-col items-center gap-[20px]"
+      style="background-color: #F5F1E9;"
     >
-      <!-- Heading 1: "Hoje, sem um sistema..." (f1f03dc) -->
+      <!-- Heading 1 -->
       <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124] text-center">
         Hoje, <span class="underline-red">sem</span> um sistema alimentar estruturado:
       </h2>
 
-      <!-- Icon list 1: problems (a5b474b) -->
+      <!-- Problems -->
       <ul class="w-full flex flex-col gap-[5px]">
         {problemItems.map((item) => (
           <li class="flex items-start gap-[10px]">
@@ -48,15 +57,15 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
         ))}
       </ul>
 
-      <!-- Divider (e1d4723) -->
+      <!-- Divider -->
       <div class="w-full border-t border-[#0000002B]"></div>
 
-      <!-- Heading 2: "Com um método..." (22ee301) -->
+      <!-- Heading 2 -->
       <h2 class="font-factul font-normal text-[6.1vw] md:text-[36px] lg:text-[32px] leading-[1.2em] text-[#1C3124] text-center">
         <span class="underline-verde">Com</span> um método aplicado com constância:
       </h2>
 
-      <!-- Icon list 2: solutions (a3a66ac) -->
+      <!-- Solutions -->
       <ul class="w-full flex flex-col gap-[5px]">
         {solutionItems.map((item) => (
           <li class="flex items-start gap-[10px]">
@@ -66,22 +75,32 @@ const iconCheck = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
         ))}
       </ul>
 
-      <!-- CTA Button (bd1b9f8) -->
+      <!-- CTA Button: display block = full-width -->
       <a
         href="https://pay.hotmart.com/N90113161T?off=ukulpso1"
-        class="btn-grad inline-block text-[16px] font-semibold text-white uppercase
-          px-[40px] py-[20px] rounded-[1000px]
-          text-center z-[99]"
+        class="block text-[16px] font-semibold text-white uppercase tracking-[0.9px]
+          px-[40px] py-[20px] leading-[1.2em] rounded-[1000px]
+          text-center"
         style="font-family: Inter, sans-serif; background-image: linear-gradient(to right, #2D8050 0%, #1FBF63 51%, #2D8050 100%); background-size: 200% auto; transition: 0.5s;"
       >
         Quero iniciar o acompanhamento
       </a>
 
-      <!-- Text (954b989) -->
-      <p class="text-[16px] leading-[1.5em] text-[#584C4D] text-center" style="font-family: Inter, sans-serif;">
-        O Comer bem sem estresse vai lhe dar <span class="texto">clareza e direção nessa transformação</span>
+      <!-- Text: Inter 18px/600/italic desktop, 3.8vw mobile -->
+      <p class="text-[3.8vw] md:text-[18px] leading-[1.5em] text-[#584C4D] text-center"
+        style="font-family: Inter, sans-serif; font-weight: 600; font-style: italic;">
+        O Comer bem sem estresse vai lhe dar <span style="color: #D28123;">clareza e direção nessa transformação</span>
       </p>
     </div>
 
   </div>
 </section>
+
+<style>
+  /* Desktop border only - mobile has border 0 */
+  @media (min-width: 768px) {
+    .comparison-card {
+      border: 1px solid #0000001F;
+    }
+  }
+</style>
