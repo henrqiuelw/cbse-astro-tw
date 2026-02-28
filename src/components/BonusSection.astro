@@ -64,11 +64,11 @@ const bonuses = [
         >
           <!-- Image Container -->
           <div class="overflow-visible flex-shrink-0 lg:w-[40%] relative" style={`height: ${bonus.imgConH};`}>
-            <div class="w-[274px] mx-auto overflow-visible">
+            <div class="w-[274px] mx-auto overflow-visible relative">
               <img
                 src={bonus.img}
                 alt={bonus.title}
-                class="max-w-none h-auto"
+                class="max-w-none h-auto relative left-1/2 -translate-x-1/2"
                 style={`margin-top: ${bonus.imgOffTop}; object-fit: fill; width: ${bonus.imgWidth};`}
                 loading="lazy"
               />
