@@ -6,6 +6,7 @@ const bonuses = [
     desc: 'Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e vontade de experimentar.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083507-copy.webp',
     outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '269px',
+    imgW: 419, imgH: 450, imgOffTop: '-47px',
   },
   {
     badge: 'BÔNUS 02',
@@ -13,6 +14,7 @@ const bonuses = [
     desc: 'Um guia prático com atividades diárias para transformar a mesa em momento de afeto.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/0917071.webp',
     outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0.08)', imgConH: '295px',
+    imgW: 441, imgH: 430, imgOffTop: '-15px',
   },
   {
     badge: 'BÔNUS 03',
@@ -20,13 +22,15 @@ const bonuses = [
     desc: 'Imprima, brinque e transforme o momento da refeição em uma experiência divertida. Jogos e atividades para que seu filho descubra o prazer de comer brincando.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093507-copy.webp',
     outerBR: '0px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '160px',
+    imgW: 406, imgH: 350, imgOffTop: '-21px',
   },
 ];
 ---
 
 <!-- Container 11: Bônus Exclusivos (f1ca97c) -->
+<!-- Section clips horizontal overflow but allows vertical -->
 <section
-  class="w-full flex flex-col items-center px-[19.5px]"
+  class="w-full flex flex-col items-center px-[19.5px] overflow-x-clip overflow-y-visible"
   style="background-color: rgba(240, 232, 221, 0.24); border-top: 1px solid rgba(0, 0, 0, 0.05);"
 >
   <div class="w-full max-w-[1280px] flex flex-col items-center" style="gap: 100px; padding: 60px 0;">
@@ -53,17 +57,18 @@ const bonuses = [
         class="w-full max-w-[351px] lg:max-w-[1140px]"
         style={`border: 1px solid rgb(253, 253, 253); border-radius: ${bonus.outerBR}; background-color: ${bonus.outerBg};`}
       >
-        <!-- column-reverse, clip horizontal overflow but keep image visible via height -->
+        <!-- Inner: column-reverse, overflow visible (images overflow freely) -->
         <div
-          class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-x-clip overflow-y-visible"
+          class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-visible"
           style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
         >
-          <!-- Image Container: constrained height, image overflows downward -->
-          <div class="flex-shrink-0 lg:w-[40%]" style={`height: ${bonus.imgConH};`}>
+          <!-- Image Container -->
+          <div class="overflow-visible flex-shrink-0 lg:w-[40%] relative" style={`height: ${bonus.imgConH};`}>
             <img
               src={bonus.img}
               alt={bonus.title}
-              class="w-[120%] h-auto max-w-none"
+              class="max-w-full h-auto"
+              style={`margin-top: ${bonus.imgOffTop}; object-fit: fill;`}
               loading="lazy"
             />
           </div>
