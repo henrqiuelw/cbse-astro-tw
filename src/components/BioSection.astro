@@ -5,23 +5,24 @@
 // DESKTOP (1440px):
 //   Section: bg #FCF9F2, padding 0 40px
 //   Inner: flex row-reverse, gap 20px, align center, padding 60px 0
-//   Image container (d58d140): w=378, h=454, overflow visible, img 474x604
+//   Image container (d58d140): w=378, h=454, overflow visible, img 474x604, rounded 20px
 //   Text container (9b91bf4): w=495
 //     "Quem criou..." Factul 20px/24px #363435
 //     "Flávia Andrade" Factul 56px/67.2px #363435
 //     mouse.svg 30x30
-//     Bio text: Inter 16px/24px rgba(0,0,0,0.83)
+//     Bio text: Inter 16px/24px rgba(0,0,0,0.83), scrollable h=270px
 //
 // MOBILE (390px):
 //   Inner: flex column-reverse, gap 30px, padding 35px 0 0
+//   Image: 386x492 (110% width), rounded 20px
 
 const bioTexts = [
   'Sou Flávia Andrade, <span class="texto">nutricionista há mais de 20 anos,</span> especialista em seletividade alimentar e desenvolvimento infantil.',
-  'A minha filha, que desenvolveu a seletividade alimentar aos 2 anos, foi o ponto de partida, mas não foi a dor que criou o método, e sim a análise técnica do que realmente estava acontecendo.',
-  'Quando percebi que a seletividade alimentar não se resolvia com mais insistência, receitas ou negociações, aprofundei meus estudos para entender a causa da restrição do repertório alimentar.',
-  'A partir disso, desenvolvi um método estruturado, inicialmente aplicado na minha própria filha e, depois, validado em milhares de famílias que buscavam previsibilidade, autonomia e menos desgaste na alimentação dos seus filhos.',
-  'Hoje, a Metodologia Comer bem sem estresse não é uma experiência pessoal – é um sistema aplicado, que já apoiou mais de 5 mil famílias a sair do improviso e construir uma relação mais funcional com a alimentação infantil.',
-  'Meu trabalho já alcançou tantas famílias, sempre com o mesmo objetivo: transformar a alimentação infantil em algo conduzido com método estruturado, não com culpa ou pressão',
+  '<span class="texto">A minha filha, que desenvolveu a seletividade alimentar aos 2 anos,</span> foi o ponto de partida, mas não foi a dor que criou o método, e sim a análise técnica do que realmente estava acontecendo.',
+  'Quando percebi que a <span class="texto">seletividade alimentar não se resolvia com mais insistência, receitas ou negociações,</span> aprofundei meus estudos para entender a causa da restrição do repertório alimentar.',
+  'A partir disso, <span class="texto">desenvolvi um método estruturado, inicialmente aplicado na minha própria filha e, depois, validado em milhares de famílias</span> que buscavam previsibilidade, autonomia e menos desgaste na alimentação infantil.',
+  'Hoje, a Metodologia Comer bem sem estresse não é uma experiência pessoal – é <span class="texto">um sistema aplicado, que já apoiou mais de 5 mil famílias a sair do improviso e construir uma relação mais funcional com a alimentação.</span>',
+  'Meu trabalho já alcançou tantas famílias, sempre com o mesmo objetivo: <span class="texto">transformar a alimentação infantil em algo conduzido com método estruturado, não com culpa ou pressão</span>',
 ];
 
 const imgSrc = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/142306.webp';
@@ -41,12 +42,12 @@ const mouseIcon = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
     gap-[30px] lg:gap-[20px] items-center
     pt-[35px] lg:pt-[60px] pb-0 lg:pb-[60px]">
 
-    <!-- Image container (d58d140) -->
+    <!-- Image container (d58d140): overflow visible, img rounded 20px -->
     <div class="relative w-full lg:w-[378px] lg:h-[454px] overflow-visible flex-shrink-0 flex-grow-0">
       <img
         src={imgSrc}
         alt="Flávia Andrade"
-        class="w-full lg:absolute lg:top-0 lg:left-0 lg:w-[474px] lg:max-w-none h-auto"
+        class="w-[110%] lg:absolute lg:top-0 lg:left-0 lg:w-[474px] lg:max-w-none h-auto rounded-[20px]"
         loading="lazy"
         width="693"
         height="883"
@@ -54,24 +55,24 @@ const mouseIcon = 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02
     </div>
 
     <!-- Text container (9b91bf4) -->
-    <div class="w-full lg:w-[495px] flex flex-col gap-[20px]">
+    <div class="relative w-full lg:w-[495px] flex flex-col gap-[20px]">
 
-      <!-- Subtitle: Factul 20px/24px -->
+      <!-- Subtitle: Factul 20px/24px desktop, 4.4vw mobile -->
       <p class="text-[4.4vw] lg:text-[20px] leading-[1.2em] lg:leading-[24px] text-[#363435]"
         style="font-family: Factul, sans-serif;">
         Quem criou o Comer bem sem estresse?
       </p>
 
-      <!-- Name: Factul 56px/67.2px desktop -->
+      <!-- Name: Factul 56px/67.2px desktop, 10vw mobile -->
       <p class="text-[10vw] lg:text-[56px] leading-[1.1em] lg:leading-[67.2px] text-[#363435]"
         style="font-family: Factul, sans-serif;">
         Flávia Andrade
       </p>
 
-      <!-- Mouse icon: desktop only -->
-      <img src={mouseIcon} alt="" class="hidden lg:block w-[30px] h-[30px]" width="30" height="30" />
+      <!-- Mouse icon: absolute positioned at top-right of text container -->
+      <img src={mouseIcon} alt="" class="hidden lg:block w-[30px] h-[30px] absolute" style="top: 58px; left: 478px;" width="30" height="30" />
 
-      <!-- Bio paragraphs: Inter 16px/24px rgba(0,0,0,0.83) -->
+      <!-- Bio paragraphs: Inter 16px/24px rgba(0,0,0,0.83), scrollable on desktop -->
       <div class="flex flex-col gap-[20px] lg:h-[270px] lg:overflow-y-auto lg:overflow-x-hidden">
         {bioTexts.map((text) => (
           <p class="text-[17px] lg:text-[16px] leading-[25.5px] lg:leading-[24px]"

@@ -29,7 +29,7 @@ p, h1, h2, h3 { text-wrap: balance !important; }
 .destaque { color: #F89A2B; }
 .destaque-texto { color: #CD0C4F; font-weight: 700; }
 .destaque-white { color: #fff; font-weight: 700; }
-.texto { font-weight: 600; color: #d28123; }
+.texto { font-weight: 400; color: #d28123; }
 
 .aulas {
   background: #fff !important;
