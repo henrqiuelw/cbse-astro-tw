@@ -1,4 +1,17 @@
 ---
+// BonusSection.astro — Container 11 (f1ca97c)
+// Computed values from Playwright 1440px desktop + iPhone 14 mobile
+//
+// DESKTOP:
+//   Outer card: 673px, border 1px rgb(253,253,253), borderRadius 10px, box-shadow 7-layer
+//   Inner card: gradient, borderRadius 0px, overflow visible
+//   Gradient: card1+3=103deg, card2=180deg
+//   Flex: card1=row-reverse, card2=row, card3=row-reverse
+//   ImgCon: 315px wide. Images overflow visible in all directions.
+//   TextCon: flex-1, padding 40px, text-start
+// MOBILE:
+//   Outer: 351px, innerBR=16px, column-reverse
+
 const bonuses = [
   {
     badge: 'BÔNUS 01',
@@ -6,10 +19,10 @@ const bonuses = [
     desc: 'Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e vontade de experimentar.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083507-copy.webp',
     outerBg: 'rgba(255, 201, 95, 0)',
-    // Mobile
+    gradient: 'linear-gradient(103deg, rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%)',
+    desktopDir: 'lg:flex-row-reverse',
     mImgConH: '269px', mImgOffTop: '-47px', mImgWidth: '419px',
-    // Desktop: img 466x500, imgCon 315x394
-    desktopFlexDir: 'lg:flex-row-reverse',
+    dImgW: '466px', dImgH: '500px', dImgConH: '394px',
   },
   {
     badge: 'BÔNUS 02',
@@ -17,8 +30,10 @@ const bonuses = [
     desc: 'Um guia prático com atividades diárias para transformar a mesa em momento de afeto.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/0917071.webp',
     outerBg: 'rgba(255, 201, 95, 0.08)',
+    gradient: 'linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%)',
+    desktopDir: 'lg:flex-row',
     mImgConH: '295px', mImgOffTop: '-15px', mImgWidth: '441px',
-    desktopFlexDir: 'lg:flex-row',
+    dImgW: '516px', dImgH: '504px', dImgConH: '425px',
   },
   {
     badge: 'BÔNUS 03',
@@ -26,15 +41,16 @@ const bonuses = [
     desc: 'Imprima, brinque e transforme o momento da refeição em uma experiência divertida. Jogos e atividades para que seu filho descubra o prazer de comer brincando.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093507-copy.webp',
     outerBg: 'rgba(255, 201, 95, 0)',
+    gradient: 'linear-gradient(103deg, rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%)',
+    desktopDir: 'lg:flex-row-reverse',
     mImgConH: '160px', mImgOffTop: '-21px', mImgWidth: '406px',
-    desktopFlexDir: 'lg:flex-row-reverse',
+    dImgW: '498px', dImgH: '430px', dImgConH: '371px',
   },
 ];
 
 const boxShadow = 'rgba(113,123,152,0.05) 0px 0px 0px 1px, rgba(113,123,152,0.05) 0px 1px 1px 0.5px, rgba(113,123,152,0.05) 0px 3px 3px -1.5px, rgba(113,123,152,0.05) 0px 6px 6px -3px, rgba(113,123,152,0.05) 0px 12px 12px -6px, rgba(113,123,152,0.05) 0px 24px 24px -12px, rgba(113,123,152,0.04) 0px 48px 48px -24px';
 ---
 
-<!-- Container 11: Bônus Exclusivos (f1ca97c) -->
 <section
   class="w-full flex flex-col items-center px-[19.5px] lg:px-0 overflow-x-clip overflow-y-visible"
   style="background-color: rgba(240, 232, 221, 0.24); border-top: 1px solid rgba(0, 0, 0, 0.05);"
@@ -62,27 +78,23 @@ const boxShadow = 'rgba(113,123,152,0.05) 0px 0px 0px 1px, rgba(113,123,152,0.05
           style={`border: 1px solid rgb(253, 253, 253); background-color: ${bonus.outerBg}; box-shadow: ${boxShadow};`}
         >
           <div
-            class={`flex flex-col-reverse ${bonus.desktopFlexDir} overflow-visible`}
-            style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
+            class={`flex flex-col-reverse ${bonus.desktopDir} rounded-[16px] lg:rounded-none overflow-visible`}
+            style={`background-image: ${bonus.gradient};`}
           >
-            <!-- Image Container: mobile h fixed, desktop auto -->
-            <div
-              class="overflow-visible flex-shrink-0 lg:w-[315px] relative"
-              style={`height: ${bonus.mImgConH};`}
-            >
-              <!-- Mobile: centered 274px wrapper -->
-              <div class="w-[274px] mx-auto overflow-visible relative lg:w-full lg:h-full">
+            <!-- Image Container: overflow visible, 315px desktop -->
+            <div class="overflow-visible flex-shrink-0 relative lg:w-[315px]">
+              <div class="bonus-img-wrapper w-[274px] mx-auto overflow-visible relative lg:w-full" style={`height: ${bonus.mImgConH}; --d-con-h: ${bonus.dImgConH};`}>
                 <img
                   src={bonus.img}
                   alt={bonus.title}
-                  class="max-w-none h-auto relative left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0"
-                  style={`margin-top: ${bonus.mImgOffTop}; object-fit: fill; width: ${bonus.mImgWidth};`}
+                  class="bonus-img max-w-none h-auto relative left-1/2 -translate-x-1/2"
+                  style={`margin-top: ${bonus.mImgOffTop}; width: ${bonus.mImgWidth}; --d-w: ${bonus.dImgW}; --d-h: ${bonus.dImgH};`}
                   loading="lazy"
                 />
               </div>
             </div>
 
-            <!-- Text Container: center mobile, start desktop -->
+            <!-- Text Container -->
             <div
               class="flex flex-col items-center lg:items-start justify-center p-[40px] flex-1 text-center lg:text-start"
               style="gap: 15px;"
@@ -115,6 +127,18 @@ const boxShadow = 'rgba(113,123,152,0.05) 0px 0px 0px 1px, rgba(113,123,152,0.05
 </section>
 
 <style>
+  @media (min-width: 1025px) {
+    .bonus-img-wrapper {
+      height: var(--d-con-h) !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+    }
+    .bonus-img {
+      width: var(--d-w) !important;
+      height: var(--d-h) !important;
+      margin-top: 0 !important;
+    }
+  }
   .bonus-badge::before {
     content: "";
     position: absolute;
