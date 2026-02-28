@@ -29,7 +29,7 @@ const bonuses = [
   class="w-full flex flex-col items-center px-[19.5px]"
   style="background-color: rgba(240, 232, 221, 0.24); border-top: 1px solid rgba(0, 0, 0, 0.05);"
 >
-  <div class="w-full max-w-[1280px] flex flex-col items-center" style="gap: 60px; padding: 60px 0;">
+  <div class="w-full max-w-[1280px] flex flex-col items-center" style="gap: 100px; padding: 60px 0;">
 
     <!-- Heading (e53324f) -->
     <h2
@@ -41,7 +41,7 @@ const bonuses = [
 
     <!-- Subtitle (93f5768) -->
     <p
-      class="text-[18px] leading-[27px] text-center font-normal -mt-[40px]"
+      class="text-[18px] leading-[27px] text-center font-normal -mt-[80px]"
       style="font-family: Inter, sans-serif; color: rgba(0, 0, 0, 0.83);"
     >
       E para acelerar o seu avanço, você receberá de Bônus:
@@ -53,13 +53,13 @@ const bonuses = [
         class="w-full max-w-[351px] lg:max-w-[1140px]"
         style={`border: 1px solid rgb(253, 253, 253); border-radius: ${bonus.outerBR}; background-color: ${bonus.outerBg};`}
       >
-        <!-- column-reverse: DOM order [imgCon, textCon] → visual [textCon on top, imgCon on bottom] -->
+        <!-- column-reverse, clip horizontal overflow but keep image visible via height -->
         <div
-          class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-visible"
+          class="flex flex-col-reverse lg:flex-row rounded-[16px] overflow-x-clip overflow-y-visible"
           style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
         >
-          <!-- Image Container: DOM first, visually at bottom (column-reverse), overflows downward -->
-          <div class="overflow-visible flex-shrink-0 lg:w-[40%]" style={`height: ${bonus.imgConH};`}>
+          <!-- Image Container: constrained height, image overflows downward -->
+          <div class="flex-shrink-0 lg:w-[40%]" style={`height: ${bonus.imgConH};`}>
             <img
               src={bonus.img}
               alt={bonus.title}
@@ -68,7 +68,7 @@ const bonuses = [
             />
           </div>
 
-          <!-- Text Container: DOM second, visually at top (column-reverse) -->
+          <!-- Text Container -->
           <div
             class="flex flex-col items-center justify-center p-[40px] flex-1 text-center"
             style="gap: 15px;"
