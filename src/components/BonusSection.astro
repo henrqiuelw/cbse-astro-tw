@@ -5,29 +5,33 @@ const bonuses = [
     title: 'Receitas para crianças seletivas',
     desc: 'Comidinhas que agradam e aproximam sem esforço. Preparos rápidos, práticos, nutritivos e testados por quem vive a seletividade alimentar – Pratos que despertam curiosidade, prazer e vontade de experimentar.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/083507-copy.webp',
-    outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '269px',
-    imgOffTop: '-47px', imgWidth: '419px',
-    desktopFlexDir: 'row-reverse', // alternates
+    outerBg: 'rgba(255, 201, 95, 0)',
+    // Mobile
+    mImgConH: '269px', mImgOffTop: '-47px', mImgWidth: '419px',
+    // Desktop: img 466x500, imgCon 315x394
+    desktopFlexDir: 'lg:flex-row-reverse',
   },
   {
     badge: 'BÔNUS 02',
     title: 'Diário da conexão com a comida',
     desc: 'Um guia prático com atividades diárias para transformar a mesa em momento de afeto.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/0917071.webp',
-    outerBR: '10px', outerBg: 'rgba(255, 201, 95, 0.08)', imgConH: '295px',
-    imgOffTop: '-15px', imgWidth: '441px',
-    desktopFlexDir: 'row',
+    outerBg: 'rgba(255, 201, 95, 0.08)',
+    mImgConH: '295px', mImgOffTop: '-15px', mImgWidth: '441px',
+    desktopFlexDir: 'lg:flex-row',
   },
   {
     badge: 'BÔNUS 03',
     title: 'Kit brincando de comer',
     desc: 'Imprima, brinque e transforme o momento da refeição em uma experiência divertida. Jogos e atividades para que seu filho descubra o prazer de comer brincando.',
     img: 'https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/093507-copy.webp',
-    outerBR: '0px', outerBg: 'rgba(255, 201, 95, 0)', imgConH: '160px',
-    imgOffTop: '-21px', imgWidth: '406px',
-    desktopFlexDir: 'row-reverse',
+    outerBg: 'rgba(255, 201, 95, 0)',
+    mImgConH: '160px', mImgOffTop: '-21px', mImgWidth: '406px',
+    desktopFlexDir: 'lg:flex-row-reverse',
   },
 ];
+
+const boxShadow = 'rgba(113,123,152,0.05) 0px 0px 0px 1px, rgba(113,123,152,0.05) 0px 1px 1px 0.5px, rgba(113,123,152,0.05) 0px 3px 3px -1.5px, rgba(113,123,152,0.05) 0px 6px 6px -3px, rgba(113,123,152,0.05) 0px 12px 12px -6px, rgba(113,123,152,0.05) 0px 24px 24px -12px, rgba(113,123,152,0.04) 0px 48px 48px -24px';
 ---
 
 <!-- Container 11: Bônus Exclusivos (f1ca97c) -->
@@ -37,15 +41,12 @@ const bonuses = [
 >
   <div class="w-full max-w-[1140px] flex flex-col items-center" style="gap: 60px; padding: 60px 0;">
     <div class="flex flex-col items-center" style="gap: 20px;">
-      <!-- Heading (e53324f) -->
       <h2
         class="text-[33.54px] lg:text-[40px] leading-[1.2em] text-center"
         style="font-family: Factul, sans-serif; color: rgb(35, 47, 48);"
       >
         <span class="underline-inner">Bônus Exclusivos</span>
       </h2>
-
-      <!-- Subtitle (93f5768) -->
       <p
         class="text-[18px] leading-[27px] text-center font-normal"
         style="font-family: Inter, sans-serif; color: rgba(0, 0, 0, 0.83);"
@@ -54,34 +55,36 @@ const bonuses = [
       </p>
     </div>
 
-    <!-- Bonus Cards: gap 100px mobile, 20px desktop -->
     <div class="flex flex-col items-center w-full gap-[100px] lg:gap-[20px]">
-      {bonuses.map((bonus, idx) => (
+      {bonuses.map((bonus) => (
         <div
-          class="w-full max-w-[351px] lg:max-w-[673px]"
-          style={`border: 1px solid rgb(253, 253, 253); border-radius: ${bonus.outerBR}; background-color: ${bonus.outerBg};`}
+          class="w-full max-w-[351px] lg:max-w-[673px] rounded-[10px] overflow-visible"
+          style={`border: 1px solid rgb(253, 253, 253); background-color: ${bonus.outerBg}; box-shadow: ${boxShadow};`}
         >
-          <!-- Inner: column-reverse mobile, alternating row/row-reverse desktop, no borderRadius desktop -->
           <div
-            class={`flex flex-col-reverse rounded-[16px] lg:rounded-none overflow-visible ${bonus.desktopFlexDir === 'row-reverse' ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
+            class={`flex flex-col-reverse ${bonus.desktopFlexDir} overflow-visible`}
             style="background-image: linear-gradient(rgb(36, 64, 48) 0%, rgb(78, 136, 103) 100%);"
           >
-            <!-- Image Container -->
-            <div class="overflow-visible flex-shrink-0 lg:w-[40%] relative" style={`height: ${bonus.imgConH};`}>
-              <div class="w-[274px] mx-auto overflow-visible relative lg:w-full">
+            <!-- Image Container: mobile h fixed, desktop auto -->
+            <div
+              class="overflow-visible flex-shrink-0 lg:w-[315px] relative"
+              style={`height: ${bonus.mImgConH};`}
+            >
+              <!-- Mobile: centered 274px wrapper -->
+              <div class="w-[274px] mx-auto overflow-visible relative lg:w-full lg:h-full">
                 <img
                   src={bonus.img}
                   alt={bonus.title}
-                  class="max-w-none h-auto relative left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0 lg:w-full"
-                  style={`margin-top: ${bonus.imgOffTop}; object-fit: fill; width: ${bonus.imgWidth};`}
+                  class="max-w-none h-auto relative left-1/2 -translate-x-1/2 lg:left-0 lg:translate-x-0"
+                  style={`margin-top: ${bonus.mImgOffTop}; object-fit: fill; width: ${bonus.mImgWidth};`}
                   loading="lazy"
                 />
               </div>
             </div>
 
-            <!-- Text Container -->
+            <!-- Text Container: center mobile, start desktop -->
             <div
-              class="flex flex-col items-center justify-center p-[40px] flex-1 text-center"
+              class="flex flex-col items-center lg:items-start justify-center p-[40px] flex-1 text-center lg:text-start"
               style="gap: 15px;"
             >
               <span
@@ -90,16 +93,13 @@ const bonuses = [
               >
                 {bonus.badge}
               </span>
-
               <p
                 class="text-[29.25px] font-semibold leading-[35.1px] text-white w-full"
                 style="font-family: Inter, sans-serif;"
               >
                 {bonus.title}
               </p>
-
               <div class="w-[267px]" style="border-top: 1px solid rgba(255, 255, 255, 0.13);"></div>
-
               <p
                 class="text-[18px] font-normal leading-[23.4px] w-full"
                 style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.93);"
@@ -111,16 +111,10 @@ const bonuses = [
         </div>
       ))}
     </div>
-
   </div>
 </section>
 
 <style>
-  @media (min-width: 1025px) {
-    .bonus-cards-container {
-      gap: 20px !important;
-    }
-  }
   .bonus-badge::before {
     content: "";
     position: absolute;
