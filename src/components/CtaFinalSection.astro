@@ -12,8 +12,8 @@
 
 <section class="w-full bg-white flex flex-col items-center px-[20px] lg:px-[40px]">
   <div
-    class="w-full max-w-[883px] flex flex-col lg:flex-row rounded-[20px] overflow-hidden"
-    style="background-image: radial-gradient(rgb(59, 99, 76) 0%, rgb(36, 64, 48) 100%); "
+    class="cta-card w-full max-w-[883px] flex flex-col lg:flex-row rounded-[20px] overflow-hidden"
+    style="background-image: radial-gradient(rgb(59, 99, 76) 0%, rgb(36, 64, 48) 100%);"
   >
     <!-- Image -->
     <div class="flex-shrink-0 overflow-visible w-full lg:w-auto">
@@ -43,3 +43,14 @@
     </div>
   </div>
 </section>
+
+<style>
+  .cta-card {
+    margin-bottom: -20%; /* JSON margin_mobile: 0 0 -20% 0 */
+  }
+  @media (min-width: 1025px) {
+    .cta-card {
+      margin-bottom: -80px; /* JSON margin: 0 0 -80px 0 */
+    }
+  }
+</style>
