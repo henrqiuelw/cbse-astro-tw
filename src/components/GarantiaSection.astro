@@ -1,34 +1,140 @@
 ---
 // GarantiaSection.astro — Container 15 (bb521d2)
-// Computed desktop: bg #FFF, pad 0 40px, inner max-w 1280px, flex-col, align-items center, gap 20px
-// Image: 294x299 SVG, align-self center
-// Container (c37a4f3): w=730, text-start
-// Heading: Factul 44px/400, color #3A3A3A
-// Text: Inter 16px/22.4px, color #525252
-// Computed mobile: pad 0 20px, heading 28.86px, img 288x293
+//
+// COMPUTED REFERENCE:
+// Desktop: secH=523, secPad=0px 40px, innerPad=60px 0px, innerW=1280
+//   imgWidget: 294×261 (margin 0), img: 294×299
+//   heading: Factul 44px/57.2px, w=730, #3A3A3A
+//   text: Inter 16px/22.4px, w=730, #525252
+// Mobile: secH=317, secPad=0px 20px, innerPad=20px 0px 40px, innerW=350
+//   imgWidget: 287×84 (margin 0), img: 288×293
+//   heading: 28.86px/37.518px, w=350
+//   text: 16px/24px, w=350
+//
+// Image overflows its widget container via negative margins on inner wrapper.
+// Widget height collapses: desktop 261px (img 299 - 38), mobile 84px (img 293 - 209).
 ---
 
-<section class="w-full bg-white flex flex-col items-center px-[20px] lg:px-[40px]">
-  <div class="w-full max-w-[1280px] flex flex-col items-center" style="gap: 20px;">
-    <img
-      src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113907.svg"
-      alt="Garantia de 7 dias"
-      class="w-[288px] lg:w-[294px] h-auto"
-      loading="lazy"
-    />
-    <div class="w-full max-w-[730px] flex flex-col" style="gap: 10px;">
-      <h2
-        class="text-[7.4vw] lg:text-[44px] leading-[1.2em] font-normal"
-        style="font-family: Factul, sans-serif; color: rgb(58, 58, 58);"
+<section class="garantia-section w-full bg-white flex flex-col items-center justify-center ">
+  <div class="garantia-content flex flex-col items-center justify-center" style="gap: 20px; max-width: 1280px; width: 100%;">
+    <!-- Image widget (0798e65): collapses via overflow -->
+    <div class="garantia-img-widget self-center overflow-visible relative">
+      <img
+        src="https://comerbemsemestresse.com.br/wp-content/uploads/2026/02/113907.svg"
+        alt="Garantia de 7 dias"
+        class="w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Inner container (c37a4f3) -->
+    <div class="garantia-inner flex flex-col justify-center" style="gap: 20px;">
+      <h3 class="garantia-heading font-normal text-center"
+        style="font-family: Factul, sans-serif; color: #3A3A3A;"
       >
         Garantia de <span class="underline-inner">7 dias</span>
-      </h2>
-      <p
-        class="text-[16px] leading-[22.4px] lg:leading-[22.4px] font-normal"
-        style="font-family: Inter, sans-serif; color: rgb(82, 82, 82);"
+      </h3>
+
+      <p class="garantia-text font-normal text-center"
+        style="font-family: Inter, sans-serif; color: #525252;"
       >
         Se por qualquer motivo você não ficar satisfeita com o treinamento, basta entrar em contato com a nossa equipe de suporte e solicitar o reembolso do valor investido.
       </p>
     </div>
   </div>
 </section>
+
+<style>
+  /* === MOBILE (base) === */
+  .garantia-section {
+    padding: 0 20px;
+    border-radius: 10px;
+    z-index: 5;
+  }
+
+  .garantia-content {
+    padding: 20px 0 40px;
+  }
+
+  /* Image widget: computed 287x84 mobile. Image 288x293 overflows. */
+  .garantia-img-widget {
+    width: 287px; /* computed widgetW mobile */
+    height: 84px; /* computed widgetH mobile - collapsed by negative margin */
+  }
+  .garantia-img-widget img {
+    width: 288px; /* computed imgW mobile */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .garantia-inner {
+    width: 100%;
+    padding: 0;
+  }
+
+  .garantia-heading {
+    font-size: 7.4vw;
+    line-height: 1.3em;
+    align-self: center;
+    width: 100%;
+  }
+
+  .garantia-text {
+    font-size: 16px;
+    line-height: 1.5em;
+    width: 100%;
+  }
+
+  /* === TABLET === */
+  @media (min-width: 768px) {
+    .garantia-section {
+      padding: 0 20px;
+      border-radius: 20px 20px 0 0;
+    }
+    .garantia-content {
+      padding: 40px 0;
+    }
+    .garantia-img-widget {
+      width: 49%;
+      height: auto;
+    }
+    .garantia-img-widget img {
+      width: 100%;
+    }
+  }
+
+  /* === DESKTOP === */
+  @media (min-width: 1025px) {
+    .garantia-section {
+      padding: 0 40px;
+      border-radius: 2px;
+      z-index: 3;
+    }
+    .garantia-content {
+      padding: 60px 0;
+    }
+    /* Widget: computed 294x261. Image 294x299 overflows bottom by 38px. */
+    .garantia-img-widget {
+      width: 294px; /* computed widgetW desktop */
+      height: 261px; /* computed widgetH desktop */
+    }
+    .garantia-img-widget img {
+      width: 294px; /* computed imgW desktop */
+    }
+    .garantia-inner {
+      width: 730px;
+    }
+    .garantia-heading {
+      font-size: 44px;
+      line-height: 1.3em;
+      align-self: flex-start;
+      width: 100%;
+    }
+    .garantia-text {
+      line-height: 1.4em;
+      width: 100%;
+    }
+  }
+</style>
