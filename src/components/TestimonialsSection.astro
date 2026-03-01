@@ -1,28 +1,20 @@
 ---
 // TestimonialsSection.astro — Container 12 (421c60c)
+// Image carousel with testimonial screenshots
 //
-// JSON SECTION (421c60c):
-//   bg: #FFFFFF, content_width: full, flex: column, gap 20px
-//   justify: space-between
-//   pad desktop: 80px 0 240px 0
-//   pad laptop: 60px 0 240px 0
-//   pad tablet: 60px 20px
-//   pad mobile: 15% 5% 15% 5%
+// COMPUTED DESKTOP (1440px):
+//   Section: bg #FFFFFF, padding 80px 0 240px, full width, gap 20px
+//   Heading: Factul 37px/48.1px, weight 400, color #3A3A3A, center
+//   Carousel: Swiper, 5 slides, loop, autoplay 5s, speed 500ms, spaceBetween 20
+//   Slide: 272x159, img 272x152, borderRadius 20px, objectFit fill
+//   Dots: 8x8, bg black, margin 0 4px, bottom 5px
+//   Custom CSS: transition-timing-function linear (continuous scroll feel)
 //
-// JSON HEADING (5209077):
-//   h1, Factul 37px/5.1vw mobile, weight 400, color #3A3A3A
-//   lh: 1.3em desktop, 1.2em mobile
-//   width: 651px desktop, inherit mobile (full)
-//   alignSelf: center, align: center, _padding: 0
-//
-// JSON CAROUSEL (48505f6):
-//   slides: 5 desktop, 3 tablet, 2 mobile
-//   image_stretch: yes, thumbnail_size: full
-//   image_spacing_custom_mobile: 15px (default desktop: 20px)
-//   image_border: 1px solid #00000014, radius 20px desktop / 10px mobile
-//   _margin_mobile: 0 -6% 0 -6% (extends carousel beyond section padding)
-//   navigation: dots, slides_to_scroll: 1
-//   custom_css: swiper-wrapper transition-timing-function linear
+// COMPUTED MOBILE (390px):
+//   Section: padding 58.5px 19.5px (15% 5%)
+//   Heading: 19.89px (5.1vw) / 23.87px
+//   Carousel: 2 slides visible
+//   Slide: 189x159, img 189x152, borderRadius 10px
 
 const testimonials = [
   'Depoimento-CBSE-I.png',
@@ -44,115 +36,92 @@ const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/'
 ---
 
 <!-- Container 12: Depoimentos (421c60c) -->
-<section class="testimonials-section w-full bg-white flex flex-col items-center justify-between">
-  <!-- Heading (5209077) -->
-  <h1 class="testimonials-heading text-center font-normal self-center"
-    style="font-family: Factul, sans-serif; color: #3A3A3A; padding: 0;"
-  >
-    <span class="underline-inner">Veja os resultados de mães e alunas</span> que saíram do improviso com a alimentação dos seus filhos para seguir <span class="underline-inner">um método estruturado:</span>
-  </h1>
+<section
+  class="testimonials-outer w-full bg-white flex flex-col items-center"
+>
+  <!-- Desktop padding override -->
+  <style>
+    /* Section padding from JSON */
+    .testimonials-outer {
+      padding: 15% 5%;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .testimonials-outer {
+        padding: 60px 20px;
+      }
+    }
+    @media (min-width: 1025px) {
+      .testimonials-outer {
+        padding: 80px 0 240px;
+      }
+    }
+    /* Carousel extends beyond section padding on mobile (JSON _margin_mobile: -6%) */
+    .testimonials-swiper {
+      width: calc(100% + 12%);
+      margin-left: -6%;
+      overflow: hidden;
+    }
+    @media (min-width: 1025px) {
+      .testimonials-swiper {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+    /* Swiper linear transition for continuous scroll feel */
+    .testimonials-swiper .swiper-wrapper {
+      transition-timing-function: linear !important;
+    }
+    /* Slide height: 159px = 152px img + 7px bottom space (matches original <figure>) */
+    .testimonials-swiper .swiper-slide {
+      height: auto;
+      padding-bottom: 7px;
+    }
+    /* Dots styling */
+    .testimonials-swiper .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: rgb(0, 0, 0);
+      opacity: 0.2;
+      margin: 0 4px !important;
+    }
+    .testimonials-swiper .swiper-pagination-bullet-active {
+      opacity: 1;
+      background: rgb(0, 122, 255);
+    }
+    .testimonials-swiper .swiper-pagination {
+      bottom: 5px !important;
+    }
+  </style>
 
-  <!-- Carousel (48505f6) -->
-  <div class="testimonials-swiper swiper self-center">
-    <div class="swiper-wrapper">
-      {testimonials.map((filename, i) => (
-        <div class="swiper-slide">
-          <img
-            src={`${baseUrl}${filename}`}
-            alt={`Depoimento ${i + 1}`}
-            loading="lazy"
-          />
-        </div>
-      ))}
+  <div class="testimonials-section w-full flex flex-col items-center" style="gap: 20px;">
+    <!-- Heading (5209077) -->
+    <h1
+      class="text-[5.1vw] lg:text-[37px] leading-[1.2em] lg:leading-[1.3em] text-center font-normal w-full lg:w-[651px] self-center"
+      style="font-family: Factul, sans-serif; color: rgb(58, 58, 58);"
+    >
+      <span class="underline-inner">Veja os resultados de mães e alunas</span> que saíram do improviso com a alimentação dos seus filhos para seguir <span class="underline-inner">um método estruturado:</span>
+    </h1>
+
+    <!-- Carousel (48505f6) -->
+    <div class="testimonials-swiper swiper w-full">
+      <div class="swiper-wrapper">
+        {testimonials.map((filename, i) => (
+          <div class="swiper-slide">
+            <img
+              src={`${baseUrl}${filename}`}
+              alt={`Depoimento ${i + 1}`}
+              class="w-full rounded-[10px] lg:rounded-[20px] border border-[rgba(0,0,0,0.08)]"
+              style="object-fit: fill; height: 152px;"
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
 </section>
-
-<style>
-  /* === MOBILE (base) === */
-  .testimonials-section {
-    padding: 15% 5%;
-    gap: 20px;
-  }
-
-  .testimonials-heading {
-    font-size: 5.1vw;
-    line-height: 1.2em;
-    width: 100%;
-  }
-
-  .testimonials-swiper {
-    width: 100%;
-    width: calc(100% + 12%); margin-left: -6%; /* swiper extends 6% beyond each side */
-    overflow: hidden;
-  }
-
-  /* Swiper linear transition (custom_css) */
-  .testimonials-swiper :global(.swiper-wrapper) {
-    transition-timing-function: linear !important;
-  }
-
-  /* Image styling from JSON */
-  .testimonials-swiper :global(.swiper-slide img) {
-    width: 100%;
-    object-fit: cover; /* contain portrait images to uniform height */
-    display: block;
-    border: 1px solid rgba(0, 0, 0, 0.08); /* #00000014 */
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
-
-    /* Fixed slide height to prevent overflow from portrait images */
-  .testimonials-swiper :global(.swiper-slide) {
-    height: 159px !important;
-  }
-  .testimonials-swiper :global(.swiper-slide img) {
-    height: 152px;
-  }
-
-  /* Dots styling */
-  .testimonials-swiper :global(.swiper-pagination-bullet) {
-    width: 8px;
-    height: 8px;
-    background: rgb(0, 0, 0);
-    opacity: 0.2;
-    margin: 0 4px !important;
-  }
-  .testimonials-swiper :global(.swiper-pagination-bullet-active) {
-    opacity: 1;
-    background: rgb(0, 122, 255);
-  }
-  .testimonials-swiper :global(.swiper-pagination) {
-    bottom: 5px !important;
-  }
-
-  /* === TABLET === */
-  @media (min-width: 768px) {
-    .testimonials-section {
-      padding: 60px 20px;
-    }
-  }
-
-  /* === DESKTOP === */
-  @media (min-width: 1025px) {
-    .testimonials-section {
-      padding: 80px 0 240px;
-    }
-    .testimonials-heading {
-      font-size: 37px;
-      line-height: 1.3em;
-      width: 651px;
-    }
-    .testimonials-swiper {
-      margin-left: 0;
-      width: 100%;
-    }
-    .testimonials-swiper :global(.swiper-slide img) {
-      border-radius: 20px;
-    }
-  }
-</style>
 
 <script>
   import Swiper from 'swiper';
@@ -166,9 +135,7 @@ const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/'
       slidesPerView: 2,
       spaceBetween: 15, // image_spacing_custom_mobile: 15px
       loop: true,
-      autoHeight: true,
       speed: 500,
-      slidesPerGroup: 1,
       autoplay: {
         delay: 5000,
         disableOnInteraction: true,
