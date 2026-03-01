@@ -108,6 +108,25 @@ const faqs = [
     color: rgba(16, 16, 16, 0.77); /* tab_active_color #101010C4 */
   }
 
+  /* Smooth accordion animation */
+  .faq-content {
+    overflow: hidden;
+    animation: faq-slide-down 0.3s ease;
+  }
+
+  @keyframes faq-slide-down {
+    from {
+      opacity: 0;
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    to {
+      opacity: 1;
+      max-height: 500px;
+    }
+  }
+
   .faq-content {
     padding: 20px;
     font-family: Inter, sans-serif;
