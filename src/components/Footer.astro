@@ -1,21 +1,46 @@
 ---
 // Footer.astro — Container 18 (490d559)
-// Computed desktop: bg #272727, h=125px, pad 0, flex-col, align-items center
-// Text: 15px, color rgba(255,255,255,0.55)
-// Computed mobile: h=111, text1 10.92px, text2 11.31px
+//
+// COMPUTED:
+// Desktop: bg #272727, pad 40px 0, gap 0
+//   text: Inter 15px italic, rgba(255,255,255,0.55), center
+// Mobile: pad 10% 0
+//   text: 2.8vw / 2.9vw italic
 ---
 
-<footer class="w-full flex flex-col items-center justify-center py-[30px] px-[20px]" style="background-color: rgb(39, 39, 39); gap: 10px;">
-  <p
-    class="text-[10.92px] lg:text-[15px] text-center font-normal"
-    style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.55);"
-  >
+<footer class="footer-section w-full flex flex-col items-center"
+  style="background-color: #272727; gap: 0;">
+  <div class="footer-inner w-full flex flex-col items-center">
+  <p class="footer-text footer-text-1 text-center font-normal italic"
+    style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.55);">
     © 2026 · Comer bem sem estresse · Todos os direitos reservados.
   </p>
-  <p
-    class="text-[11.31px] lg:text-[15px] text-center font-normal"
-    style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.55);"
-  >
+  <p class="footer-text footer-text-2 text-center font-normal italic"
+    style="font-family: Inter, sans-serif; color: rgba(255, 255, 255, 0.55);">
     Contato: suporte@comerbemsemestresse.com.br
   </p>
+  </div>
 </footer>
+
+<style>
+  .footer-section {
+    padding: 0;
+  }
+  .footer-inner {
+    padding: 10% 0;
+  }
+  .footer-text-1 { font-size: 2.8vw; }
+  .footer-text-2 { font-size: 2.9vw; }
+
+  @media (min-width: 1025px) {
+    .footer-section {
+      padding: 0;
+    }
+    .footer-text-1, .footer-text-2 {
+      font-size: 15px;
+    }
+    .footer-inner {
+      padding: 40px 0;
+    }
+  }
+</style>

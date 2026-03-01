@@ -1,63 +1,155 @@
 ---
 // FaqSection.astro — Container 17 (106aaff)
-// Computed desktop: bg #FEF4DF, pad 0, inner (022bfa4) w=1280
-// Heading: Factul 36px, color #3A3A3A
-// Toggle: gap 20px between items
-// Title wrap: bg #FFF, border 1px solid rgba(0,0,0,0.063), pad 30px
-// Title: Inter 18px/600, color rgba(16,16,16,0.8)
-// Icon: fas fa-caret-right (rotate on open)
-// Content: pad 20px, Inter 16px, color rgba(0,0,0,0.77)
-// Computed mobile: pad 0 19.5px, heading 28.86px, title 16px
+//
+// COMPUTED:
+// Desktop: bg #FEF4DF, pad 160px 0 80px 0 (JSON), border-top/bottom 1px solid rgba(0,0,0,0.08)
+//   heading: Factul 36px/46.8px, #3A3A3A, w=1280 (boxed)
+//   toggle: w=589 (46% of 1280), title pad 30px, font Inter 18px/600 desktop / 16px mobile
+//   title bg #FFF, border-radius 10px, border 1px solid rgba(0,0,0,0.063), mb 8px
+//   content: Inter 16px/1.6em, #000000C4, pad 20px
+//   icon: caret-down, color #D8AA24, align right
+// Mobile: pad 35% 5% 15% 5%, heading 28.86px/37.518px (7.4vw), toggle full width
+//   title pad 32px, font 16px
+//
+// FAQ has 9 items using native <details> accordion
 
-const faqItems = [
-  { q: 'Em quanto tempo verei resultados?', a: 'Apesar de cada criança ter o seu tempo de aprendizado, o método de 4 semanas foi feito exatamente para otimizar o seu aprendizado e aplicação. Você começará a ver os primeiros resultados logo nessas primeiras semanas de aplicação.' },
-  { q: 'E se não funcionar com meu filho?', a: 'O método é baseado em neurociência e adaptável a diferentes perfis. Logo na primeira semana você vai entender qual a necessidade específica do seu filho, podendo personalizar o método, ou seja, aplicar somente as estratégias que estejam alinhadas à necessidade dele, por isso, ele funciona. Além disso, você tem 7 dias de garantia para testar e avaliar.' },
-  { q: 'Meu filho é muito seletivo e há bastante tempo. Mesmo assim funciona?', a: 'Sim. O Método Comer bem sem estresse é baseado em experiências reais e foca em pequenos avanços diários. Cada mãe aprende qual a necessidade específica do seu filho e consegue aplicar o método de acordo com a sua realidade, de forma bem personalizada. Se você aplicar tudo que aprender, te garanto que você vai se surpreender.' },
-  { q: 'Eu já tentei de tudo e fiz muitos cursos e nada funcionou. Por que esse vai funcionar?', a: 'Porque foi criado com dois diferenciais importantes: O primeiro, diz respeito ao método em si, que é prático, te ajuda a identificar a necessidade específica do seu filho para que você não continue aplicando estratégias genéricas e rasas que não funcionam, e ainda vai adquirir o conhecimento essencial e transformador de forma muito rápida. E o segundo diferencial, é que foi criado por uma nutricionista que é mãe e que também enfrentou a seletividade alimentar e venceu. O método foi criado para aplicar na minha própria filha.' },
-  { q: 'E se eu não tiver muito tempo disponível?', a: 'As aulas são curtas e bem diretas para você conseguir fazer no seu ritmo e adquirir o conhecimento necessário de forma rápida, do seu celular em qualquer momento livre que apareça no seu dia.' },
-  { q: 'Como funciona o suporte durante o curso?', a: 'Você terá acesso a um espaço para dúvidas em cada aula e suporte exclusivo por e-mail. Todas as dúvidas são respondidas pela própria criadora do método em até 48h.' },
-  { q: 'Preciso comprar alimentos especiais ou equipamentos?', a: 'Não! O método trabalha com alimentos comuns do dia a dia. Não é necessário comprar nada específico ou caro.' },
-  { q: 'Como recebo acesso ao curso?', a: 'Imediatamente após a confirmação do pagamento, você receberá por e-mail seu login e senha para acessar a plataforma de ensino com todo o conteúdo disponível.' },
-  { q: 'Por quanto tempo tenho acesso ao curso? Vale para sempre?', a: 'Você terá acesso a todo o conteúdo do curso por 12 meses (1 ano) a partir da data da compra. Este período é mais que suficiente para aprender, implementar e consolidar o método, além de poder revisar o conteúdo sempre que precisar durante este ano.' },
+const faqs = [
+  { q: "Em quanto tempo verei resultados?", a: "Apesar de cada criança ter o seu tempo de aprendizado, o método de 4 semanas foi feito exatamente para otimizar o seu aprendizado e aplicação. Você começará a ver os primeiros resultados logo nessas primeiras semanas de aplicação." },
+  { q: "E se não funcionar com meu filho?", a: "O método é baseado em neurociência e adaptável a diferentes perfis. Logo na primeira semana você vai entender qual a necessidade específica do seu filho, podendo personalizar o método, ou seja, aplicar somente as estratégias que estejam alinhadas à necessidade dele, por isso, ele funciona. Além disso, você tem 7 dias de garantia para testar e avaliar." },
+  { q: "Meu filho é muito seletivo e há bastante tempo. Mesmo assim funciona?", a: "Sim. O Método Comer bem sem estresse é baseado em experiências reais e foca em pequenos avanços diários. Cada mãe aprende qual a necessidade específica do seu filho e consegue aplicar o método de acordo com a sua realidade, de forma bem personalizada. Se você aplicar tudo que aprender, te garanto que você vai se surpreender." },
+  { q: "Eu já tentei de tudo e fiz muitos cursos e nada funcionou. Por que esse vai funcionar?", a: "Porque foi criado com dois diferenciais importantes: O primeiro, diz respeito ao método em si, que é prático, te ajuda a identificar a necessidade específica do seu filho para que você não continue aplicando estratégias genéricas e rasas que não funcionam, e ainda vai adquirir o conhecimento essencial e transformador de forma muito rápida. E o segundo diferencial, é que foi criado por uma nutricionista que é mãe e que também enfrentou a seletividade alimentar e venceu. O método foi criado para aplicar na minha própria filha." },
+  { q: "E se eu não tiver muito tempo disponível?", a: "As aulas são curtas e bem diretas para você conseguir fazer no seu ritmo e adquirir o conhecimento necessário de forma rápida, do seu celular em qualquer momento livre que apareça no seu dia." },
+  { q: "Como funciona o suporte durante o curso?", a: "Você terá acesso a um espaço para dúvidas em cada aula e suporte exclusivo por e-mail. Todas as dúvidas são respondidas pela própria criadora do método em até 48h." },
+  { q: "Preciso comprar alimentos especiais ou equipamentos?", a: "Não! O método trabalha com alimentos comuns do dia a dia. Não é necessário comprar nada específico ou caro." },
+  { q: "Como recebo acesso ao curso?", a: "Imediatamente após a confirmação do pagamento, você receberá por e-mail seu login e senha para acessar a plataforma de ensino com todo o conteúdo disponível." },
+  { q: "Por quanto tempo tenho acesso ao curso? Vale para sempre?", a: "Você terá acesso a todo o conteúdo do curso por 12 meses (1 ano) a partir da data da compra. Este período é mais que suficiente para aprender, implementar e consolidar o método, além de poder revisar o conteúdo sempre que precisar durante este ano." },
 ];
 ---
 
-<section class="w-full flex flex-col items-center px-[19.5px] lg:px-0" style="background-color: rgb(254, 244, 223);">
-  <div class="w-full max-w-[1280px] flex flex-col items-center py-[60px] lg:py-[80px]" style="gap: 30px;">
-    <h2
-      class="text-[7.4vw] lg:text-[36px] leading-[1.2em] text-center font-normal"
-      style="font-family: Factul, sans-serif; color: rgb(58, 58, 58);"
-    >
+<section class="faq-section w-full flex flex-col items-center"
+  style="background-color: #FEF4DF; border-top: 1px solid rgba(0,0,0,0.08); border-bottom: 1px solid rgba(0,0,0,0.08);">
+  <div class="faq-inner w-full max-w-[1280px] flex flex-col items-center" style="gap: 10px;">
+    <!-- Heading (00b9a0b) -->
+    <h3 class="faq-heading font-normal text-center"
+      style="font-family: Factul, sans-serif; color: #3A3A3A;">
       Perguntas <span class="underline-inner">frequentes</span>
-    </h2>
+    </h3>
 
-    <div class="flex flex-col w-full" style="gap: 20px;">
-      {faqItems.map((item) => (
-        <details class="group">
-          <summary
-            class="flex items-center justify-between cursor-pointer list-none [&::-webkit-details-marker]:hidden bg-white"
-            style="padding: 30px; border: 1px solid rgba(0, 0, 0, 0.063);"
-          >
-            <span
-              class="text-[16px] lg:text-[18px] font-semibold"
-              style="font-family: Inter, sans-serif; color: rgba(16, 16, 16, 0.8);"
-            >
-              {item.q}
-            </span>
-            <svg class="w-[10px] h-[16px] flex-shrink-0 ml-[15px] transition-transform duration-300 group-open:rotate-90" viewBox="0 0 256 512" fill="currentColor" style="color: rgba(16, 16, 16, 0.8);">
-              <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>
+    <!-- Toggle/Accordion (e8ccc6c) -->
+    <div class="faq-toggle">
+      {faqs.map((faq) => (
+        <details class="faq-item">
+          <summary class="faq-title">
+            <span>{faq.q}</span>
+            <svg class="faq-icon" viewBox="0 0 320 512" width="12" height="12">
+              <path fill="#D8AA24" d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z"/>
             </svg>
           </summary>
-          <div style="padding: 20px;">
-            <p
-              class="text-[16px] leading-[24px] font-normal"
-              style="font-family: Inter, sans-serif; color: rgba(0, 0, 0, 0.77);"
-            >
-              {item.a}
-            </p>
+          <div class="faq-content">
+            <p>{faq.a}</p>
           </div>
         </details>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  /* === MOBILE (base) === */
+  .faq-section {
+    padding: 0 5%; /* section: horizontal only */
+  }
+
+  .faq-heading {
+    font-size: 7.4vw; /* JSON mobile */
+    line-height: 1.3em;
+    width: 100%;
+  }
+
+  .faq-toggle {
+    width: 100%; /* mobile: full width */
+  }
+
+  .faq-item {
+    margin-bottom: 8px; /* custom_css */
+  }
+
+  .faq-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px; /* title_padding_mobile */
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.063);
+    cursor: pointer;
+    list-style: none;
+    font-family: Inter, sans-serif;
+    font-size: 16px; /* title mobile */
+    font-weight: 600;
+    line-height: 1.3em;
+    letter-spacing: 0px;
+    color: rgba(16, 16, 16, 0.8); /* #101010CC */
+  }
+
+  .faq-title::-webkit-details-marker { display: none; }
+
+  .faq-icon {
+    flex-shrink: 0;
+    margin-left: 10px;
+    transition: transform 0.3s;
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+
+  details[open] .faq-title {
+    color: rgba(16, 16, 16, 0.77); /* tab_active_color #101010C4 */
+  }
+
+  .faq-content {
+    padding: 20px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6em;
+    color: rgba(0, 0, 0, 0.77); /* #000000C4 */
+  }
+
+  .faq-inner { padding: 35% 0 15%; }
+  /* === TABLET === */
+  @media (min-width: 768px) {
+    .faq-section {
+      padding: 0; /* section: horizontal only */
+    }
+    .faq-toggle {
+      width: 89%;
+    }
+    .faq-inner {
+      padding: 120px 0 60px;
+    }
+  }
+
+  /* === DESKTOP === */
+  @media (min-width: 1025px) {
+    .faq-section {
+      padding: 0; /* section: horizontal only */
+    }
+    .faq-heading {
+      font-size: 36px;
+      line-height: 1.3em;
+    }
+    .faq-toggle {
+      width: 46%;
+    }
+    .faq-inner {
+      padding: 160px 0 80px;
+    }
+    .faq-title {
+      padding: 30px;
+      font-size: 16px;
+      letter-spacing: -0.4px;
+    }
+  }
+</style>
