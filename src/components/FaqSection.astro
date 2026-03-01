@@ -106,9 +106,6 @@ const faqs = [
   .faq-content {
     overflow: hidden;
     transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-  }
-
-  .faq-content {
     padding: 20px;
     font-family: Inter, sans-serif;
     font-size: 16px;
@@ -153,3 +150,39 @@ const faqs = [
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(details => {
+    const summary = details.querySelector('summary');
+    const content = details.querySelector('.faq-content');
+    
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      if (details.open) {
+        // Closing
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.offsetHeight; // force reflow
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        content.addEventListener('transitionend', () => {
+          details.open = false;
+          content.style.maxHeight = '';
+          content.style.opacity = '';
+        }, { once: true });
+      } else {
+        // Opening
+        details.open = true;
+        const h = content.scrollHeight;
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+        content.offsetHeight; // force reflow
+        content.style.maxHeight = h + 'px';
+        content.style.opacity = '1';
+        content.addEventListener('transitionend', () => {
+          content.style.maxHeight = '';
+        }, { once: true });
+      }
+    });
+  });
+</script>
