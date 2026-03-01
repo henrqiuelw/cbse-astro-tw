@@ -56,6 +56,11 @@ const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/'
         padding: 80px 0 240px;
       }
     }
+    /* Carousel wrapper clips overflow to parent width */
+    .testimonials-carousel-wrapper {
+      width: 100%;
+      overflow: hidden;
+    }
     /* Carousel extends beyond section padding on mobile (JSON _margin_mobile: -6%) */
     .testimonials-swiper {
       width: calc(100% + 12%);
@@ -99,6 +104,7 @@ const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/'
     </h1>
 
     <!-- Carousel (48505f6) -->
+    <div class="testimonials-carousel-wrapper">
     <div class="testimonials-swiper swiper w-full">
       <div class="swiper-wrapper">
         {testimonials.map((filename, i) => (
@@ -114,6 +120,7 @@ const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/'
         ))}
       </div>
       <div class="swiper-pagination"></div>
+    </div>
     </div>
   </div>
 </section>
