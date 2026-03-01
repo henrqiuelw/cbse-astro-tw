@@ -72,12 +72,7 @@ const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/'
     .testimonials-swiper .swiper-wrapper {
       transition-timing-function: linear !important;
     }
-    /* Slide height: 159px = 152px img + 7px bottom space (matches original <figure>) */
-    .testimonials-swiper .swiper-slide {
-      height: auto;
-      padding-bottom: 7px;
-    }
-    /* Dots styling */
+        /* Dots styling */
     .testimonials-swiper .swiper-pagination-bullet {
       width: 8px;
       height: 8px;
@@ -111,8 +106,8 @@ const baseUrl = 'https://comerbemsemestresse.com.br/wp-content/uploads/2025/08/'
             <img
               src={`${baseUrl}${filename}`}
               alt={`Depoimento ${i + 1}`}
-              class="w-full rounded-[10px] lg:rounded-[20px] border border-[rgba(0,0,0,0.08)]"
-              style="object-fit: fill; height: 152px;"
+              class="w-full h-auto rounded-[10px] lg:rounded-[20px] border border-[rgba(0,0,0,0.08)]"
+              
               loading="lazy"
             />
           </div>
